@@ -1,24 +1,25 @@
 .social__container {
-    position: fixed;
-    left: 3rem;
-    right: 3rem;
-    bottom: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.8rem;
-    width: 1rem;
+  position: fixed;
+  left: 3rem;
+  right: 3rem;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+  width: 1.6rem;
+  z-index: 999;
 }
 
 .social__line {
-    width: 1px;
-    height: 9rem;
-    background-color: var(--color-black);
+  width: 1px;
+  height: 9rem;
+  background-color: var(--color-black);
 }
 
 /* ====================  Social left ==================== */
-.social__left{
-    right: auto;
+.social__left {
+  right: auto;
 }
 
 /* ====================  Social right ==================== */
@@ -27,23 +28,42 @@
   left: auto;
 }
 
-.scroll__down{
-    writing-mode: vertical-lr;
-    font-size: .6rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    cursor: pointer;
+.scroll__down {
+  writing-mode: vertical-lr;
+  font-size: 0.6rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
 }
 
-.dark__mode{
-    margin-bottom: -.2rem;
-    cursor: pointer;
+.dark__mode {
+  margin-bottom: -0.2rem;
+  cursor: pointer;
 }
 
-.social__right .social__line{
-    height: 7rem;
+.social__right .social__line {
+  height: 8.3rem;
 }
 
-.scroll__down:hover{
+.scroll__down:hover {
+  color: var(--color-green);
+}
+
+.social__link{
+    width: 1.6rem;
+    height: 1.6rem;
+    padding: .2rem;
+}
+
+.social__link:hover{
     color: var(--color-green);
+    cursor: pointer;
+}
+
+
+/* =============== MEDIA QUERIES(SMALL DEVICES) =============== */
+@media screen and (max-width: 768px) {
+    .social__container{
+        display: none;
+    }
 }

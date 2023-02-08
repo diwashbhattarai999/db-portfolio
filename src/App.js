@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import {
   About,
   Contact,
@@ -13,19 +14,24 @@ import {
 } from "./components";
 
 function App() {
+
+  const contentRef = useRef();
+
   return (
     <div className="main">
-      <Nav />
+      <Nav contentRef={contentRef}/>
       <LeftSocial />
       <RightSocial />
-      <Header />
-      <About />
-      <Experience />
-      <Services />
-      <Portfolio />
-      <Testimonials />
-      <Contact />
-      <Footer />
+      <div id="content" ref={contentRef}>
+        <Header />
+        <About />
+        <Experience />
+        <Services />
+        <Portfolio />
+        <Testimonials />
+        <Contact />
+        <Footer />
+      </div>
     </div>
   );
 }

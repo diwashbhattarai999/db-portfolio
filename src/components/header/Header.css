@@ -1,7 +1,6 @@
 .header__container {
   position: relative;
   height: 100vh;
-  /* padding-top: 6rem; */
   display: flex;
   justify-content: center;
 }
@@ -9,13 +8,15 @@
 /* ==================== Header Hero ==================== */
 
 .header__container .header__hero {
-  padding-top: 6rem;
+  margin: auto 0;
+  padding-bottom: 5rem;
   text-align: left;
   max-width: 32rem;
 }
 
 .header__container .header__hero .header__hero-title {
   margin-bottom: -0.6rem;
+  font-size: clamp(.8rem, 1.4vw, 3rem);
 }
 
 .header__hero > h5 > img {
@@ -25,6 +26,7 @@
 
 .header__container .header__hero h1 {
   margin-left: -0.2rem;
+  font-size: clamp(1.8rem, 4.2vw, 5rem);
 }
 
 .header__container .header__hero h3 {
@@ -37,4 +39,15 @@
 
 .header__container .header__hero .btn {
   margin-top: 2rem;
+}
+
+
+/* =============== MEDIA QUERIES(MEDIUM DEVICES) =============== */
+@media screen and (max-width: 1024px) {
+  
+}
+
+/* =============== MEDIA QUERIES(SMALL DEVICES) =============== */
+@media screen and (max-width: 600px) {
+  
 }

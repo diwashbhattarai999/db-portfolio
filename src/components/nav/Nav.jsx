@@ -1,31 +1,84 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./Nav.css";
 import { CgMenuRight } from "react-icons/cg";
 import { RxCross2 } from "react-icons/rx";
 import CV from "../../assets/DiwashCv.pdf";
 
-const Nav = () => {
-  const [navbar, setNavbar] = useState(false);
+const Nav = ({ contentRef }) => {
+  const [showNavbar, setShowNavbar] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
   const [menuIcon, setMenuIcon] = useState(false);
 
-  const changeBackground = () => {
-    window.scrollY > 0 ? setNavbar(true) : setNavbar(false);
-  };
-  window.addEventListener("scroll", changeBackground);
+  const linkRef = useRef();
+  /* ==================== Click Outside Close ==================== */
 
-  const navActive = navbar ? "nav__container active" : "nav__container";
+  useEffect((e) => {
+    const handleNav = (e) => {
+      if (!linkRef.current.contains(e.target)) {
+        setMenuIcon(false);
+      }
+    };
 
+    /* ==================== Click Outside Close End ==================== */
+
+    document.addEventListener("mousedown", handleNav);
+  });
+
+  /* ==================== Scroll Navbar ==================== */
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (typeof window !== "undefined") {
+        if (window.scrollY > lastScrollY) {
+          setShowNavbar(false);
+        } else {
+          setShowNavbar(true);
+        }
+
+        setLastScrollY(window.scrollY);
+      }
+    };
+
+    if (typeof window !== "undefined") {
+      window.addEventListener("scroll", handleScroll);
+
+      // CleanUp Function
+      return () => window.removeEventListener("scroll", handleScroll);
+    }
+  }, [lastScrollY]);
+
+  /* ==================== Scroll Navbar End ==================== */
+
+  /* ==================== Blur Bg ==================== */
+
+  useEffect(() => {
+    if (menuIcon) contentRef.current.className = "blur";
+    else contentRef.current.className = undefined;
+  });
+
+  /* ==================== Blur Bg End ==================== */
+
+  /* ==================== Mobile Navbar ==================== */
   const handleMenu = () => {
     setMenuIcon((prevMenuIcon) => !prevMenuIcon);
   };
 
+  /* =============== Body Scroll=============== */
+  if (menuIcon) document.body.style.overflow = "hidden";
+  else document.body.style.overflow = "auto";
+  /* =============== Body Scroll End =============== */
+
   const showNavLinks = menuIcon ? "nav__links" : "nav__links nav__close";
-  console.log(showNavLinks)
+
+  /* ==================== Mobile Navbar End==================== */
 
   return (
-    <nav className={navActive}>
-      <a href="#home" className="nav__logo">DB</a>
-      <div className={showNavLinks}>
+    <nav className={`nav__container  ${showNavbar ? "active" : "hidden"}`}>
+      <a href="#home" className="nav__logo">
+        DB
+      </a>
+      <div className={showNavLinks} ref={linkRef}>
         <a href="#about" className="nav__link">
           About
         </a>
@@ -54,4 +107,3 @@ const Nav = () => {
 };
 
 export default Nav;
-

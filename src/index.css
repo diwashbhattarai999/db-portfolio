@@ -27,10 +27,10 @@
   --transition: all 0.4 ease;
 
   --container-width-lg: 75%;
-  --container-width-md: 86%;
-  --container-width-sm: 90%;
+  --container-width-md: 82%;
+  --container-width-sm: 86%;
 
-  --nav-height: 6rem;
+  --nav-height: 4rem;
 }
 
 html {
@@ -133,6 +133,16 @@ img {
   object-fit: cover;
 }
 
+.main{
+  position: relative;
+}
+
+.blur{
+  filter: blur(5px) brightness(0.7);
+  transition: var(--transition);
+  pointer-events: none;
+  user-select: none;
+}
 /* =============== MEDIA QUERIES(MEDIUM DEVICES) =============== */
 @media screen and (max-width: 1024px) {
   .container {
