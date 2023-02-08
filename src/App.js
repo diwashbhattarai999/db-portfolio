@@ -4,16 +4,20 @@ import {
   Experience,
   Footer,
   Header,
+  LeftSocial,
   Nav,
   Portfolio,
+  RightSocial,
   Services,
   Testimonials,
 } from "./components";
 
 function App() {
   return (
-    <div>
+    <div className="main">
       <Nav />
+      <LeftSocial />
+      <RightSocial />
       <Header />
       <About />
       <Experience />

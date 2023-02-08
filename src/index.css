@@ -16,18 +16,21 @@
     #d0ffd5 0%,
     rgba(255, 255, 255, 0) 100%
   );
+  --color-blue: #d0ffd5;
   --color-white: #ffffff;
   --color-black: #000000;
   --color-primary: #313131;
   --color-primary-varient: #515151;
   --color-dark: rgba(0, 0, 0, 0.6);
-  --btn-bg: #56c821;
+  --color-green: #56c821;
 
-  --transition: all .4 ease;
+  --transition: all 0.4 ease;
 
   --container-width-lg: 75%;
   --container-width-md: 86%;
   --container-width-sm: 90%;
+
+  --nav-height: 6rem;
 }
 
 html {
@@ -47,6 +50,10 @@ body {
 
 /* =============== GENERAL STYLES =============== */
 
+.main{
+  position: relative;
+}
+
 .container {
   width: var(--container-width-lg);
   margin: 0 auto;
@@ -64,6 +71,11 @@ h1 {
   font-size: 2.5rem;
 }
 
+p{
+  font-weight: 400;
+  font-size: 1rem;
+}
+
 section {
   margin-top: 8rem;
 }
@@ -74,68 +86,69 @@ section > h5 {
   color: var(--color-dark);
 }
 
-section > h2{
+section > h2 {
   color: var(--color-primary);
   margin-bottom: 3rem;
 }
 
-.text-light{
+.text-light {
   color: var(--color-dark);
 }
 
-a{
+a {
   color: var(--color-primary);
   transition: var(--transition);
 }
 
-a:hover{
+a:hover {
   color: var(--color-black);
 }
 
-.btn{
+.btn {
   width: max-content;
   display: inline-block;
-  color: var(--color-primary);
-   padding: 0.75rem 1.2rem;
-   border-radius: .4rem;
-   cursor: pointer;
-   border: 1px solid var(--color-primary);
-   transition: var(--transition);
-}
-
-.btn:hover{
-  background-color: var(--btn-bg);
+  background-color: var(--color-green);
   color: var(--color-white);
+  border: 1px solid transparent;
+  padding: 0.3rem 1.3rem;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  transition: var(--transition);
 }
 
-.btn-primary{
+.btn:hover {
+  background-color: transparent;
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary);
+}
+
+.btn-primary {
   background-color: var(--color-primary);
   color: var(--btn-bg);
 }
 
-img{
+img {
   display: block;
   width: 100%;
   object-fit: cover;
 }
 
-
 /* =============== MEDIA QUERIES(MEDIUM DEVICES) =============== */
 @media screen and (max-width: 1024px) {
-  .container{
+  .container {
     width: var(--container-width-md);
   }
-  section{
+  section {
     margin-top: 6rem;
   }
 }
 
 /* =============== MEDIA QUERIES(SMALL DEVICES) =============== */
 @media screen and (max-width: 600px) {
-  .container{
+  .container {
     width: var(--container-width-sm);
   }
-  section > h2{
+  section > h2 {
     margin-bottom: 2rem;
   }
-} 
+}

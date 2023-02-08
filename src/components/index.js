@@ -7,3 +7,5 @@ export { default as Testimonials } from "./testimonials/Testimonials";
 export { default as Portfolio } from "./portfolio/Portfolio";
 export { default as Contact } from "./contact/Contact";
 export { default as Footer } from "./footer/Footer";
+export { default as LeftSocial } from "./social/LeftSocial";
+export { default as RightSocial } from "./social/RightSocial";

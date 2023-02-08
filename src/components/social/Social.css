@@ -1,0 +1,49 @@
+.social__container {
+    position: fixed;
+    left: 3rem;
+    right: 3rem;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+    width: 1rem;
+}
+
+.social__line {
+    width: 1px;
+    height: 9rem;
+    background-color: var(--color-black);
+}
+
+/* ====================  Social left ==================== */
+.social__left{
+    right: auto;
+}
+
+/* ====================  Social right ==================== */
+
+.social__right {
+  left: auto;
+}
+
+.scroll__down{
+    writing-mode: vertical-lr;
+    font-size: .6rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.dark__mode{
+    margin-bottom: -.2rem;
+    cursor: pointer;
+}
+
+.social__right .social__line{
+    height: 7rem;
+}
+
+.scroll__down:hover{
+    color: var(--color-green);
+}
