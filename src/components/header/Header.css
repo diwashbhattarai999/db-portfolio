@@ -1,65 +1,73 @@
+.home{
+  padding: 0;
+}
+
 .header__container {
   position: relative;
   height: 100vh;
   display: flex;
   justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
-/* ==================== Header Hero ==================== */
 
-.header__container .header__hero {
-  margin: auto 0;
-  padding-bottom: 5rem;
+.header__container h5 {
+  font-size: clamp(var(--font-sm), 5vw, var(--font-md));
 }
 
-.header__container .header__hero .header__hero-title {
-  margin-bottom: -0.5rem;
-  font-size: clamp(14px, 5vw, 16px);
-}
-
-.header__hero > h5 > img {
+.header__container img {
   width: 24px;
   display: inline-block;
 }
 
-.header__container .header__hero h1 {
+.header__container h1 {
   margin-left: -.5rem;
-  text-align: left;
-  line-height: initial !important;
+  line-height: initial;
   font-size: clamp(36px, 8vw, 80px);
 }
 
-.header__container .header__hero h3 {
-  margin-left: -.2rem;
+.header__container  h3 {
   margin-top: -0.4rem;
-  font-size: clamp(20px, 7vw, 40px);
+  font-size: clamp(20px, 5vw, 40px);
 }
 
-.header__container .header__hero .header__hero-para {
+.header__container  .header__hero-para {
   margin-top: 1.6rem;
-  max-width: 34rem;
+  max-width: 36rem;
 }
 
-.header__container .header__hero .btn {
-  margin-top: 2rem;
+.header__container  .btn {
+  margin-top: 2.8rem;
 }
 
 
 /* =============== MEDIA QUERIES(MEDIUM DEVICES) =============== */
 @media screen and (max-width: 1024px) {
-  .header__container .header__hero h1 {
+  .header__container  h1 {
     margin-left: -.3rem;
   }
 }
 
 /* =============== MEDIA QUERIES(SMALL DEVICES) =============== */
 @media screen and (max-width: 600px) {
-  .header__container .header__hero .header__hero-title {
+  .header__container  h5 {
     margin-bottom: 0;
     margin-left: -.1rem;
   }
-  .header__container .header__hero h3 {
+  .header__container  h3 {
     margin-top: 0;
 
+  }
+}
+
+/* =============== MEDIA QUERIES(VERY SMALL DEVICES) =============== */
+@media screen and (max-width: 480px) {
+  .header__container h1{
+    margin-left: -0.2rem;
+  }
+  .header__container h3{
+    margin-left: -0.1rem;
   }
 }

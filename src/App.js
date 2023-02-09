@@ -14,23 +14,24 @@ import {
 } from "./components";
 
 function App() {
-
   const contentRef = useRef();
 
   return (
-    <div className="main">
-      <Nav contentRef={contentRef}/>
+    <div className="db__portfolio">
+      <Nav contentRef={contentRef} />
       <LeftSocial />
       <RightSocial />
       <div id="content" ref={contentRef}>
-        <Header />
-        <About />
-        <Experience />
-        <Services />
-        <Portfolio />
-        <Testimonials />
-        <Contact />
-        <Footer />
+        <main className="db__main">
+          <Header />
+          <About />
+          {/* <Experience />
+          <Services />
+          <Portfolio />
+          <Testimonials />
+          <Contact />
+          <Footer /> */}
+        </main>
       </div>
     </div>
   );

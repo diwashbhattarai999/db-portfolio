@@ -26,11 +26,12 @@
 
   --transition: all 0.4 ease;
 
-  --container-width-lg: 75%;
-  --container-width-md: 82%;
-  --container-width-sm: 86%;
-
   --nav-height: 4rem;
+
+  --font-sm: 14px;
+  --font-md: 16px;
+  --font-lg: 18px;
+  --font-heading: 32px;
 }
 
 html {
@@ -43,7 +44,7 @@ html {
   background-color: var(--color-white);
 }
 
-::-webkit-scrollbar-thumb{
+::-webkit-scrollbar-thumb {
   background-color: var(--color-green);
   border-radius: 1rem;
 }
@@ -57,13 +58,12 @@ body {
 
 /* =============== GENERAL STYLES =============== */
 
-.main{
+.db__portfolio {
   position: relative;
 }
 
-.container {
-  width: var(--container-width-lg);
-  margin: 0 auto;
+.db__main {
+  padding: 0 150px;
 }
 
 h1,
@@ -74,20 +74,21 @@ h5 {
   font-weight: 500;
 }
 
-h1 {
-  font-size: 2.5rem;
+h2 {
+  font-weight: 600;
 }
 
-p{
+p {
   font-weight: 400;
   font-size: 1rem;
 }
 
 section {
-  margin-top: 8rem;
-  height: 100vh;
+  margin: 0 auto;
+  padding: 100px 0;
+  max-width: 1000px;
 }
-
+/* 
 section > h2,
 section > h5 {
   text-align: center;
@@ -97,11 +98,11 @@ section > h5 {
 section > h2 {
   color: var(--color-primary);
   margin-bottom: 3rem;
-}
-
+} */
+/* 
 .text-light {
   color: var(--color-dark);
-}
+} */
 
 a {
   color: var(--color-primary);
@@ -141,35 +142,37 @@ img {
   object-fit: cover;
 }
 
-.main{
-  position: relative;
-}
-
-.blur{
+.blur {
   filter: blur(5px) brightness(0.7);
   transition: var(--transition);
   pointer-events: none;
   user-select: none;
 }
 /* =============== MEDIA QUERIES(MEDIUM DEVICES) =============== */
-@media screen and (max-width: 1024px) {
-  .container {
-    width: var(--container-width-md);
-  }
-  section {
-    margin-top: 6rem;
+@media screen and (max-width: 1080px) {
+  .db__main {
+    padding: 0 100px;
   }
 }
 
 /* =============== MEDIA QUERIES(SMALL DEVICES) =============== */
-@media screen and (max-width: 600px) {
-  .container {
-    width: var(--container-width-sm);
+@media screen and (max-width: 768px) {
+  .db__main {
+    padding: 0 50px;
   }
-  section {
+
+  /* section {
     margin-top: 0;
   }
+
   section > h2 {
     margin-bottom: 2rem;
+  } */
+}
+
+/* =============== MEDIA QUERIES( VERY SMALL DEVICES) =============== */
+@media screen and (max-width: 480px) {
+  .db__main {
+    padding: 0 25px;
   }
 }
