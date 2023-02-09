@@ -1,0 +1,112 @@
+.about__container {
+  padding: 5rem 0;
+  text-align: center;
+}
+
+.about__container .about__title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 4rem;
+}
+
+.about__container .about__title .about__line {
+  width: 2rem;
+  height: 2px;
+  background-color: black;
+}
+
+.about__container .about__info-img {
+  position: relative;
+  max-width: 20rem;
+  margin: 0 auto;
+}
+
+.about__container .about__info-img img {
+  border-radius: 0.5rem;
+}
+
+.about__info-img-info {
+  margin-top: 1rem;
+}
+
+.about__info-img-info h1 {
+  line-height: initial;
+  font-size: clamp(36px, 7vw, 50px);
+  margin-left: -0.2rem;
+}
+
+.about__info-img-info h3 {
+  font-size: clamp(20px, 6vw, 30px);
+  margin-top: -0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.about__info-img-info .btn {
+  margin-top: 1.4rem;
+}
+
+/* =============== MEDIA QUERIES(MEDIUM DEVICES) =============== */
+@media screen and (min-width: 768px) {
+  .about__container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 2.6rem;
+  }
+
+  .about__container .about__title{
+    margin-bottom: 8rem;
+  }
+
+  .about__container .about__info-img::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 0.2rem solid var(--color-green);
+    border-radius: 0.5rem;
+    bottom: 1rem;
+    left: 1rem;
+    z-index: -999;
+  }
+
+  .about__container .about__info-img:hover::before{
+    bottom: 0.5rem;
+    left: 0.5rem;
+    cursor: pointer;
+    transition: .5s ease;
+  }
+
+  .about__info-img-info h1 {
+    font-size: clamp(36px, 7vw, 40px);
+  }
+  
+  .about__info-img-info h3 {
+    font-size: clamp(20px, 5vw, 26px);
+  }
+}
+
+/* =============== MEDIA QUERIES(LARGE DEVICES) =============== */
+@media screen and (min-width: 1024px) {
+  .about__container {
+    padding: 0;
+    text-align: left;
+  }
+
+  .about__container .about__info {
+    display: flex;
+    align-items: center;
+    gap: 5rem;
+  }
+
+  .about__container .about__info-img {
+    margin: 0 ;
+  }
+
+  .about__info-img-info {
+    margin-bottom: 1rem;
+    max-width: 50rem;
+  }
+}

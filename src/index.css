@@ -39,11 +39,18 @@ html {
 
 ::-webkit-scrollbar {
   display: none;
+  width: 1rem;
+  background-color: var(--color-white);
+}
+
+::-webkit-scrollbar-thumb{
+  background-color: var(--color-green);
+  border-radius: 1rem;
 }
 
 body {
   font-family: "Montserrat", sans-serif;
-  background: var(--bg-primary-gradient);
+  background: var(--color-blue);
   color: var(--color-black);
   line-height: 1.7;
 }
@@ -78,6 +85,7 @@ p{
 
 section {
   margin-top: 8rem;
+  height: 100vh;
 }
 
 section > h2,
@@ -157,6 +165,9 @@ img {
 @media screen and (max-width: 600px) {
   .container {
     width: var(--container-width-sm);
+  }
+  section {
+    margin-top: 0;
   }
   section > h2 {
     margin-bottom: 2rem;

@@ -10,23 +10,23 @@ const Nav = ({ contentRef }) => {
 
   const [menuIcon, setMenuIcon] = useState(false);
 
-  const linkRef = useRef();
-  /* ==================== Click Outside Close ==================== */
+  const [navActive, setNavActive] = useState("#home");
 
+  const linkRef = useRef();
+
+  /* ==================== Click Outside Close ==================== */
   useEffect((e) => {
     const handleNav = (e) => {
       if (!linkRef.current.contains(e.target)) {
         setMenuIcon(false);
       }
     };
-
     /* ==================== Click Outside Close End ==================== */
 
     document.addEventListener("mousedown", handleNav);
   });
 
   /* ==================== Scroll Navbar ==================== */
-
   useEffect(() => {
     const handleScroll = () => {
       if (typeof window !== "undefined") {
@@ -47,19 +47,15 @@ const Nav = ({ contentRef }) => {
       return () => window.removeEventListener("scroll", handleScroll);
     }
   }, [lastScrollY]);
-
   /* ==================== Scroll Navbar End ==================== */
 
   /* ==================== Blur Bg ==================== */
-
   useEffect(() => {
     if (menuIcon) contentRef.current.className = "blur";
     else contentRef.current.className = undefined;
   });
-
   /* ==================== Blur Bg End ==================== */
 
-  /* ==================== Mobile Navbar ==================== */
   const handleMenu = () => {
     setMenuIcon((prevMenuIcon) => !prevMenuIcon);
   };
@@ -69,26 +65,52 @@ const Nav = ({ contentRef }) => {
   else document.body.style.overflow = "auto";
   /* =============== Body Scroll End =============== */
 
-  const showNavLinks = menuIcon ? "nav__links" : "nav__links nav__close";
-
-  /* ==================== Mobile Navbar End==================== */
-
   return (
     <nav className={`nav__container  ${showNavbar ? "active" : "hidden"}`}>
-      <a href="#home" className="nav__logo">
+      <a
+        href="#"
+        className="nav__logo"
+        onClick={() => {
+          setNavActive("#home");
+        }}
+      >
         DB
       </a>
-      <div className={showNavLinks} ref={linkRef}>
-        <a href="#about" className="nav__link">
+      <div className={`nav__links ${!menuIcon && "nav__close"}`} ref={linkRef}>
+        <a
+          href="#about"
+          className={`nav__link ${navActive === "#about" ? "active" : ""}`}
+          onClick={() => {
+            setNavActive("#about");
+          }}
+        >
           About
         </a>
-        <a href="#experience" className="nav__link">
+        <a
+          href="#experience"
+          className={`nav__link ${navActive === "#experience" ? "active" : ""}`}
+          onClick={() => {
+            setNavActive("#experience");
+          }}
+        >
           Experience
         </a>
-        <a href="#portfolio" className="nav__link">
+        <a
+          href="#portfolio"
+          className={`nav__link ${navActive === "#portfolio" ? "active" : ""}`}
+          onClick={() => {
+            setNavActive("#portfolio");
+          }}
+        >
           Portfolio
         </a>
-        <a href="#contact" className="nav__link">
+        <a
+          href="#contact"
+          className={`nav__link ${navActive === "#contact" ? "active" : ""}`}
+          onClick={() => {
+            setNavActive("#contact");
+          }}
+        >
           Contact
         </a>
         <a href={CV} target="__blank" className="btn">
