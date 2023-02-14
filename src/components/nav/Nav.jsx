@@ -3,6 +3,7 @@ import "./Nav.css";
 import { CgMenuRight } from "react-icons/cg";
 import { RxCross2 } from "react-icons/rx";
 import CV from "../../assets/DiwashCv.pdf";
+import { BsGithub, BsInstagram, BsLinkedin } from "react-icons/bs";
 
 const Nav = ({ contentRef }) => {
   const [showNavbar, setShowNavbar] = useState(true);
@@ -12,6 +13,7 @@ const Nav = ({ contentRef }) => {
 
   const [navActive, setNavActive] = useState("#home");
 
+  const navRef = useRef();
   const linkRef = useRef();
 
   /* ==================== Click Outside Close ==================== */
@@ -28,25 +30,34 @@ const Nav = ({ contentRef }) => {
 
   /* ==================== Scroll Navbar ==================== */
   useEffect(() => {
-    const handleScroll = () => {
-      if (typeof window !== "undefined") {
-        if (window.scrollY > lastScrollY) {
-          setShowNavbar(false);
-        } else {
-          setShowNavbar(true);
+    if (!menuIcon) {
+      const handleScroll = () => {
+        if (typeof window !== "undefined") {
+          if (window.scrollY > 500) {
+            if (window.scrollY > lastScrollY) {
+              setShowNavbar(false);
+            } else {
+              setShowNavbar(true);
+            }
+            navRef.current.style.boxShadow = "1px 1px 10px #7070701a";
+            navRef.current.style.backgroundColor = "#ffffff1a";
+          } else {
+            navRef.current.style.boxShadow = "";
+            navRef.current.style.backgroundColor = "#e8f7e8";
+          }
+
+          setLastScrollY(window.scrollY);
         }
+      };
 
-        setLastScrollY(window.scrollY);
+      if (typeof window !== "undefined") {
+        window.addEventListener("scroll", handleScroll);
+
+        // CleanUp Function
+        return () => window.removeEventListener("scroll", handleScroll);
       }
-    };
-
-    if (typeof window !== "undefined") {
-      window.addEventListener("scroll", handleScroll);
-
-      // CleanUp Function
-      return () => window.removeEventListener("scroll", handleScroll);
     }
-  }, [lastScrollY]);
+  }, [lastScrollY, menuIcon]);
   /* ==================== Scroll Navbar End ==================== */
 
   /* ==================== Blur Bg ==================== */
@@ -66,9 +77,12 @@ const Nav = ({ contentRef }) => {
   /* =============== Body Scroll End =============== */
 
   return (
-    <nav className={`nav__container  ${showNavbar ? "active" : "hidden"}`}>
+    <nav
+      ref={navRef}
+      className={`nav__container  ${showNavbar ? "active" : "hidden"}`}
+    >
       <a
-        href="#"
+        href="#home"
         className="nav__logo"
         onClick={() => {
           setNavActive("#home");
@@ -88,12 +102,12 @@ const Nav = ({ contentRef }) => {
         </a>
         <a
           href="#experience"
-          className={`nav__link ${navActive === "#experience" ? "active" : ""}`}
+          className={`nav__link ${navActive === "#skills" ? "active" : ""}`}
           onClick={() => {
-            setNavActive("#experience");
+            setNavActive("#skills");
           }}
         >
-          Experience
+          Skills
         </a>
         <a
           href="#portfolio"
@@ -113,9 +127,35 @@ const Nav = ({ contentRef }) => {
         >
           Contact
         </a>
-        <a href={CV} target="__blank" className="btn">
+        <a href={CV} target="__blank" rel="noreferrer" className="btn">
           Resume
         </a>
+
+        <div className="nav__social">
+          <a
+            href="https://github.com/diwashbhattarai999"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <BsGithub className="social__link" />
+          </a>
+
+          <a
+            href="https://www.linkedin.com/in/diwash-bhattarai-343a41202/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <BsLinkedin className="social__link" />
+          </a>
+
+          <a
+            href="https://www.instagram.com/diwash81/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <BsInstagram className="social__link" />
+          </a>
+        </div>
       </div>
       <div className="nav__menu">
         {menuIcon ? (

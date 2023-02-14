@@ -4,7 +4,7 @@ import CV from "../../assets/DiwashCv.pdf";
 
 const Header = () => {
   return (
-    <section id="home" className="home">
+    <header id="home" className="home">
       <div className="header__container">
         <h5>
           Hey there <img src={Wave} alt="wave" />, my name is
@@ -23,7 +23,7 @@ const Header = () => {
           Download Resume
         </a>
       </div>
-    </section>
+    </header>
   );
 };
 

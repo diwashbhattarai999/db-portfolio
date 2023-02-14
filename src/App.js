@@ -2,15 +2,13 @@ import { useRef } from "react";
 import {
   About,
   Contact,
-  Experience,
   Footer,
   Header,
   LeftSocial,
   Nav,
   Portfolio,
   RightSocial,
-  Services,
-  Testimonials,
+  Experience,
 } from "./components";
 
 function App() {
@@ -22,16 +20,14 @@ function App() {
       <LeftSocial />
       <RightSocial />
       <div id="content" ref={contentRef}>
-        <main className="db__main">
           <Header />
+        <main className="db__main">
           <About />
-          {/* <Experience />
-          <Services />
+          <Experience />
           <Portfolio />
-          <Testimonials />
           <Contact />
-          <Footer /> */}
         </main>
+        <Footer />
       </div>
     </div>
   );

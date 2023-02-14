@@ -4,27 +4,26 @@ import "./Social.css";
 
 const RightSocial = () => {
   const [scroll, setScroll] = useState(false);
-  
+
   useEffect(() => {
-
     const handleScroll = () => {
-      if(window.scrollY > 100)
-        setScroll(true)
-      else
-        setScroll(false)
-    }
+      if (window.scrollY > 100) setScroll(true);
+      else setScroll(false);
+    };
 
-    window.addEventListener('scroll', handleScroll);
-  })
-  const href = scroll ? "#" : "#about"; 
-  console.log(href)
+    window.addEventListener("scroll", handleScroll);
+  });
+  const href = scroll ? "#" : "#about";
 
   return (
     <div className="social__container social__right">
+      <div className="social__line"></div>
+
       <BsLightningFill className="dark__mode social__link" />
       <a href={href} className="scroll__down">
         {scroll ? "Scroll Up" : "Scroll Down"}
       </a>
+
       <div className="social__line"></div>
     </div>
   );
