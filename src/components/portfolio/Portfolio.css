@@ -54,7 +54,7 @@
   border-radius: var(--border-radius);
   z-index: 2;
   mix-blend-mode: screen;
-  opacity: 0.5;
+  opacity: 0.2;
 }
 
 .project__img img {
@@ -75,7 +75,7 @@
 }
 
 .project__details p {
-  background: var(--nav-primary);
+  background: var(--bg-secondary);
   border-radius: 0.4rem;
   box-shadow: var(--box-shadow);
   padding: 0.6rem;
@@ -143,7 +143,7 @@
   }
 
   .project__details h3{
-    color: var(--color-white);
+    color: var(--color-white-secondary);
   }
 
   .project__details p {

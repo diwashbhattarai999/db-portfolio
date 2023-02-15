@@ -4,6 +4,7 @@ import { CgMenuRight } from "react-icons/cg";
 import { RxCross2 } from "react-icons/rx";
 import CV from "../../assets/DiwashCv.pdf";
 import { BsGithub, BsInstagram, BsLinkedin } from "react-icons/bs";
+import { Link } from "react-scroll";
 
 const Nav = ({ contentRef }) => {
   const [showNavbar, setShowNavbar] = useState(true);
@@ -40,10 +41,10 @@ const Nav = ({ contentRef }) => {
               setShowNavbar(true);
             }
             navRef.current.style.boxShadow = "1px 1px 10px #7070701a";
-            navRef.current.style.backgroundColor = "#ffffff1a";
+            navRef.current.style.backgroundColor = "var(--nav-secondary)";
           } else {
             navRef.current.style.boxShadow = "";
-            navRef.current.style.backgroundColor = "#e8f7e8";
+            navRef.current.style.backgroundColor = "var(--nav-primary)";
           }
 
           setLastScrollY(window.scrollY);
@@ -81,15 +82,15 @@ const Nav = ({ contentRef }) => {
       ref={navRef}
       className={`nav__container  ${showNavbar ? "active" : "hidden"}`}
     >
-      <a
-        href="#home"
+      <Link
+        to="home"
         className="nav__logo"
         onClick={() => {
           setNavActive("#home");
         }}
       >
         DB
-      </a>
+      </Link>
       <div className={`nav__links ${!menuIcon && "nav__close"}`} ref={linkRef}>
         <a
           href="#about"

@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: var(--color-white-secondary);
+  background-color: var(--color-white-tertiary);
   padding: 2rem 0 1rem 0;
   width: 100%;
 }

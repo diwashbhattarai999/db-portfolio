@@ -58,6 +58,10 @@
   height: 1.4rem;
 }
 
+.experience__info-container .skill-check{
+  color: var(--color-tertiary);
+}
+
 /* =============== MEDIA QUERIES(MEDIUM DEVICES) =============== */
 @media screen and (max-width: 1024px) {
   .experience__info h1 {

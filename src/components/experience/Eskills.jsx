@@ -4,7 +4,7 @@ const Eskills = ({ skill, skillImg }) => {
   return (
     <div>
       <article className="experience__skills-details">
-        <AiFillCheckCircle />
+        <AiFillCheckCircle className="skill-check"/>
         <div className="experience__skills-img">{skillImg}</div>
         <h4>{skill}</h4>
       </article>

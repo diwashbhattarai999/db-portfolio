@@ -104,7 +104,7 @@
     right: 0;
     top: 0;
     flex-direction: column;
-    background-color: var(--color-white);
+    background-color: var(--nav-link);
     padding: 6rem 4rem;
     min-height: 100vh;
     max-height: 100vh;

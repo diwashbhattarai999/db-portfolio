@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./Footer.css";
 import { BsGithub, BsInstagram, BsLinkedin } from "react-icons/bs";
 import { IoMdRocket } from "react-icons/io";
+import { animateScroll as Scroll } from "react-scroll";
 
 const Footer = () => {
   const [top, setTop] = useState(false);
@@ -43,7 +44,7 @@ const Footer = () => {
           </a>
         </li>
       </div>
-      <h2>
+      <h2 onClick={() => Scroll.scrollToTop()}>
         <a
           href="#home"
           onMouseEnter={handleMouseEnter}
