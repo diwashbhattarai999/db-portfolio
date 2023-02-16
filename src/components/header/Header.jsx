@@ -1,13 +1,14 @@
 import "./Header.css";
-import Wave from "../../assets/wave.gif";
 import CV from "../../assets/DiwashCv.pdf";
+import { TbHandRock } from "react-icons/tb";
 
 const Header = () => {
   return (
     <header id="home" className="home">
       <div className="header__container">
         <h5>
-          Hey there <img src={Wave} alt="wave" />, my name is
+          Hey there <TbHandRock />, my
+          name is
         </h5>
         <h1>Diwash Bhattarai</h1>
         <h3>Frontend Developer</h3>

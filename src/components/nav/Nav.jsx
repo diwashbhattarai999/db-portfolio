@@ -68,8 +68,10 @@ const Nav = ({ contentRef }) => {
   });
   /* ==================== Blur Bg End ==================== */
 
-  const handleMenu = () => {
-    setMenuIcon((prevMenuIcon) => !prevMenuIcon);
+  const handleMenu = (e) => {
+    // setMenuIcon((prevMenuIcon) => !prevMenuIcon);
+    console.log(e.target.childElement)
+    menuIcon ? setMenuIcon(false) : setMenuIcon(true);
   };
 
   /* =============== Body Scroll=============== */
@@ -158,7 +160,7 @@ const Nav = ({ contentRef }) => {
           </a>
         </div>
       </div>
-      <div className="nav__menu">
+      <div className="nav__menu" onClick={handleMenu}>
         {menuIcon ? (
           <RxCross2 className="nav__menu-icon" onClick={handleMenu} />
         ) : (

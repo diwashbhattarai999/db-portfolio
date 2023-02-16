@@ -77,8 +77,8 @@
 
   .dark__mode {
     background-color: var(--color-highlight);
-    width: 2.6rem;
-    height: 2.6rem;
+    width: 2.4rem;
+    height: 2.4rem;
     border-radius: 50%;
     padding: .5rem;
     color: var(--btn-text);

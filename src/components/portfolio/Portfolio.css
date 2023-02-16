@@ -23,7 +23,9 @@
   gap: 10px;
   grid-template-columns: repeat(12, 1fr);
   align-items: center;
-  margin-bottom: 8rem;
+  /* width: 95%;
+  margin: 0 auto; */
+  margin-bottom: 5rem;
 }
 
 .project__img {
@@ -111,6 +113,18 @@
   color: var(--color-highlight);
 }
 
+.swiper-pagination .swiper-pagination-bullet {
+  background-color: white;
+  opacity: 0.5;
+  width: 10px;
+  height: 10px;
+  border: 2px solid var(--color-highlight);
+}
+.swiper-pagination .swiper-pagination-bullet-active {
+  opacity: 1;
+  background-color: var(--color-highlight);
+}
+
 /* =============== MEDIA QUERIES(MEDIUM DEVICES) =============== */
 @media screen and (max-width: 1080px) {
   .portfolio__container .project__details {
@@ -142,7 +156,7 @@
     transition: var(--transition);
   }
 
-  .project__details h3{
+  .project__details h3 {
     color: var(--color-white-secondary);
   }
 
