@@ -1,5 +1,5 @@
 import "./Portfolio.css";
-import Projects from "../projects/Project";
+import Projects from "../data/Project";
 import { BiLink } from "react-icons/bi";
 import { FiGithub } from "react-icons/fi";
 // Import Swiper React components
@@ -8,54 +8,67 @@ import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
+import "swiper/css/autoplay";
 
 // import required modules
-import { Keyboard, Pagination, Navigation } from "swiper";
+import { Keyboard, Pagination, Navigation, Autoplay } from "swiper";
+import { useRef } from "react";
 
 const Portfolio = () => {
+const swiperRef = useRef(null);
+
   return (
     <section id="portfolio" className="portfolio ">
       <h5>See My Work</h5>
       <h2>Portfolio</h2>
-      <Swiper
-        spaceBetween={30}
-        pagination={{
-          clickable: true,
-        }}
-        keyboard={{
-          enabled: true,
-        }}
-        mousewheel={true}
-        navigation={true}
-        modules={[Keyboard, Pagination, Navigation]}
-        className="mySwiper"
+      <div
+        onMouseEnter={() => swiperRef.current.swiper.autoplay.stop()}
+        onMouseLeave={() => swiperRef.current.swiper.autoplay.start()}
       >
-        {Projects.map((project) => {
-          return (
-            <SwiperSlide key={project.id}>
-              <div className="portfolio__container">
-                <div className="project__img">
-                  <a href={project.link} target="_blank" rel="noreferrer">
-                    <img src={project.img} alt={project.name} />
-                  </a>
-                </div>
-                <div className="project__details" key={project.id}>
-                  <h3>{project.name}</h3>
-                  <p>{project.description}</p>
-                  <div className="project__link">
+        <Swiper
+        ref={swiperRef}
+          spaceBetween={30}
+          modules={[Keyboard, Pagination, Navigation, Autoplay]}
+          pagination={{
+            clickable: true,
+          }}
+          keyboard={{
+            enabled: true,
+          }}
+          mousewheel={true}
+          navigation={true}
+          autoplay={{ delay: 1000 }}
+          playOnMouseLeave={true}
+          pauseOnMouseEnter={true}
+          className="mySwiper"
+        >
+          {Projects.map((project) => {
+            return (
+              <SwiperSlide key={project.id}>
+                <div className="portfolio__container">
+                  <div className="project__img">
                     <a href={project.link} target="_blank" rel="noreferrer">
-                      <BiLink />
-                    </a>
-                    <a href={project.github} target="_blank" rel="noreferrer">
-                      <FiGithub />
+                      <img src={project.img} alt={project.name} />
                     </a>
                   </div>
+                  <div className="project__details" key={project.id}>
+                    <h3>{project.name}</h3>
+                    <p>{project.description}</p>
+                    <div className="project__link">
+                      <a href={project.link} target="_blank" rel="noreferrer">
+                        <BiLink />
+                      </a>
+                      <a href={project.github} target="_blank" rel="noreferrer">
+                        <FiGithub />
+                      </a>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </SwiperSlide>
-          );
-        })}
-      </Swiper>
+              </SwiperSlide>
+            );
+          })}
+        </Swiper>
+      </div>
     </section>
   );
 };

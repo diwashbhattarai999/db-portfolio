@@ -87,7 +87,7 @@ const Nav = ({ contentRef }) => {
         className="nav__logo"
         onClick={() => {
           setNavActive("#home");
-          // setMenuIcon(false);
+          setMenuIcon(false);
         }}
       >
         DB
@@ -98,7 +98,7 @@ const Nav = ({ contentRef }) => {
           className={`nav__link ${navActive === "#about" ? "active" : ""}`}
           onClick={() => {
             setNavActive("#about");
-            // setMenuIcon(false);
+            setMenuIcon(false);
           }}
         >
           About
@@ -108,7 +108,7 @@ const Nav = ({ contentRef }) => {
           className={`nav__link ${navActive === "#skills" ? "active" : ""}`}
           onClick={() => {
             setNavActive("#skills");
-            // setMenuIcon(false);
+            setMenuIcon(false);
           }}
         >
           Skills
@@ -118,7 +118,7 @@ const Nav = ({ contentRef }) => {
           className={`nav__link ${navActive === "#portfolio" ? "active" : ""}`}
           onClick={() => {
             setNavActive("#portfolio");
-            // setMenuIcon(false);
+            setMenuIcon(false);
           }}
         >
           Portfolio
@@ -128,7 +128,7 @@ const Nav = ({ contentRef }) => {
           className={`nav__link ${navActive === "#contact" ? "active" : ""}`}
           onClick={() => {
             setNavActive("#contact");
-            // setMenuIcon(false);
+            setMenuIcon(false);
           }}
         >
           Contact

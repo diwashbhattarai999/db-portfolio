@@ -14,47 +14,43 @@
   background-color: var(--color-tertiary);
 }
 
-.experience__info {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-}
-
-.experience__info h1 {
-  font-size: var(--font-lg);
-  color: var(--color-highlight);
-  margin-bottom: 1.2rem;
-}
-
-.experience__info-container {
-  text-align: left;
-  padding: 2rem;
-  border-radius: var(--border-radius);
-  box-shadow: var(--box-shadow);
-  background: transparent;
-  cursor: pointer;
-}
-
-.experience__info-container:hover {
-  transform: scaleY(1.05);
-  box-shadow: var(--box-shadow-hover);
-  transition: var(--transition);
+.experience__skills {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 2.4rem;
+  padding-top: 1rem;
 }
 
 .experience__skills-details {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 1rem;
+  gap: 1.4rem;
+}
+
+.experience__skills-details .ex-logo {
+  background-color: var(--skill-primary);
+  border-radius: 50%;
+  padding: 0.7rem;
+}
+
+.experience__skills-details .skill-icon {
+  display: block;
+  width: 2.6rem;
+  height: 2.6rem;
 }
 
 .experience__skills-details h4 {
-  font-size: var(--font-sm);
+  font-size: var(--font-xs);
+  text-transform: uppercase;
 }
 
-.experience__skills-img .skill-img {
+.experience__skills-details .skill-img {
   display: block;
-  width: 1.4rem;
-  height: 1.4rem;
+  width: 2rem;
+  height: 2rem;
 }
 
 .experience__info-container .skill-check {
@@ -63,9 +59,6 @@
 
 /* =============== MEDIA QUERIES(MEDIUM DEVICES) =============== */
 @media screen and (max-width: 1024px) {
-  .experience__info h1 {
-    font-size: var(--font-sm);
-  }
 
   .experience h2 {
     margin-bottom: 4rem;
@@ -78,35 +71,8 @@
 
 /* =============== MEDIA QUERIES(SMALL DEVICES) =============== */
 @media screen and (max-width: 778px) {
-  .experience__info {
-    grid-template-rows: 1fr 1fr;
-    grid-template-columns: none;
-  }
-
   .experience h2::before {
     width: 100%;
   }
 
-  .experience__skills-details h4 {
-    font-size: var(--font-xs);
-  }
-}
-
-.experience__skills {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 2rem;
-  position: relative;
-}
-
-.experience__skills .experience__skill {
-}
-
-
-
-.ex-skill {
-  display: block;
-  width: 4rem;
-  height: 4rem;
 }

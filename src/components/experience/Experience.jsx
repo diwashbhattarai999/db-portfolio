@@ -1,107 +1,21 @@
-// import "./Experience.css";
-// import Eskills from "./Eskills";
-// import { AiFillHtml5 } from "react-icons/ai";
-// import { DiCss3 } from "react-icons/di";
-// import { IoLogoJavascript } from "react-icons/io";
-// import { DiReact, DiPhotoshop, DiGit, DiGithubBadge } from "react-icons/di";
-// import { SiTailwindcss } from "react-icons/si";
-
-// const Experience = () => {
-//   return (
-//     <section id="experience" className="experience">
-//       <h5>Check My</h5>
-//       <h2>Skills</h2>
-//       <div className="experience__info">
-//         {/* ==================== Experience Info Container Left ==================== */}
-//         <div className="experience__info-container left">
-//           <h1>Frontend Development</h1>
-//           <div className="experience__skills">
-//             {/* ========== Skills ========== */}
-//             <Eskills
-//               skill="Html"
-//               skillImg={<AiFillHtml5 className="skill-img" />}
-//             />
-//             <Eskills skill="CSS" skillImg={<DiCss3 className="skill-img" />} />
-//             <Eskills
-//               skill="JavaScript"
-//               skillImg={<IoLogoJavascript className="skill-img" />}
-//             />
-//             <Eskills
-//               skill="React"
-//               skillImg={<DiReact className="skill-img" />}
-//             />
-//             <Eskills
-//               skill="Tailwind CSS"
-//               skillImg={<SiTailwindcss className="skill-img" />}
-//             />
-//             {/* ========== Skills End ========== */}
-//           </div>
-//         </div>
-//         {/* ==================== Experience Info Container Left ==================== */}
-
-//         {/* ==================== Experience Info Container Right ==================== */}
-//         <div className="experience__info-container right">
-//           <h1>Others</h1>
-//           <div className="experience__skills">
-//             {/* ========== Skills ========== */}
-//             <Eskills
-//               skill="PhotoShop"
-//               skillImg={<DiPhotoshop className="skill-img" />}
-//             />
-//             <Eskills skill="Git" skillImg={<DiGit className="skill-img" />} />
-//             <Eskills
-//               skill="Github"
-//               skillImg={<DiGithubBadge className="skill-img" />}
-//             />
-//             {/* ========== Skills End ========== */}
-//           </div>
-//         </div>
-//         {/* ==================== Experience Info Container Right ==================== */}
-//       </div>
-//     </section>
-//   );
-// };
-
-// export default Experience;
-
 import "./Experience.css";
-import { AiFillHtml5 } from "react-icons/ai";
-import { DiCss3 } from "react-icons/di";
-import { IoLogoJavascript } from "react-icons/io";
-import { DiReact, DiPhotoshop, DiGit, DiGithubBadge } from "react-icons/di";
-import { SiTailwindcss } from "react-icons/si";
+import skills from "../data/skill";
 
 const Experience = () => {
   return (
     <section id="experience" className="experience">
       <h5>Check My</h5>
       <h2>Skills</h2>
-
       <div className="experience__skills">
-        <div className="experience__skill">
-          <AiFillHtml5 className="ex-skill" />
-        </div>
-        <div className="experience__skill">
-          <DiCss3 className="ex-skill" />
-        </div>
-        <div className="experience__skill">
-          <IoLogoJavascript className="ex-skill" />
-        </div>
-        <div className="experience__skill">
-          <DiReact className="ex-skill" />
-        </div>
-        <div className="experience__skill">
-          <DiPhotoshop className="ex-skill" />
-        </div>
-        <div className="experience__skill">
-          <DiGit className="ex-skill" />
-        </div>
-        <div className="experience__skill">
-          <DiGithubBadge className="ex-skill" />
-        </div>
-        <div className="experience__skill">
-          <SiTailwindcss className="ex-skill" />
-        </div>
+        {skills.map((skills) => {
+          const { id, logo, text } = skills;
+          return (
+            <article className="experience__skills-details" key={id}>
+              <div className="ex-logo">{logo}</div>
+              <h4>{text}</h4>
+            </article>
+          );
+        })}
       </div>
     </section>
   );
