@@ -69,8 +69,6 @@ const Nav = ({ contentRef }) => {
   /* ==================== Blur Bg End ==================== */
 
   const handleMenu = (e) => {
-    // setMenuIcon((prevMenuIcon) => !prevMenuIcon);
-    console.log(e.target.childElement)
     menuIcon ? setMenuIcon(false) : setMenuIcon(true);
   };
 
@@ -89,6 +87,7 @@ const Nav = ({ contentRef }) => {
         className="nav__logo"
         onClick={() => {
           setNavActive("#home");
+          // setMenuIcon(false);
         }}
       >
         DB
@@ -99,6 +98,7 @@ const Nav = ({ contentRef }) => {
           className={`nav__link ${navActive === "#about" ? "active" : ""}`}
           onClick={() => {
             setNavActive("#about");
+            // setMenuIcon(false);
           }}
         >
           About
@@ -108,6 +108,7 @@ const Nav = ({ contentRef }) => {
           className={`nav__link ${navActive === "#skills" ? "active" : ""}`}
           onClick={() => {
             setNavActive("#skills");
+            // setMenuIcon(false);
           }}
         >
           Skills
@@ -117,6 +118,7 @@ const Nav = ({ contentRef }) => {
           className={`nav__link ${navActive === "#portfolio" ? "active" : ""}`}
           onClick={() => {
             setNavActive("#portfolio");
+            // setMenuIcon(false);
           }}
         >
           Portfolio
@@ -126,6 +128,7 @@ const Nav = ({ contentRef }) => {
           className={`nav__link ${navActive === "#contact" ? "active" : ""}`}
           onClick={() => {
             setNavActive("#contact");
+            // setMenuIcon(false);
           }}
         >
           Contact

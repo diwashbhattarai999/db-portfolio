@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import { BsLightningFill } from "react-icons/bs";
+import { MdDarkMode, MdOutlineDarkMode } from "react-icons/md";
 import "./Social.css";
 import "../../DarkMode.css";
 
 const RightSocial = () => {
   const [scroll, setScroll] = useState(false);
-  const [darkMode, setDarkMode] = useState("light");
+  const [darkMode, setDarkMode] = useState("dark");
 
   /* ========== SCROLL DOWN AND UP ========== */
 
@@ -32,10 +32,14 @@ const RightSocial = () => {
     <div className="social__container social__right">
       <div className="social__line"></div>
 
-      <BsLightningFill
-        className="dark__mode social__link"
-        onClick={handleClick}
-      />
+      {darkMode === "light" ? (
+        <MdOutlineDarkMode
+          className="dark__mode social__link"
+          onClick={handleClick}
+        />
+      ) : (
+        <MdDarkMode className="dark__mode social__link" onClick={handleClick} />
+      )}
       <a href={href} className="scroll__down">
         {scroll ? "Scroll Up" : "Scroll Down"}
       </a>

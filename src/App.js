@@ -21,7 +21,6 @@ function App() {
       <RightSocial />
       <div id="content" ref={contentRef}>
         <Header />
-        <main>
         <div className="db__main db__about">
           <About />
         </div>
@@ -34,7 +33,6 @@ function App() {
         <div className="db__main db__contact">
           <Contact />
         </div>
-        </main>
         <Footer />
       </div>
     </div>

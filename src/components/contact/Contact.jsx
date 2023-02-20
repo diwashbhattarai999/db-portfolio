@@ -159,7 +159,7 @@ const Contact = () => {
               <textarea
                 className="textarea"
                 name="message"
-                pautoComplete="off"
+                autoComplete="off"
                 required
                 {...register("message", {
                   required: "Message is required",

@@ -1,16 +1,20 @@
+:root {
+  --color-highlight: #80669d;
+  --btn-primary: #80669d;
+  --btn-text: #f4f4f4;
+}
+
+
 .light {
 
   --bg-primary: #ffffff;
   --bg-secondary: #ececff;
   --home-primary: #ffffff;
-  --contact-bg: #fdf6ef;
+  --contact-bg: #ede7f5;
 
   --nav-primary: transparent;
   --nav-secondary: #ffffff1a;
   --nav-link: #f9f9f9;
-
-  --btn-primary: #ff8906;
-  --btn-text: #f4f4f4;
 
   --color-primary: #1f1235;
   --color-secondary: #1b1425;
@@ -19,9 +23,8 @@
 
   --color-white: #ffffff;
   --color-white-secondary: #f1f1f1;
-  --color-white-tertiary: #ffe7bf;
+  --color-white-tertiary: #e2dbeb;
 
-  --color-highlight: #ff8906;
 
   --box-shadow: 1px 1px 10px rgba(173, 173, 175, 0.2);
   --box-shadow-hover: 1px 1px 10px rgba(173, 173, 175, 0.6);
@@ -38,9 +41,6 @@
   --nav-secondary: #ffffff1a;
   --nav-link: #1b1b23;
 
-  --btn-primary: #ff961d;
-  --btn-text: #fffffe;
-
   --color-primary: #fdfdfc;
   --color-secondary: #9c9da8;
   --color-tertiary: #444444;
@@ -50,7 +50,6 @@
   --color-white-secondary: #f1f1f1;
   --color-white-tertiary: #121218;
 
-  --color-highlight: #ff961d;
 
   --box-shadow: 1px 1px 10px rgba(62, 62, 83, 0.2);
   --box-shadow-hover: 1px 1px 10px rgba(36, 36, 51, 0.6);

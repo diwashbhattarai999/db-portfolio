@@ -37,10 +37,9 @@
 
 .experience__info-container:hover {
   transform: scaleY(1.05);
-  box-shadow: var(--box-shadow-hover) ;
+  box-shadow: var(--box-shadow-hover);
   transition: var(--transition);
 }
-
 
 .experience__skills-details {
   display: flex;
@@ -52,13 +51,13 @@
   font-size: var(--font-sm);
 }
 
-.experience__skills-img .skill-img{
+.experience__skills-img .skill-img {
   display: block;
   width: 1.4rem;
   height: 1.4rem;
 }
 
-.experience__info-container .skill-check{
+.experience__info-container .skill-check {
   color: var(--color-tertiary);
 }
 
@@ -75,12 +74,10 @@
   .experience__skills-details h4 {
     font-size: var(--font-xxs);
   }
-
 }
 
 /* =============== MEDIA QUERIES(SMALL DEVICES) =============== */
 @media screen and (max-width: 778px) {
-
   .experience__info {
     grid-template-rows: 1fr 1fr;
     grid-template-columns: none;
@@ -93,4 +90,23 @@
   .experience__skills-details h4 {
     font-size: var(--font-xs);
   }
+}
+
+.experience__skills {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  position: relative;
+}
+
+.experience__skills .experience__skill {
+}
+
+
+
+.ex-skill {
+  display: block;
+  width: 4rem;
+  height: 4rem;
 }
