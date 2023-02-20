@@ -20,13 +20,21 @@ function App() {
       <LeftSocial />
       <RightSocial />
       <div id="content" ref={contentRef}>
-          <Header />
-        <main className="db__main">
-          <About />
-          <Experience />
-          <Portfolio />
-          <Contact />
-        </main>
+        <Header />
+        {/* <main> */}
+          <div className="db__main db__about">
+            <About />
+          </div>
+          <div className="db__main db__experience">
+            <Experience />
+          </div>
+          <div className="db__main db__portfolio">
+            <Portfolio />
+          </div>
+          <div className="db__main db__contact">
+            <Contact />
+          </div>
+        {/* </main> */}
         <Footer />
       </div>
     </div>

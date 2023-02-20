@@ -60,10 +60,14 @@
   flex-direction: column;
   align-items: center;
   gap: 1rem;
-  background-color: var(--color-white-tertiary);
   border-radius: var(--border-radius);
+  width: 100%;
   flex: 1;
-  padding: 1.4rem 0;
+}
+
+.contact__message .contact__row {
+  display: flex;
+  width: 100%;
 }
 
 .contact__message .contact__input {
@@ -79,13 +83,14 @@
   padding: 1rem 0.8rem;
   outline: 2px solid transparent;
   outline-offset: 5px;
-  width: 70%;
+  width: 90%;
   resize: vertical;
   background-color: transparent;
 }
 
 .contact__message textarea {
   height: 10rem;
+  width: 95%;
 }
 
 .contact__message input:focus,
@@ -97,9 +102,9 @@
 
 .contact__message span {
   position: absolute;
-  left: 18%;
-  top: 0.7rem;
-  font-size: 1rem;
+  left: 2rem;
+  top: 0.8rem;
+  font-size: 0.8rem;
   pointer-events: none;
 }
 
@@ -107,8 +112,8 @@
 .contact__message textarea:focus ~ span,
 .contact__message input:valid ~ span,
 .contact__message textarea:valid ~ span {
-  transform: translateX(-0.2rem) translateY(-1.3rem);
-  background: var(--color-white-tertiary);
+  transform: translateX(-0.2rem) translateY(-1.4rem);
+  background: var(--contact-bg);
   color: var(--color-highlight);
   transition: all 0.2s ease;
   padding: 0 0.2rem;
@@ -116,8 +121,8 @@
 }
 
 .contact__message .contact__btn {
-  margin-top: 1rem;
-  padding: .8rem 1.2rem;
+  margin: 1rem auto 0 auto;
+  padding: 0.8rem 1.2rem;
 }
 
 /* =============== MEDIA QUERIES(SMALL DEVICES) =============== */
@@ -134,12 +139,17 @@
     width: 100%;
   }
 
+  .contact__message .contact__row {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
   .contact__message input,
   .contact__message textarea {
     width: 90%;
   }
 
-  .contact__message span {
+  .contact__message span{
     left: 8%;
   }
 }
@@ -163,7 +173,7 @@
     width: 100%;
   }
 
-  .contact__message span {
+  .contact__message span{
     left: 4%;
   }
 }

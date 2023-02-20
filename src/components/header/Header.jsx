@@ -4,7 +4,7 @@ import { TbHandRock } from "react-icons/tb";
 
 const Header = () => {
   return (
-    <header id="home" className="home">
+    <header id="home" className="home db__main">
       <div className="header__container">
         <h5>
           Hey there <TbHandRock />, my

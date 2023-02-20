@@ -49,7 +49,7 @@
 }
 
 .experience__skills-details h4 {
-  font-size: var(--font-lg);
+  font-size: var(--font-sm);
 }
 
 .experience__skills-img .skill-img{
@@ -73,7 +73,7 @@
   }
 
   .experience__skills-details h4 {
-    font-size: var(--font-xs);
+    font-size: var(--font-xxs);
   }
 
 }

@@ -4,7 +4,7 @@ import Profile from "../../assets/profile.jpg";
 
 const About = () => {
   return (
-    <section id="about" className="about">
+    <section id="about" className="about" >
       <h5>Get To Know</h5>
       <h2>About Me</h2>
 

@@ -1,39 +1,42 @@
-import { useState } from "react";
 import "./Contact.css";
 import { ImLocation2 } from "react-icons/im";
 import { MdEmail } from "react-icons/md";
 import { BsFillTelephoneFill } from "react-icons/bs";
+import { send } from "@emailjs/browser";
+import { useForm } from "react-hook-form";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
-  const { name, email, message } = formData;
-
-  const handleInput = (e) => {
-    const name = e.target.name;
-    const value = e.target.value;
-    setFormData((prevFormData) => {
-      return { ...prevFormData, [name]: value };
-    });
+  const onSubmit = (data) => {
+    send("service_axhdvt8", "template_zl7gas4", data, "ueqBmn09k8uUAeY2K")
+      .then((res) => {
+        console.log("SUCESS!!", res.status, res.text);
+        formSucess();
+      })
+      .catch((err) => {
+        console.log("FAILED...", err);
+      });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const formSucess = () => {
+    toast("Thanks for submitting your Message!");
+    document.getElementById("queryForm").reset();
   };
-
-  const handleClick = () => {
-    setFormData(formData)
-  }
 
   return (
-    <section id="contact" className="contact">
+    <section id="contact" className="contact ">
       <h5>Let's Chat</h5>
       <h2>Contact Me</h2>
       <div className="contact__info">
+        {/* ==================== LINKS ==================== */}
         <div className="contact__links">
           <a
             href="https://goo.gl/maps/oojYmR3KmF1WR6Hw7"
@@ -61,49 +64,127 @@ const Contact = () => {
             </div>
             <h4>+977 9863447740</h4>
           </a>
+          <p>
+            I would be happy to answer any questions.
+          </p>
         </div>
-        <form className="contact__message" onSubmit={handleSubmit}>
-          <div className="contact__input">
-            <input
-              type="text"
-              name="name"
-              value={name}
-              onChange={handleInput}
-              required
-              autoComplete="off"
-            />
-            <span>Name</span>
-          </div>
-          <div className="contact__input">
-            <input
-              type="text"
-              name="email"
-              value={email}
-              onChange={handleInput}
-              required
-              autoComplete="off"
-            />
-            <span>Email</span>
-          </div>
-          <div className="contact__input textarea">
-            <textarea
-              rows="4"
-              name="message"
-              value={message}
-              onChange={handleInput}
-              required
-              autoComplete="off"
-            />
-            <span>Message Here</span>
-          </div>
-          <button
-            type="submit"
-            onClick={handleClick}
-            className="btn contact__btn"
+        {/* ==================== END LINKS ==================== */}
+
+        {/* ==================== FORM ==================== */}
+        <div className="contact__message">
+          <ToastContainer />
+          <form
+            id="queryForm"
+            className="contact__message"
+            onSubmit={handleSubmit(onSubmit)}
           >
-            Send Message
-          </button>
-        </form>
+            <div className="contact__row">
+              <div className="contact__input">
+                <input
+                  type="text"
+                  name="from_name"
+                  autoComplete="off"
+                  required
+                  {...register("from_name", {
+                    required: "Name is required",
+                  })}
+                />
+                <span>Name</span>
+                {errors.from_name?.message && (
+                  <p className="errors">{errors.from_name?.message}</p>
+                )}
+              </div>
+              <div className="contact__input">
+                <input
+                  type="text"
+                  name="reply_to"
+                  autoComplete="off"
+                  required
+                  {...register("reply_to", {
+                    required: "Email is required",
+                    pattern: {
+                      value:
+                        /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
+                      message: "Invalid email address",
+                    },
+                  })}
+                />
+                <span>Email</span>
+                {errors.reply_to?.message && (
+                  <p className="errors">{errors.reply_to?.message}</p>
+                )}
+              </div>
+            </div>
+            <div className="contact__row">
+              <div className="contact__input">
+                <input
+                  type="text"
+                  name="phone_number"
+                  autoComplete="off"
+                  required
+                  {...register("phone_number", {
+                    required: "Phone number is required",
+                    minLength: {
+                      value: 8,
+                      message: "Phone number is not valid",
+                    },
+                  })}
+                />
+                <span>Phone</span>
+                {errors.phone_number?.message && (
+                  <p className="errors">{errors.phone_number?.message}</p>
+                )}
+              </div>
+              <div className="contact__input">
+                <input
+                  type="text"
+                  name="subject"
+                  autoComplete="off"
+                  required
+                  {...register("subject", {
+                    required: "Subject is required",
+                    minLength: {
+                      value: 10,
+                      message: "Minimum 10 characters required",
+                    },
+                  })}
+                />
+                <span>Subject</span>
+                {errors.subject?.message && (
+                  <p className="errors">{errors.subject?.message}</p>
+                )}
+              </div>
+            </div>
+            <div className="contact__input textarea">
+              <textarea
+                className="textarea"
+                name="message"
+                pautoComplete="off"
+                required
+                {...register("message", {
+                  required: "Message is required",
+                  minLength: {
+                    value: 20,
+                    message: "Minimum 20 characters required",
+                  },
+                  maxLength: {
+                    value: 500,
+                    message: "Minimum 500 characters allowed",
+                  },
+                })}
+              />
+              <span>Message</span>
+              {errors.message?.message && (
+                <p className="errors">{errors.message?.message}</p>
+              )}
+            </div>
+
+            <button type="submit" className="btn contact__btn">
+              Submit
+            </button>
+          </form>
+        </div>
+        {/* ==================== END FORM ==================== */}
       </div>
     </section>
   );

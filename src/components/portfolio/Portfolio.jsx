@@ -14,7 +14,7 @@ import { Keyboard, Pagination, Navigation } from "swiper";
 
 const Portfolio = () => {
   return (
-    <section id="portfolio" className="portfolio">
+    <section id="portfolio" className="portfolio ">
       <h5>See My Work</h5>
       <h2>Portfolio</h2>
       <Swiper

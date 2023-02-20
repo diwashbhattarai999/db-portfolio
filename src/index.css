@@ -16,6 +16,7 @@
 
   --border-radius: 4px;
 
+  --font-xxs: 14px;
   --font-xs: 16px;
   --font-sm: 18px;
   --font-md: 20px;
@@ -57,9 +58,12 @@ body {
   position: relative;
 }
 
-.db__main,
-.home {
+.db__main{
   padding: 0 150px;
+}
+
+.db__contact {
+  background-color: var(--contact-bg);
 }
 
 h1,

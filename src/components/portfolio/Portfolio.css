@@ -114,7 +114,7 @@
 }
 
 .swiper-pagination .swiper-pagination-bullet {
-  background-color: white;
+  background-color: transparent;
   opacity: 0.5;
   width: 10px;
   height: 10px;
@@ -146,7 +146,7 @@
     justify-content: center;
     grid-column: 1 / -1;
     height: 100%;
-    padding: 0 2rem;
+    padding: 1rem 2rem;
     box-shadow: var(--box-shadow);
   }
 
@@ -202,6 +202,6 @@
 @media screen and (max-width: 480px) {
   .portfolio__container .project__details {
     gap: 1rem;
-    padding: 0 1rem;
+    padding: 1rem;
   }
 }
