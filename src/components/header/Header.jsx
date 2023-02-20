@@ -7,8 +7,7 @@ const Header = () => {
     <header id="home" className="home db__main">
       <div className="header__container">
         <h5>
-          Hey there <TbHandRock />, my
-          name is
+          Hey there <TbHandRock />, my name is
         </h5>
         <h1>Diwash Bhattarai</h1>
         <h3>Frontend Developer</h3>
