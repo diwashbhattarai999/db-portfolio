@@ -91,6 +91,7 @@
   width: 90%;
   resize: vertical;
   background-color: transparent;
+  color: var(--color-secondary);
 }
 
 .contact__message textarea {
@@ -132,6 +133,10 @@
 
 /* =============== MEDIA QUERIES(SMALL DEVICES) =============== */
 @media screen and (max-width: 768px) {
+  .contact h2::before {
+    width: 100%;
+  }
+
   .contact .contact__info {
     flex-direction: column;
   }
@@ -154,7 +159,7 @@
     width: 90%;
   }
 
-  .contact__message span{
+  .contact__message span {
     left: 8%;
   }
   .contact__input p {
@@ -181,7 +186,7 @@
     width: 100%;
   }
 
-  .contact__message span{
+  .contact__message span {
     left: 4%;
   }
 }

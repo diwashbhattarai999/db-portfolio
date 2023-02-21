@@ -34,6 +34,12 @@
   background-color: var(--skill-primary);
   border-radius: 50%;
   padding: 0.7rem;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.experience__skills-details .ex-logo:hover{
+  opacity: .8;
 }
 
 .experience__skills-details .skill-icon {

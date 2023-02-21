@@ -140,6 +140,10 @@
 
 /* =============== MEDIA QUERIES(SMALL DEVICES) =============== */
 @media screen and (max-width: 768px) {
+  .portfolio h2::after {
+    width: 100%;
+  }
+
   .portfolio__container .project__details {
     display: flex;
     flex-direction: column;

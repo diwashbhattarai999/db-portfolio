@@ -42,6 +42,7 @@
 .dark__mode {
   margin-bottom: -0.2rem;
   cursor: pointer;
+  transition: var(--transition);
 }
 
 .scroll__down:hover {
@@ -82,6 +83,7 @@
     border-radius: 50%;
     padding: .5rem;
     color: var(--btn-text);
+    border: 2px solid transparent;
   }
   .dark__mode:hover{
     color: var(--color-primary);

@@ -5,33 +5,40 @@ import { RxCross2 } from "react-icons/rx";
 import CV from "../../assets/DiwashCv.pdf";
 import { BsGithub, BsInstagram, BsLinkedin } from "react-icons/bs";
 import { Link } from "react-scroll";
+// import Hamburger from "hamburger-react";
 
 const Nav = ({ contentRef }) => {
   const [showNavbar, setShowNavbar] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
 
-  const [menuIcon, setMenuIcon] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   const [navActive, setNavActive] = useState("#home");
 
-  const navRef = useRef();
-  const linkRef = useRef();
+  const navRef = useRef(null);
+  const linkRef = useRef(null);
+  const hamRef = useRef(null);
 
   /* ==================== Click Outside Close ==================== */
-  useEffect((e) => {
-    const handleNav = (e) => {
-      if (!linkRef.current.contains(e.target)) {
-        setMenuIcon(false);
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (linkRef.current && !linkRef.current.contains(e.target)) {
+        setIsOpen(false);
       }
     };
-    /* ==================== Click Outside Close End ==================== */
 
-    document.addEventListener("mousedown", handleNav);
-  });
+    document.addEventListener("mousedown", handleClickOutside);
+
+    // Clean up
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isOpen]);
+  /* ==================== Click Outside Close End ==================== */
 
   /* ==================== Scroll Navbar ==================== */
   useEffect(() => {
-    if (!menuIcon) {
+    if (!isOpen) {
       const handleScroll = () => {
         if (typeof window !== "undefined") {
           if (window.scrollY > 500) {
@@ -58,24 +65,24 @@ const Nav = ({ contentRef }) => {
         return () => window.removeEventListener("scroll", handleScroll);
       }
     }
-  }, [lastScrollY, menuIcon]);
+  }, [lastScrollY, isOpen]);
   /* ==================== Scroll Navbar End ==================== */
 
   /* ==================== Blur Bg ==================== */
   useEffect(() => {
-    if (menuIcon) contentRef.current.className = "blur";
+    if (isOpen) contentRef.current.className = "blur";
     else contentRef.current.className = undefined;
   });
   /* ==================== Blur Bg End ==================== */
 
-  const handleMenu = (e) => {
-    menuIcon ? setMenuIcon(false) : setMenuIcon(true);
-  };
-
   /* =============== Body Scroll=============== */
-  if (menuIcon) document.body.style.overflow = "hidden";
+  if (isOpen) document.body.style.overflow = "hidden";
   else document.body.style.overflow = "auto";
   /* =============== Body Scroll End =============== */
+
+  const handleMenu = () => {
+    setIsOpen(!isOpen);
+  };
 
   return (
     <nav
@@ -87,18 +94,20 @@ const Nav = ({ contentRef }) => {
         className="nav__logo"
         onClick={() => {
           setNavActive("#home");
-          setMenuIcon(false);
         }}
       >
         DB
       </Link>
-      <div className={`nav__links ${!menuIcon && "nav__close"}`} ref={linkRef}>
+      <div
+        className={`nav__links ${isOpen === false ? "nav__close" : ""}`}
+        ref={linkRef}
+      >
         <a
           href="#about"
           className={`nav__link ${navActive === "#about" ? "active" : ""}`}
           onClick={() => {
             setNavActive("#about");
-            setMenuIcon(false);
+            setIsOpen(false);
           }}
         >
           About
@@ -108,7 +117,7 @@ const Nav = ({ contentRef }) => {
           className={`nav__link ${navActive === "#skills" ? "active" : ""}`}
           onClick={() => {
             setNavActive("#skills");
-            setMenuIcon(false);
+            setIsOpen(false);
           }}
         >
           Skills
@@ -118,7 +127,7 @@ const Nav = ({ contentRef }) => {
           className={`nav__link ${navActive === "#portfolio" ? "active" : ""}`}
           onClick={() => {
             setNavActive("#portfolio");
-            setMenuIcon(false);
+            setIsOpen(false);
           }}
         >
           Portfolio
@@ -128,7 +137,7 @@ const Nav = ({ contentRef }) => {
           className={`nav__link ${navActive === "#contact" ? "active" : ""}`}
           onClick={() => {
             setNavActive("#contact");
-            setMenuIcon(false);
+            setIsOpen(false);
           }}
         >
           Contact
@@ -163,11 +172,17 @@ const Nav = ({ contentRef }) => {
           </a>
         </div>
       </div>
-      <div className="nav__menu" onClick={handleMenu}>
-        {menuIcon ? (
-          <RxCross2 className="nav__menu-icon" onClick={handleMenu} />
+      <div ref={hamRef} className="nav__menu">
+        {/* <Hamburger
+          className="nav__menu-icon"
+          toggled={isOpen}
+          toggle={setIsOpen}
+          size="25"
+        /> */}
+        {isOpen ? (
+          <RxCross2 className="nav__menu-icon nav__menu-icon-close" onClick={handleMenu} />
         ) : (
-          <CgMenuRight className="nav__menu-icon" onClick={handleMenu} />
+          <CgMenuRight className="nav__menu-icon nav__menu-icon-open" onClick={handleMenu} />
         )}
       </div>
     </nav>

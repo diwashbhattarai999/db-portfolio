@@ -38,8 +38,6 @@ const swiperRef = useRef(null);
           mousewheel={true}
           navigation={true}
           autoplay={{ delay: 1000 }}
-          playOnMouseLeave={true}
-          pauseOnMouseEnter={true}
           className="mySwiper"
         >
           {Projects.map((project) => {

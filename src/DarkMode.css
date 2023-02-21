@@ -11,7 +11,7 @@
   --bg-secondary: #ececff;
   --home-primary: #ffffff;
   --contact-bg: #ede7f5;
-  --skill-primary: #ded3e8;
+  --skill-primary: var(--color-highlight);
 
   --nav-primary: transparent;
   --nav-secondary: #ffffff1a;
@@ -37,7 +37,8 @@
   --bg-secondary: #1b1b23;
   --home-primary: #0f121a;
   --contact-bg: #0b0d13;
-  --skill-primary: #2a272e;
+  /* --skill-primary: #2a272e; */
+  --skill-primary: var(--color-highlight);
 
   --nav-primary: transparent;
   --nav-secondary: #ffffff1a;
