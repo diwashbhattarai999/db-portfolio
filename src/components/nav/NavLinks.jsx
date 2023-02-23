@@ -1,5 +1,6 @@
 import { useState } from "react";
 import CV from "../../assets/DiwashCv.pdf";
+import NavSocial from "./NavSocial";
 
 const NavLinks = ({ setIsOpen }) => {
   const [navActive, setNavActive] = useState("#home");
@@ -48,6 +49,8 @@ const NavLinks = ({ setIsOpen }) => {
       <a href={CV} target="__blank" rel="noreferrer" className="btn">
         Resume
       </a>
+
+      <NavSocial />
     </div>
   );
 };

@@ -163,13 +163,6 @@ img {
   object-fit: cover;
 }
 
-.blur {
-  filter: blur(5px) brightness(0.7);
-  transition: var(--transition);
-  pointer-events: none;
-  user-select: none;
-}
-
 /* =============== MEDIA QUERIES(MEDIUM DEVICES) =============== */
 @media screen and (max-width: 1080px) {
   .db__main,
@@ -183,6 +176,13 @@ img {
   .db__main,
   .home {
     padding: 0 50px;
+  }
+
+  .blur {
+    filter: blur(5px) brightness(0.7);
+    transition: var(--transition);
+    pointer-events: none;
+    user-select: none;
   }
 }
 

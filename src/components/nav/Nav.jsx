@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from "react";
 import "./Nav.css";
 import { CgMenuRight } from "react-icons/cg";
 import { RxCross2 } from "react-icons/rx";
-import { BsGithub, BsInstagram, BsLinkedin } from "react-icons/bs";
 import { Link } from "react-scroll";
 import NavLinks from "./NavLinks";
 
@@ -15,6 +14,7 @@ const Nav = ({ contentRef }) => {
   const navRef = useRef(null);
   const linkRef = useRef(null);
   const hamRef = useRef(null);
+
 
   /* ==================== Click Outside Close ==================== */
   useEffect(() => {
@@ -67,8 +67,9 @@ const Nav = ({ contentRef }) => {
 
   /* ==================== Blur Bg ==================== */
   useEffect(() => {
-    if (isOpen) contentRef.current.className = "blur";
-    else contentRef.current.className = undefined;
+    isOpen
+      ? (contentRef.current.className = "blur")
+      : (contentRef.current.className = "");
   });
   /* ==================== Blur Bg End ==================== */
 
@@ -76,10 +77,6 @@ const Nav = ({ contentRef }) => {
   if (isOpen) document.body.style.overflow = "hidden";
   else document.body.style.overflow = "auto";
   /* =============== Body Scroll End =============== */
-
-  const handleMenu = () => {
-    setIsOpen(!isOpen);
-  };
 
   return (
     <nav
@@ -89,49 +86,18 @@ const Nav = ({ contentRef }) => {
       <Link to="/" className="nav__logo">
         DB
       </Link>
-      <div
-        className={`${isOpen === false ? "nav__close" : ""}`}
-        ref={linkRef}
-      >
-        <NavLinks setIsOpen={setIsOpen}/>
-
-        <div className="nav__social">
-          <a
-            href="https://github.com/diwashbhattarai999"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <BsGithub className="social__link" />
-          </a>
-
-          <a
-            href="https://www.linkedin.com/in/diwash-bhattarai-343a41202/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <BsLinkedin className="social__link" />
-          </a>
-
-          <a
-            href="https://www.instagram.com/diwash81/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <BsInstagram className="social__link" />
-          </a>
-        </div>
+      <div className={isOpen === false && "nav__close"} ref={linkRef}>
+        <NavLinks setIsOpen={setIsOpen} />
       </div>
-      <div ref={hamRef} className="nav__menu">
+      <div
+        ref={hamRef}
+        className="nav__menu"
+        onClick={() => setIsOpen(!isOpen)}
+      >
         {isOpen ? (
-          <RxCross2
-            className="nav__menu-icon nav__menu-icon-close"
-            onClick={handleMenu}
-          />
+          <RxCross2 className="nav__menu-icon" />
         ) : (
-          <CgMenuRight
-            className="nav__menu-icon nav__menu-icon-open"
-            onClick={handleMenu}
-          />
+          <CgMenuRight className="nav__menu-icon" />
         )}
       </div>
     </nav>
