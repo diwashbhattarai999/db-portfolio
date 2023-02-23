@@ -2,18 +2,15 @@ import React, { useEffect, useRef, useState } from "react";
 import "./Nav.css";
 import { CgMenuRight } from "react-icons/cg";
 import { RxCross2 } from "react-icons/rx";
-import CV from "../../assets/DiwashCv.pdf";
 import { BsGithub, BsInstagram, BsLinkedin } from "react-icons/bs";
 import { Link } from "react-scroll";
-// import Hamburger from "hamburger-react";
+import NavLinks from "./NavLinks";
 
 const Nav = ({ contentRef }) => {
   const [showNavbar, setShowNavbar] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
 
   const [isOpen, setIsOpen] = useState(false);
-
-  const [navActive, setNavActive] = useState("#home");
 
   const navRef = useRef(null);
   const linkRef = useRef(null);
@@ -89,62 +86,14 @@ const Nav = ({ contentRef }) => {
       ref={navRef}
       className={`nav__container  ${showNavbar ? "active" : "hidden"}`}
     >
-      <Link
-        to="home"
-        className="nav__logo"
-        onClick={() => {
-          setNavActive("#home");
-        }}
-      >
+      <Link to="/" className="nav__logo">
         DB
       </Link>
       <div
-        className={`nav__links ${isOpen === false ? "nav__close" : ""}`}
+        className={`${isOpen === false ? "nav__close" : ""}`}
         ref={linkRef}
       >
-        <a
-          href="#about"
-          className={`nav__link ${navActive === "#about" ? "active" : ""}`}
-          onClick={() => {
-            setNavActive("#about");
-            setIsOpen(false);
-          }}
-        >
-          About
-        </a>
-        <a
-          href="#experience"
-          className={`nav__link ${navActive === "#skills" ? "active" : ""}`}
-          onClick={() => {
-            setNavActive("#skills");
-            setIsOpen(false);
-          }}
-        >
-          Skills
-        </a>
-        <a
-          href="#portfolio"
-          className={`nav__link ${navActive === "#portfolio" ? "active" : ""}`}
-          onClick={() => {
-            setNavActive("#portfolio");
-            setIsOpen(false);
-          }}
-        >
-          Portfolio
-        </a>
-        <a
-          href="#contact"
-          className={`nav__link ${navActive === "#contact" ? "active" : ""}`}
-          onClick={() => {
-            setNavActive("#contact");
-            setIsOpen(false);
-          }}
-        >
-          Contact
-        </a>
-        <a href={CV} target="__blank" rel="noreferrer" className="btn">
-          Resume
-        </a>
+        <NavLinks setIsOpen={setIsOpen}/>
 
         <div className="nav__social">
           <a
@@ -173,16 +122,16 @@ const Nav = ({ contentRef }) => {
         </div>
       </div>
       <div ref={hamRef} className="nav__menu">
-        {/* <Hamburger
-          className="nav__menu-icon"
-          toggled={isOpen}
-          toggle={setIsOpen}
-          size="25"
-        /> */}
         {isOpen ? (
-          <RxCross2 className="nav__menu-icon nav__menu-icon-close" onClick={handleMenu} />
+          <RxCross2
+            className="nav__menu-icon nav__menu-icon-close"
+            onClick={handleMenu}
+          />
         ) : (
-          <CgMenuRight className="nav__menu-icon nav__menu-icon-open" onClick={handleMenu} />
+          <CgMenuRight
+            className="nav__menu-icon nav__menu-icon-open"
+            onClick={handleMenu}
+          />
         )}
       </div>
     </nav>

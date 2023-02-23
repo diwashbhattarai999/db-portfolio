@@ -17,8 +17,8 @@
   transition: var(--transition);
 }
 
-.hidden{
-  transform: translateY(calc(var(--nav-height) * -1))
+.hidden {
+  transform: translateY(calc(var(--nav-height) * -1));
 }
 
 .nav__container .nav__logo {
@@ -29,7 +29,7 @@
   cursor: pointer;
 }
 
-.nav__container .nav__logo:hover{
+.nav__container .nav__logo:hover {
   color: var(--color-quaternary);
   transform: scaleX(1.2);
   transition: var(--transition);
@@ -58,7 +58,6 @@
   transition: var(--transition);
 }
 
-
 .nav__container .nav__links .btn {
   margin-left: 2.8rem;
 }
@@ -78,14 +77,9 @@
   cursor: pointer;
 }
 
-.nav__close {
+.nav__social {
   display: none;
 }
-
-.nav__social{
-  display: none;
-}
-
 
 /* ==================== Responsive Mobile ==================== */
 
@@ -127,10 +121,14 @@
     margin-top: 2rem;
   }
 
-  .nav__social{
+  .nav__social {
     display: flex;
     gap: 1.4rem;
     margin-top: 1.2rem;
+  }
+
+  .nav__close {
+    display: none;
   }
 }
 
