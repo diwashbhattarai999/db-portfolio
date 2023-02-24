@@ -1,10 +1,17 @@
 import "./Header.css";
-import CV from "../../assets/DiwashCv.pdf";
+import CV from "../../assets/DB-Resume.pdf";
 import { TbHandRock } from "react-icons/tb";
+import { motion } from "framer-motion";
+import { headerAnimation } from "../../animation/animation";
 
 const Header = () => {
   return (
-    <header id="home" className="home db__main">
+    <motion.header
+      id="home"
+      className="home db__main"
+      variants={headerAnimation}
+      transition={{delay: 0.3, duration: 0.6, type: "tween"}}
+    >
       <div className="header__container">
         <h5>
           Hey there <TbHandRock />, my name is
@@ -23,7 +30,7 @@ const Header = () => {
           Download Resume
         </a>
       </div>
-    </header>
+    </motion.header>
   );
 };
 

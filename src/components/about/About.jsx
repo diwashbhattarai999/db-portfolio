@@ -1,8 +1,13 @@
 import React from "react";
 import "./About.css";
 import Profile from "../../assets/profile.jpg";
+import { motion } from "framer-motion";
+import { aboutAnimation } from "../../animation/animation";
+import { useScroll } from "../../animation/useScroll";
 
 const About = () => {
+  const [element, controls] = useScroll();
+
   return (
     <section id="about" className="about" >
       <h5>Get To Know</h5>

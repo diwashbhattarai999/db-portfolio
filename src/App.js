@@ -10,12 +10,13 @@ import {
   RightSocial,
   Experience,
 } from "./components";
+import { motion } from "framer-motion";
 
 function App() {
   const contentRef = useRef();
 
   return (
-    <div className="db__portfolio">
+    <motion.div className="db__portfolio" initial="hidden" animate="show">
       <Nav contentRef={contentRef} />
       <LeftSocial />
       <RightSocial />
@@ -35,7 +36,7 @@ function App() {
         </div>
         <Footer />
       </div>
-    </div>
+    </motion.div>
   );
 }
 

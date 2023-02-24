@@ -1,9 +1,12 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./Nav.css";
 import { CgMenuRight } from "react-icons/cg";
 import { RxCross2 } from "react-icons/rx";
 import { Link } from "react-scroll";
 import NavLinks from "./NavLinks";
+import { motion } from "framer-motion";
+import { navAnimation } from "../../animation/animation";
+import { useScroll } from "../../animation/useScroll";
 
 const Nav = ({ contentRef }) => {
   const [showNavbar, setShowNavbar] = useState(true);
@@ -15,6 +18,7 @@ const Nav = ({ contentRef }) => {
   const linkRef = useRef(null);
   const hamRef = useRef(null);
 
+  const [element, controls] = useScroll();
 
   /* ==================== Click Outside Close ==================== */
   useEffect(() => {
@@ -83,23 +87,34 @@ const Nav = ({ contentRef }) => {
       ref={navRef}
       className={`nav__container  ${showNavbar ? "active" : "hidden"}`}
     >
-      <Link to="/" className="nav__logo">
-        DB
-      </Link>
-      <div className={isOpen === false && "nav__close"} ref={linkRef}>
-        <NavLinks setIsOpen={setIsOpen} />
-      </div>
-      <div
-        ref={hamRef}
-        className="nav__menu"
-        onClick={() => setIsOpen(!isOpen)}
+      <motion.div
+        className="inner-nav__container"
+        variants={navAnimation}
+        ref={element}
+        initial="hidden"
+        animate={controls}
+        transition={{ delay: 0.1 }}
       >
-        {isOpen ? (
-          <RxCross2 className="nav__menu-icon" />
-        ) : (
-          <CgMenuRight className="nav__menu-icon" />
-        )}
-      </div>
+        <div>
+          <Link to="/" className="nav__logo">
+            DB
+          </Link>
+        </div>
+        <div className={isOpen ? "nav__open" : "nav__close"} ref={linkRef}>
+          <NavLinks isOpen={isOpen} setIsOpen={setIsOpen} />
+        </div>
+        <div
+          ref={hamRef}
+          className="nav__menu"
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          {isOpen ? (
+            <RxCross2 className="nav__menu-icon" />
+          ) : (
+            <CgMenuRight className="nav__menu-icon" />
+          )}
+        </div>
+      </motion.div>
     </nav>
   );
 };

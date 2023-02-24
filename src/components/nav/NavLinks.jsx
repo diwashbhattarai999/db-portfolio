@@ -1,5 +1,5 @@
 import { useState } from "react";
-import CV from "../../assets/DiwashCv.pdf";
+import CV from "../../assets/DB-Resume.pdf";
 import NavSocial from "./NavSocial";
 
 const NavLinks = ({ setIsOpen }) => {
