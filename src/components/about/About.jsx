@@ -2,22 +2,32 @@ import React from "react";
 import "./About.css";
 import Profile from "../../assets/profile.jpg";
 import { motion } from "framer-motion";
-import { aboutAnimation } from "../../animation/animation";
+import { aboutAnimation, aboutImgAnimation } from "../../animation/animation";
 import { useScroll } from "../../animation/useScroll";
 
 const About = () => {
   const [element, controls] = useScroll();
 
   return (
-    <section id="about" className="about" >
+    <section id="about" className="about">
       <h5>Get To Know</h5>
       <h2>About Me</h2>
 
-      <div className="about__info">
-        <div className="about__info-img">
+      <div className="about__info" ref={element}>
+        <motion.div
+          className="about__info-img"
+          variants={aboutImgAnimation}
+          animate={controls}
+          transition={{ delay: 0.1, type: "tween", duration: 1 }}
+        >
           <img src={Profile} alt="" />
-        </div>
-        <div className="about__info-details">
+        </motion.div>
+        <motion.div
+          className="about__info-details"
+          variants={aboutAnimation}
+          animate={controls}
+          transition={{ delay: 0.1, type: "tween", duration: 1 }}
+        >
           <h1>FrontEnd Developer</h1>
           <p>
             Hello People, I am Diwash Bhattarai currently pursuing my career in
@@ -30,7 +40,7 @@ const About = () => {
           <a href="#contact" className="btn">
             Let's Talk
           </a>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

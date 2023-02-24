@@ -2,7 +2,7 @@ import { useInView } from "react-intersection-observer";
 import { useAnimation } from "framer-motion";
 import { useEffect } from "react";
 
-export const useScroll = (thresh = 0.1) => {
+export const useScroll = (thresh = 0.5) => {
   const controls = useAnimation();
   const [element, view] = useInView({ threshold: thresh });
 
@@ -12,7 +12,7 @@ export const useScroll = (thresh = 0.1) => {
     } else {
       controls.start("hidden");
     }
-  });
+  },[view]);
 
   return [element, controls];
 };

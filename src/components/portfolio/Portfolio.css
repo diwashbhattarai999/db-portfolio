@@ -125,6 +125,18 @@
   background-color: var(--color-highlight);
 }
 
+.swiper .swiper-button-next.swiper-button-disabled,
+.swiper .swiper-button-prev.swiper-button-disabled {
+  opacity: .5;
+}
+
+.swiper .swiper-button-prev,
+.swiper .swiper-button-next {
+  top: 45%;
+  padding: 0 1rem;
+  color: var(--color-highlight);
+}
+
 /* =============== MEDIA QUERIES(MEDIUM DEVICES) =============== */
 @media screen and (max-width: 1080px) {
   .portfolio__container .project__details {

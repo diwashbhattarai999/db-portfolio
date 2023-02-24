@@ -7,6 +7,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
 import "swiper/css";
+import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/autoplay";
 
@@ -14,21 +15,25 @@ import "swiper/css/autoplay";
 import { Keyboard, Pagination, Navigation, Autoplay } from "swiper";
 import { useRef } from "react";
 
+import { motion } from "framer-motion";
+import { portfolioAnimation } from "../../animation/animation";
+import { useScroll } from "../../animation/useScroll";
+
 const Portfolio = () => {
-const swiperRef = useRef(null);
+  const swiperRef = useRef(null);
+  const [element, controls] = useScroll();
 
   return (
     <section id="portfolio" className="portfolio ">
       <h5>See My Work</h5>
       <h2>Portfolio</h2>
       <div
-        onMouseEnter={() => swiperRef.current.swiper.autoplay.stop()}
-        onMouseLeave={() => swiperRef.current.swiper.autoplay.start()}
+        ref={element}
       >
         <Swiper
-        ref={swiperRef}
+          ref={swiperRef}
           spaceBetween={30}
-          modules={[Keyboard, Pagination, Navigation, Autoplay]}
+          modules={[Keyboard, Pagination, Navigation]}
           pagination={{
             clickable: true,
           }}
@@ -37,13 +42,17 @@ const swiperRef = useRef(null);
           }}
           mousewheel={true}
           navigation={true}
-          autoplay={{ delay: 1000 }}
           className="mySwiper"
         >
           {Projects.map((project) => {
             return (
               <SwiperSlide key={project.id}>
-                <div className="portfolio__container">
+                <motion.div
+                  className="portfolio__container"
+                  variants={portfolioAnimation}
+                  animate={controls}
+                  transition={{ delay: 0.06, type: "tween", duration: 0.8 }}
+                >
                   <div className="project__img">
                     <a href={project.link} target="_blank" rel="noreferrer">
                       <img src={project.img} alt={project.name} />
@@ -61,7 +70,7 @@ const swiperRef = useRef(null);
                       </a>
                     </div>
                   </div>
-                </div>
+                </motion.div>
               </SwiperSlide>
             );
           })}
