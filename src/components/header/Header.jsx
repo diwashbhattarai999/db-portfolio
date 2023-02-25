@@ -3,24 +3,19 @@ import CV from "../../assets/DB-Resume.pdf";
 import { TbHandRock } from "react-icons/tb";
 import { motion } from "framer-motion";
 import { headerAnimation } from "../../animation/animation";
-import { useScroll } from "../../animation/useScroll";
 
 const Header = () => {
 
-  const [element, controls] = useScroll();
   return (
     <motion.header
       id="home"
       className="home db__main"
-      ref={element}
       variants={headerAnimation}
       transition={{ delay: 0.3, duration: 0.6, type: "tween" }}
     >
-      <motion.div
+      <div
         className="header__container"
-        // variants={headerAnimation}
-        // animate={controls}
-        // transition={{ delay: 0.3, duration: 0.6, type: "tween" }}
+
       >
         <h5>
           Hey there <TbHandRock />, my name is
@@ -38,7 +33,7 @@ const Header = () => {
         <a href={CV} download className="btn">
           Download Resume
         </a>
-      </motion.div>
+      </div>
     </motion.header>
   );
 };

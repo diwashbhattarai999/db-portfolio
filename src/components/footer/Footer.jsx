@@ -21,56 +21,57 @@ const Footer = () => {
   };
 
   return (
-    <motion.footer
-      className="footer "
-      ref={element}
-      variants={footerAnimation}
-      animate={controls}
-      transition={{ delay: 0.1, type: "tween", duration: 0.4 }}
-    >
-      <div className="footer__links">
-        <li className="footer__link">
-          <a
-            href="https://github.com/diwashbhattarai999"
-            target="_blank"
-            rel="noreferrer"
+    <footer className="footer " ref={element}>
+      <motion.div
+      className="inner__footer"
+        variants={footerAnimation}
+        animate={controls}
+        transition={{ delay: 0.1, type: "tween", duration: 0.4 }}
+      >
+        <div className="footer__links">
+          <li className="footer__link">
+            <a
+              href="https://github.com/diwashbhattarai999"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <BsGithub className="social__link" />
+            </a>
+          </li>
+          <li className="footer__link">
+            <a
+              href="https://www.linkedin.com/in/diwash-bhattarai-343a41202/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <BsLinkedin className="social__link" />
+            </a>
+          </li>
+          <li className="footer__link">
+            <a
+              href="https://www.instagram.com/diwash81/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <BsInstagram className="social__link" />
+            </a>
+          </li>
+        </div>
+        <h2 onClick={() => Scroll.scrollToTop()}>
+          <motion.a
+            href="#home"
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+            variants={footerTopAnimation}
+            whileTap="hidden"
           >
-            <BsGithub className="social__link" />
-          </a>
-        </li>
-        <li className="footer__link">
-          <a
-            href="https://www.linkedin.com/in/diwash-bhattarai-343a41202/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <BsLinkedin className="social__link" />
-          </a>
-        </li>
-        <li className="footer__link">
-          <a
-            href="https://www.instagram.com/diwash81/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <BsInstagram className="social__link" />
-          </a>
-        </li>
-      </div>
-      <h2 onClick={() => Scroll.scrollToTop()}>
-        <motion.a
-          href="#home"
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
-          variants={footerTopAnimation}
-          whileTap="hidden"
-        >
-          <IoMdRocket />
-        </motion.a>
-        <p className={!top && "none"}>Boost me up</p>
-      </h2>
-      <h5 className="footer__copyright">&copy;Diwash Bhattarai 2023</h5>
-    </motion.footer>
+            <IoMdRocket />
+          </motion.a>
+          <p className={!top && "none"}>Boost me up</p>
+        </h2>
+        <h5 className="footer__copyright">&copy;Diwash Bhattarai 2023</h5>
+      </motion.div>
+    </footer>
   );
 };
 

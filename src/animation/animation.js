@@ -9,12 +9,12 @@ export const headerAnimation = {
 };
 
 export const aboutImgAnimation = {
-  hidden: { x: -50, opacity: 0 },
+  hidden: { x: -20, opacity: 0 },
   show: { x: 0, opacity: 1 },
 };
 
 export const aboutAnimation = {
-  hidden: { x: 50, opacity: 0 },
+  hidden: { x: 20, opacity: 0 },
   show: { x: 0, opacity: 1 },
 };
 
@@ -24,17 +24,17 @@ export const skillAnimation = {
 };
 
 export const portfolioAnimation = {
-  hidden: { y: -40, opacity: 0 },
-  show: { y: 0, opacity: 1 },
+  hidden: { x: -20, opacity: 0 },
+  show: { x: 0, opacity: 1 },
 };
 
 export const contactLinkAnimation = {
-  hidden: { x: -40, opacity: 0 },
+  hidden: { x: -20, opacity: 0 },
   show: { x: 0, opacity: 1 },
 };
 
 export const contactAnimation = {
-  hidden: { x: 50, opacity: 0 },
+  hidden: { x: 20, opacity: 0 },
   show: { x: 0, opacity: 1 },
 };
 
