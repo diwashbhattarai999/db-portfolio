@@ -12,7 +12,7 @@ import "swiper/css/pagination";
 import "swiper/css/autoplay";
 
 // import required modules
-import { Keyboard, Pagination, Navigation, Autoplay } from "swiper";
+import { Keyboard, Pagination, Navigation } from "swiper";
 import { useRef } from "react";
 
 import { motion } from "framer-motion";
@@ -51,7 +51,7 @@ const Portfolio = () => {
                   className="portfolio__container"
                   variants={portfolioAnimation}
                   animate={controls}
-                  transition={{ delay: 0.06, type: "tween", duration: 0.8 }}
+                  transition={{ delay: 0.06, type: "tween", duration: 0.6 }}
                 >
                   <div className="project__img">
                     <a href={project.link} target="_blank" rel="noreferrer">

@@ -6,7 +6,12 @@ import { send } from "@emailjs/browser";
 import { useForm } from "react-hook-form";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
+import { motion } from "framer-motion";
+import {
+  contactAnimation,
+  contactLinkAnimation,
+} from "../../animation/animation";
+import { useScroll } from "../../animation/useScroll";
 
 const Contact = () => {
   const {
@@ -31,13 +36,20 @@ const Contact = () => {
     document.getElementById("queryForm").reset();
   };
 
+  const [element, controls] = useScroll();
+
   return (
     <section id="contact" className="contact ">
       <h5>Let's Chat</h5>
       <h2>Contact Me</h2>
-      <div className="contact__info">
+      <div className="contact__info" ref={element}>
         {/* ==================== LINKS ==================== */}
-        <div className="contact__links">
+        <motion.div
+          className="contact__links"
+          variants={contactLinkAnimation}
+          animate={controls}
+          transition={{ delay: 0.2, type: "tween", duration: 0.8 }}
+        >
           <a
             href="https://goo.gl/maps/oojYmR3KmF1WR6Hw7"
             className="contact__link"
@@ -64,14 +76,17 @@ const Contact = () => {
             </div>
             <h4>+977 9863447740</h4>
           </a>
-          <p>
-            I would be happy to answer any questions.
-          </p>
-        </div>
+          <p>I would be happy to answer any questions.</p>
+        </motion.div>
         {/* ==================== END LINKS ==================== */}
 
         {/* ==================== FORM ==================== */}
-        <div className="contact__message">
+        <motion.div
+          className="contact__message"
+          variants={contactAnimation}
+          animate={controls}
+          transition={{ delay: 0.2, type: "tween", duration: 0.8 }}
+        >
           <ToastContainer />
           <form
             id="queryForm"
@@ -183,7 +198,7 @@ const Contact = () => {
               Submit
             </button>
           </form>
-        </div>
+        </motion.div>
         {/* ==================== END FORM ==================== */}
       </div>
     </section>

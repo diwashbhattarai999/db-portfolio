@@ -3,18 +3,31 @@ import "./Footer.css";
 import { BsGithub, BsInstagram, BsLinkedin } from "react-icons/bs";
 import { IoMdRocket } from "react-icons/io";
 import { animateScroll as Scroll } from "react-scroll";
+import { motion } from "framer-motion";
+import { footerAnimation, footerTopAnimation } from "../../animation/animation";
+import { useScroll } from "../../animation/useScroll";
 
 const Footer = () => {
   const [top, setTop] = useState(false);
+
+  const [element, controls] = useScroll();
+
   const handleMouseEnter = () => {
     setTop(true);
   };
+
   const handleMouseLeave = () => {
     setTop(false);
   };
 
   return (
-    <footer className="footer ">
+    <motion.footer
+      className="footer "
+      ref={element}
+      variants={footerAnimation}
+      animate={controls}
+      transition={{ delay: 0.1, type: "tween", duration: 0.4 }}
+    >
       <div className="footer__links">
         <li className="footer__link">
           <a
@@ -45,17 +58,19 @@ const Footer = () => {
         </li>
       </div>
       <h2 onClick={() => Scroll.scrollToTop()}>
-        <a
+        <motion.a
           href="#home"
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
+          variants={footerTopAnimation}
+          whileTap="hidden"
         >
           <IoMdRocket />
-        </a>
-        <p className={!top &&"none"}>Boost me up</p>
+        </motion.a>
+        <p className={!top && "none"}>Boost me up</p>
       </h2>
       <h5 className="footer__copyright">&copy;Diwash Bhattarai 2023</h5>
-    </footer>
+    </motion.footer>
   );
 };
 

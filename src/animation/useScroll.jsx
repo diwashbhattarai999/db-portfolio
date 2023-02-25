@@ -12,7 +12,7 @@ export const useScroll = (thresh = 0.5) => {
     } else {
       controls.start("hidden");
     }
-  },[view]);
+  });
 
   return [element, controls];
 };
