@@ -2,11 +2,11 @@ import { useEffect, useRef, useState } from "react";
 import "./Nav.css";
 import { CgMenuRight } from "react-icons/cg";
 import { RxCross2 } from "react-icons/rx";
-import { Link } from "react-scroll";
 import NavLinks from "./NavLinks";
 import { motion } from "framer-motion";
 import { navAnimation } from "../../animation/animation";
 import { useScroll } from "../../animation/useScroll";
+
 
 const Nav = ({ contentRef }) => {
   const [showNavbar, setShowNavbar] = useState(true);
@@ -82,6 +82,7 @@ const Nav = ({ contentRef }) => {
   else document.body.style.overflow = "auto";
   /* =============== Body Scroll End =============== */
 
+
   return (
     <nav
       ref={navRef}
@@ -96,9 +97,9 @@ const Nav = ({ contentRef }) => {
         transition={{ delay: 0.1 }}
       >
         <div>
-          <Link to="/" className="nav__logo">
+          <a href="#home" className="nav__logo">
             DB
-          </Link>
+          </a>
         </div>
         <div className={isOpen ? "nav__open" : "nav__close"} ref={linkRef}>
           <NavLinks isOpen={isOpen} setIsOpen={setIsOpen} />
