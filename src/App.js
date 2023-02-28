@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   About,
   Contact,
@@ -11,11 +11,20 @@ import {
   Experience,
 } from "./components";
 import { motion } from "framer-motion";
+import Loading from "./components/loading/Loading";
 
 function App() {
   const contentRef = useRef();
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 4000);
+  }, []);
 
-  return (
+  return loading ? (
+    <Loading />
+  ) : (
     <motion.div className="db__portfolio" initial="hidden" animate="show">
       <Nav contentRef={contentRef} />
       <LeftSocial />

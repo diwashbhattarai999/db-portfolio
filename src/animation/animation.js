@@ -44,7 +44,53 @@ export const footerAnimation = {
 };
 
 export const footerTopAnimation = {
-  hidden: { y: -100, scale: 3, opacity: 0 }
+  hidden: { y: -100, scale: 3, opacity: 0 },
 };
 
+export const loadingAnimation = {
+  hidden: {
+    y: -400,
+    opacity: 0,
+  },
+  show: {
+    y: 0,
+    opacity: 1,
+  },
+};
 
+export const loadingCircle = {
+  loadingFirst: {
+    x: [0, -20, -30, -40, -50, -60, -50, -40, -30, -20, 0],
+    transition: {
+      x: {
+        repeat: Infinity,
+        duration: 1,
+      },
+      ease: "easeInOut",
+      type: "tween",
+    },
+  },
+  loadingSecond: {
+    x: [0, 20, 30, 40, 50, 60, 50, 40, 30, 20, 0],
+    transition: {
+      x: {
+        repeat: Infinity,
+        duration: 1,
+      },
+      ease: "easeInOut",
+      type: "tween",
+    },
+  },
+};
+
+export const loadingPara = {
+  para: {
+    opacity: 0,
+    transition: {
+      repeat: Infinity,
+      repeatDelay: 0.5,
+      duration: 1,
+      ease: "easeInOut",
+    },
+  },
+};

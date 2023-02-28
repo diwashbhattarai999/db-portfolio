@@ -25,12 +25,12 @@ const skills = [
   {
     id: 4,
     logo: <DiReact className="skill-img" style={{ color: "#61DBFB" }} />,
-    text: "css",
+    text: "react",
   },
   {
     id: 5,
     logo: <SiTailwindcss className="skill-img" style={{ color: "#38bdf8" }} />,
-    text: "react",
+    text: "tailwind css",
   },
   {
     id: 6,
