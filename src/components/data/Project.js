@@ -22,7 +22,7 @@ const Projects = [
       "Quiz App is a general Knowledge and IQ game with a variety of options to play. There are different levels from easy to hard and different categories to choose for a player.",
     img: img1,
     github: "https://github.com/diwashbhattarai999/quiz_app",
-    link: "https://quiz-app-diwash.netlify.app/",
+    link: "https://db-quiz-app.netlify.app/",
   },
   {
     id: 4,
