@@ -49,7 +49,7 @@ export const footerTopAnimation = {
 
 export const loadingAnimation = {
   hidden: {
-    y: -400,
+    y: -200,
     opacity: 0,
   },
   show: {

@@ -20,7 +20,7 @@ const Experience = () => {
               key={id}
               variants={skillAnimation}
               animate={controls}
-              transition={{delay: 0.03, type: "tween", duration: 0.8}}
+              transition={{delay: 0.03, type: "tween", duration: 0.5}}
             >
               <div className="ex-logo">{logo}</div>
               <h4>{text}</h4>

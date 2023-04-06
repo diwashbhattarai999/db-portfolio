@@ -26,7 +26,7 @@ const Footer = () => {
       className="inner__footer"
         variants={footerAnimation}
         animate={controls}
-        transition={{ delay: 0.1, type: "tween", duration: 0.4 }}
+        transition={{ type: "tween", duration: .2 }}
       >
         <div className="footer__links">
           <li className="footer__link">

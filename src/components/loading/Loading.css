@@ -21,7 +21,7 @@
 }
 
 .loading .line {
-    width: 100%;
+    width: 50%;
     height: 1px;
     background-color: rgb(174, 174, 174);
 }

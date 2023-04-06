@@ -50,6 +50,7 @@
 
 .experience__skills-details h4 {
   font-size: var(--font-xs);
+  font-weight: 600;
   text-transform: uppercase;
 }
 
@@ -71,7 +72,7 @@
   }
 
   .experience__skills-details h4 {
-    font-size: var(--font-xxs);
+    font-size: var(--font-xs);
   }
 }
 

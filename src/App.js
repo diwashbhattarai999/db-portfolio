@@ -19,7 +19,7 @@ function App() {
   useEffect(() => {
     setTimeout(() => {
       window.addEventListener("load", setLoading(false));
-    }, 4000);
+    }, 2500000);
   }, []);
 
   return loading ? (

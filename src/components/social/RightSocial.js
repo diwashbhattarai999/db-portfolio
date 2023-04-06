@@ -5,7 +5,7 @@ import "../../DarkMode.css";
 
 const RightSocial = () => {
   const [scroll, setScroll] = useState(false);
-  const [darkMode, setDarkMode] = useState("dark");
+  const [darkMode, setDarkMode] = useState("light");
 
   /* ========== SCROLL DOWN AND UP ========== */
 
