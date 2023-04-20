@@ -2,7 +2,7 @@ import { AiFillHtml5 } from "react-icons/ai";
 import { DiCss3 } from "react-icons/di";
 import { IoLogoJavascript } from "react-icons/io";
 import { DiReact, DiPhotoshop, DiGit, DiGithubBadge } from "react-icons/di";
-import { SiTailwindcss } from "react-icons/si";
+import { SiNextdotjs, SiTailwindcss } from "react-icons/si";
 
 const skills = [
   {
@@ -29,26 +29,30 @@ const skills = [
   },
   {
     id: 5,
+    logo: <SiNextdotjs className="skill-img" style={{ color: "#000" }} />,
+    text: "Next.js",
+  },
+  {
+    id: 6,
     logo: <SiTailwindcss className="skill-img" style={{ color: "#38bdf8" }} />,
     text: "tailwind css",
   },
   {
-    id: 6,
+    id: 7,
     logo: <DiPhotoshop className="skill-img" style={{ color: "#31a8ff" }} />,
     text: "Photoshop",
   },
   {
-    id: 7,
+    id: 8,
     logo: <DiGit className="skill-img" style={{ color: "#F1502F" }} />,
     color: "#264de4",
     text: "git",
   },
   {
-    id: 8,
+    id: 9,
     logo: <DiGithubBadge className="skill-img" style={{ color: "#f0f6fc " }} />,
     text: "github",
   },
 ];
 
 export default skills;
-
