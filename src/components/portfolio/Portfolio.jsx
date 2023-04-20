@@ -27,9 +27,7 @@ const Portfolio = () => {
     <section id="portfolio" className="portfolio ">
       <h5>See My Work</h5>
       <h2>Portfolio</h2>
-      <div
-        ref={element}
-      >
+      <div ref={element}>
         <Swiper
           ref={swiperRef}
           spaceBetween={30}
