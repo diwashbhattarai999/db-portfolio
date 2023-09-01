@@ -1,8 +1,9 @@
 import { AiFillHtml5 } from "react-icons/ai";
 import { DiCss3 } from "react-icons/di";
 import { IoLogoJavascript } from "react-icons/io";
-import { DiReact, DiPhotoshop, DiGit, DiGithubBadge } from "react-icons/di";
-import { SiNextdotjs, SiTailwindcss } from "react-icons/si";
+import { DiReact, DiGit, DiGithubBadge } from "react-icons/di";
+import { SiNextdotjs, SiTailwindcss, SiTypescript } from "react-icons/si";
+import { TbBrandTypescript } from "react-icons/tb";
 
 const skills = [
   {
@@ -17,30 +18,32 @@ const skills = [
   },
   {
     id: 3,
+    logo: <SiTailwindcss className="skill-img" style={{ color: "#38bdf8" }} />,
+    text: "tailwind css",
+  },
+  {
+    id: 4,
     logo: (
       <IoLogoJavascript className="skill-img" style={{ color: "#F0DB4F" }} />
     ),
     text: "JavaScript",
   },
   {
-    id: 4,
+    id: 5,
     logo: <DiReact className="skill-img" style={{ color: "#61DBFB" }} />,
     text: "react",
   },
   {
-    id: 5,
+    id: 6,
     logo: <SiNextdotjs className="skill-img" style={{ color: "#000" }} />,
     text: "Next.js",
   },
   {
-    id: 6,
-    logo: <SiTailwindcss className="skill-img" style={{ color: "#38bdf8" }} />,
-    text: "tailwind css",
-  },
-  {
     id: 7,
-    logo: <DiPhotoshop className="skill-img" style={{ color: "#31a8ff" }} />,
-    text: "Photoshop",
+    logo: (
+      <TbBrandTypescript className="skill-img" style={{ color: "#fff" }} />
+    ),
+    text: "TypScript",
   },
   {
     id: 8,
