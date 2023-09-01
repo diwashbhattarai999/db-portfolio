@@ -2,7 +2,7 @@ import { AiFillHtml5 } from "react-icons/ai";
 import { DiCss3 } from "react-icons/di";
 import { IoLogoJavascript } from "react-icons/io";
 import { DiReact, DiGit, DiGithubBadge } from "react-icons/di";
-import { SiNextdotjs, SiTailwindcss, SiTypescript } from "react-icons/si";
+import { SiNextdotjs, SiTailwindcss } from "react-icons/si";
 import { TbBrandTypescript } from "react-icons/tb";
 
 const skills = [
@@ -40,9 +40,7 @@ const skills = [
   },
   {
     id: 7,
-    logo: (
-      <TbBrandTypescript className="skill-img" style={{ color: "#fff" }} />
-    ),
+    logo: <TbBrandTypescript className="skill-img" style={{ color: "#fff" }} />,
     text: "TypScript",
   },
   {
