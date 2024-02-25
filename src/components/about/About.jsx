@@ -20,7 +20,7 @@ const About = () => {
           animate={controls}
           transition={{ delay: 0.1, type: "tween", duration: 1 }}
         >
-          <img src={Profile} alt="" />
+          <img src={Profile} alt="Profile" />
         </motion.div>
         <motion.div
           className="about__info-details"
@@ -28,14 +28,17 @@ const About = () => {
           animate={controls}
           transition={{ delay: 0.1, type: "tween", duration: 1 }}
         >
-          <h1>FrontEnd Developer</h1>
+          <h1>FullStack Developer</h1>
           <p>
-            Hello People, I am Diwash Bhattarai currently pursuing my career in
-            the field of Information Technology. I describe myself as a
-            passionate developer who loves coding. I am currently learning
-            Front-end Developement. Front-end developers are the coders of all
-            the user-facing elements of websites, web applications, and mobile
-            applications
+            Hello people! My name is Diwash Bhattarai, and I'm a CSIT student
+            with a burning passion for tech. My journey with code began at 18,
+            and I've been fascinated by its ability to bring ideas to life ever
+            since. As a believer in seamless and accessible experiences, I'm
+            constantly learning and experimenting. While professional projects
+            haven't come my way yet, I'm actively seeking opportunities to
+            collaborate and apply my skills. So, if you have a cool project in
+            mind or share my tech passion, let's connect and create something
+            amazing!
           </p>
           <a href="#contact" className="btn">
             Let's Talk

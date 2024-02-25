@@ -1,12 +1,10 @@
 :root {
-  --color-highlight: #80669d;
-  --btn-primary: #80669d;
+  --color-highlight: #53515e;
+  --btn-primary: #2f2d33;
   --btn-text: #f4f4f4;
 }
 
-
 .light {
-
   --bg-primary: #ffffff;
   --bg-secondary: #ececff;
   --home-primary: #ffffff;
@@ -26,33 +24,30 @@
   --color-white-secondary: #f1f1f1;
   --color-white-tertiary: #e2dbeb;
 
-
   --box-shadow: 1px 1px 10px rgba(173, 173, 175, 0.2);
   --box-shadow-hover: 1px 1px 10px rgba(173, 173, 175, 0.6);
 }
 
 .dark {
-
-  --bg-primary:  #0f121a;
-  --bg-secondary: #1b1b23;
-  --home-primary: #0f121a;
-  --contact-bg: #0b0d13;
+  --bg-primary: #060709;
+  --bg-secondary: #0a0a0d;
+  --home-primary: #06070a;
+  --contact-bg: #06070a;
   /* --skill-primary: #2a272e; */
   --skill-primary: var(--color-highlight);
 
   --nav-primary: transparent;
   --nav-secondary: #ffffff1a;
-  --nav-link: #1b1b23;
+  --nav-link: #15151a;
 
   --color-primary: #fdfdfc;
   --color-secondary: #9c9da8;
   --color-tertiary: #444444;
   --color-quaternary: #a7a9be;
 
-  --color-white: #171c28;
+  --color-white: #06080b;
   --color-white-secondary: #f1f1f1;
   --color-white-tertiary: #121218;
-
 
   --box-shadow: 1px 1px 10px rgba(62, 62, 83, 0.2);
   --box-shadow-hover: 1px 1px 10px rgba(36, 36, 51, 0.6);

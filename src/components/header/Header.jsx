@@ -21,7 +21,7 @@ const Header = () => {
           Hey there <TbHandRock />, my name is
         </h5>
         <h1>Diwash Bhattarai</h1>
-        <h3>Frontend Developer</h3>
+        <h3>FullStack Developer</h3>
         <div className="header__hero-para">
           <p>
             A passionate student learning to code from Nepal🇳🇵. I'm a CSIT

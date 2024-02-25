@@ -6,7 +6,7 @@
   justify-content: left;
 }
 
-.about h2::after{
+.about h2::after {
   margin-left: 20px;
   content: "";
   position: relative;
@@ -24,6 +24,7 @@
 .about__info-img {
   position: relative;
   max-width: 24rem;
+  width: 50%;
   margin: auto;
   display: flex;
   align-items: center;
@@ -35,7 +36,7 @@
   border-radius: 1px;
   cursor: pointer;
   outline: 2px solid var(--color-highlight);
-  outline-offset: .2rem;
+  outline-offset: 0.2rem;
 }
 
 .about__info-img img:hover {
@@ -45,6 +46,7 @@
 
 .about__info-details {
   margin: auto;
+  width: 50%;
 }
 
 .about__info-details h1 {
@@ -72,7 +74,6 @@
     font-size: var(--font-xl);
     margin-bottom: 0.5rem;
   }
-
 }
 
 /* =============== MEDIA QUERIES(SMALL DEVICES) =============== */
@@ -90,7 +91,7 @@
     max-width: 20rem;
   }
 
-  .about__info-img img{
+  .about__info-img img {
     border-radius: 50%;
   }
 

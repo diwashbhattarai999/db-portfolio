@@ -1,8 +1,13 @@
 import { AiFillHtml5 } from "react-icons/ai";
 import { DiCss3 } from "react-icons/di";
-import { IoLogoJavascript } from "react-icons/io";
+import { IoLogoJavascript, IoLogoNodejs } from "react-icons/io";
 import { DiReact, DiGit, DiGithubBadge } from "react-icons/di";
-import { SiNextdotjs, SiTailwindcss } from "react-icons/si";
+import {
+  SiExpress,
+  SiMongodb,
+  SiNextdotjs,
+  SiTailwindcss,
+} from "react-icons/si";
 import { TbBrandTypescript } from "react-icons/tb";
 
 const skills = [
@@ -45,12 +50,27 @@ const skills = [
   },
   {
     id: 8,
+    logo: <SiMongodb className="skill-img" style={{ color: "#4DB33D" }} />,
+    text: "MongoDB",
+  },
+  {
+    id: 9,
+    logo: <IoLogoNodejs className="skill-img" style={{ color: "#68a063" }} />,
+    text: "Node.js",
+  },
+  {
+    id: 10,
+    logo: <SiExpress className="skill-img" style={{ color: "#000" }} />,
+    text: "Express.js",
+  },
+  {
+    id: 11,
     logo: <DiGit className="skill-img" style={{ color: "#F1502F" }} />,
     color: "#264de4",
     text: "git",
   },
   {
-    id: 9,
+    id: 12,
     logo: <DiGithubBadge className="skill-img" style={{ color: "#f0f6fc " }} />,
     text: "github",
   },
