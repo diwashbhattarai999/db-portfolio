@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
-import "./globals.css";
+
 import { siteConfig } from "@/config";
 import { cn } from "@/lib/utils";
+import { ThemeProvider } from "@/components/theme-provider";
+
+import "./globals.css";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -17,14 +20,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={cn(
-          "min-h-screen bg-background font-montserrat antialiased flex flex-col",
+          "font-montserrat antialiased flex flex-col min-h-screen bg-background",
           montserrat.className
         )}
       >
-        {children}
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

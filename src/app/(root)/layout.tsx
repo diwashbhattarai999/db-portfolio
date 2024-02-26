@@ -1,5 +1,4 @@
-import Footer from "@/components/sections/Footer";
-import Navbar from "@/components/sections/Navbar";
+import LayoutWrapper from "./layout-wrapper";
 
 export default function HomeLayout({
   children,
@@ -7,10 +6,8 @@ export default function HomeLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <>
-      <Navbar />
-      {children}
-      <Footer />
-    </>
+    <main className="relative overflow-hidden">
+      <LayoutWrapper>{children}</LayoutWrapper>
+    </main>
   );
 }

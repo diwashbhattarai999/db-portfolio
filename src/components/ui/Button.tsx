@@ -1,11 +1,23 @@
+import { cn } from "@/lib/utils";
+
 interface ButtonProps {
   children: React.ReactNode;
+  outline?: boolean;
+  icon?: boolean;
+  onclick?: () => void;
 }
-const Button = ({ children }: ButtonProps) => {
+const Button = ({ children, outline, icon, onclick }: ButtonProps) => {
   return (
-    <div className="inline-block font-medium text-sm bg-zinc-800 px-2 py-4 rounded-md text-zinc-100 group-hover/link:text-zinc-300">
+    <button
+      className={cn(
+        "bg-accent text-accent-foreground hover:bg-muted hover:text-muted-foreground p-2 rounded-[4px] duration-300 font-medium",
+        outline && "bg-transparent border border-border",
+        icon && "bg-transparent hover:bg-accent"
+      )}
+      onClick={onclick}
+    >
       {children}
-    </div>
+    </button>
   );
 };
 
