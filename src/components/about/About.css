@@ -33,15 +33,16 @@
 
 .about__info-img img {
   border: 0.2rem solid transparent;
-  border-radius: 1px;
+  border-radius: 50%;
   cursor: pointer;
   outline: 2px solid var(--color-highlight);
-  outline-offset: 0.2rem;
+  outline-offset: 0.08rem;
 }
 
 .about__info-img img:hover {
-  outline: 1px solid var(--color-highlight);
+  outline: 2px solid var(--color-highlight);
   outline-offset: 0;
+  transition: all 0.3s linear;
 }
 
 .about__info-details {

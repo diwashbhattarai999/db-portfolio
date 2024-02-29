@@ -27,12 +27,14 @@
   gap: 1rem;
   text-align: left;
   flex: 0.6;
+  margin-top: -1.6rem;
+  color: var(--color-primary);
 }
 
 .contact__links .contact__link {
   border: 2px solid var(--color-highlight);
   border-radius: 4px;
-  padding: 1rem;
+  padding: 0.9rem 1rem;
   outline: 2px solid transparent;
   outline-offset: 5px;
 }

@@ -37,9 +37,10 @@
   max-height: 20rem;
   height: 100%;
   width: 100%;
-  padding: 0.5rem;
+  /* padding: 0.1rem; */
   filter: grayscale(50%) brightness(50%);
-  box-shadow: inset 0 0 10px 15px var(--color-highlight);
+  border: 6px solid var(--skill-primary);
+  border-radius: 10px;
 }
 
 .project__img a {

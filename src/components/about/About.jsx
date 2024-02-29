@@ -1,6 +1,6 @@
 import React from "react";
 import "./About.css";
-import Profile from "../../assets/profile.jpg";
+import Profile from "../../assets/profile.png";
 import { motion } from "framer-motion";
 import { aboutAnimation, aboutImgAnimation } from "../../animation/animation";
 import { useScroll } from "../../animation/useScroll";

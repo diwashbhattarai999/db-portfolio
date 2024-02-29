@@ -9,7 +9,9 @@
   --bg-secondary: #ececff;
   --home-primary: #ffffff;
   --contact-bg: #ede7f5;
-  --skill-primary: var(--color-highlight);
+  --skill-primary: #eaeaea;
+
+  --footer-bg: #dadaed;
 
   --nav-primary: transparent;
   --nav-secondary: #ffffff1a;
@@ -33,8 +35,9 @@
   --bg-secondary: #0a0a0d;
   --home-primary: #06070a;
   --contact-bg: #06070a;
-  /* --skill-primary: #2a272e; */
-  --skill-primary: var(--color-highlight);
+  --skill-primary: #161616;
+
+  --footer-bg: #1b1c1d;
 
   --nav-primary: transparent;
   --nav-secondary: #ffffff1a;

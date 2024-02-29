@@ -38,8 +38,8 @@
   transition: var(--transition);
 }
 
-.experience__skills-details .ex-logo:hover{
-  opacity: .8;
+.experience__skills-details .ex-logo:hover {
+  opacity: 0.8;
 }
 
 .experience__skills-details .skill-icon {
@@ -66,7 +66,6 @@
 
 /* =============== MEDIA QUERIES(MEDIUM DEVICES) =============== */
 @media screen and (max-width: 1024px) {
-
   .experience h2 {
     margin-bottom: 4rem;
   }
@@ -81,5 +80,4 @@
   .experience h2::before {
     width: 100%;
   }
-
 }
