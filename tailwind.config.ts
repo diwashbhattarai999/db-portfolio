@@ -34,11 +34,15 @@ const config: Config = {
         accent: {
           DEFAULT: "var(--accent)",
           foreground: "var(--accent-foreground)",
+          secondary: "var(--accent-secondary)",
         },
         card: {
           DEFAULT: "var(--card)",
           foreground: "var(--card-foreground)",
         },
+      },
+      minHeight: {
+        minusNavHeight: "var(--minus-nav-height)",
       },
     },
   },

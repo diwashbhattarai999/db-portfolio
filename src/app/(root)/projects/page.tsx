@@ -1,7 +1,7 @@
-import React from "react";
+import Projects from "@/components/sections/Projects";
 
 const ProjectPage = () => {
-  return <div>ProjectPage</div>;
+  return <Projects />;
 };
 
 export default ProjectPage;

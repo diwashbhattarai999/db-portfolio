@@ -2,20 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* 
-  #000000
-  #303030
-  #595959
-  #808080
-  #A6A6A6
-
-  #FFFFFF
-  #F5F5F5
-  #E6E6E6
-  #D8D8D8
-  #CCCCCC
-*/
-
 @layer base {
   :root {
     --background: #ffffff;
@@ -26,6 +12,8 @@
 
     --accent: #e6e6e6;
     --accent-foreground: #1d1d1d;
+
+    --accent-secondary: #e4bd0f;
 
     --border: #f5f5f5;
     --input: #ebebeb;
@@ -44,9 +32,7 @@
 
     --ring: #480707;
 
-    --radius: 0.5rem;
-    --d: 700ms;
-    --e: cubic-bezier(0.19, 1, 0.22, 1);
+    --minus-nav-height: calc(100vh - 62px);
   }
 
   .dark {
@@ -59,6 +45,8 @@
     --accent: #303030;
     --accent-foreground: #ebebeb;
 
+    --accent-secondary: #ecc414;
+
     --border: #27272738;
     --input: #ebebeb;
 
@@ -69,15 +57,14 @@
     --primary-foreground: #cecece;
 
     --secondary: #1d1d1d;
-    --secondary-foreground: #c4c4c4;
+    --secondary-foreground: #6d6d6d;
 
     --destructive: #4e0000;
     --destructive-foreground: #f5f5f5;
 
     --ring: #480707;
 
-    --d: 700ms;
-    --e: cubic-bezier(0.19, 1, 0.22, 1);
+    --minus-nav-height: calc(100vh - 62px);
   }
 }
 
@@ -86,13 +73,13 @@
     @apply border-border;
   }
 
+  html {
+    @apply scroll-smooth;
+  }
+
   body {
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
-  }
-
-  .minus-nav-height {
-    height: calc(100vh - 62px);
   }
 
   .blur {
