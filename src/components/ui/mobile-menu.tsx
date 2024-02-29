@@ -10,6 +10,7 @@ interface MobileMenuProps {
 
 const MobileMenu = ({
   isMenuOpen,
+  setIsMenuOpen,
   navLinkActive,
   handleNavLinkActive,
 }: MobileMenuProps) => {
@@ -25,7 +26,10 @@ const MobileMenu = ({
           return (
             <li
               key={link.label + link.path}
-              onClick={() => handleNavLinkActive(link.label)}
+              onClick={() => {
+                handleNavLinkActive(link.label);
+                setIsMenuOpen(false);
+              }}
             >
               <Link
                 href={link.path}

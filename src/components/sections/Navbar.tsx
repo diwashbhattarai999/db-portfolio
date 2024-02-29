@@ -49,11 +49,9 @@ const Navbar = ({ contentRef }: NavbarProps) => {
     <nav className="h-[62px] border-b border-b-border backdrop-blur dark:bg-[#070707]/90 bg-white/90  fixed w-full top-0">
       <Container className="h-full flex items-center justify-between max-w-[1250px]">
         <Link
-          href="/"
+          href="/#home"
           className="font-bold text-3xl tracking-[-8px] text-foreground hover:text-primary-foreground"
-          onClick={() => {
-            setNavLinkActive("");
-          }}
+          onClick={() => setNavLinkActive("")}
         >
           D
           <span className="text-primary-foreground hover:text-foreground">

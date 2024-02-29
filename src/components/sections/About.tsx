@@ -4,7 +4,7 @@ import Container from "../Container";
 
 const About = () => {
   return (
-    <section id="about" className="min-h-minusNavHeight pt-20">
+    <section id="about" className="py-20">
       <Container className="flex flex-col gap-12 items-center justify-center">
         <h1 className="text-6xl font-semibold text-center mt-4 mb-8">
           About <span className="text-accent">Me</span>

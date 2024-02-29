@@ -3,7 +3,7 @@ import { Laptop2, Moon, Sun, SunMoon } from "lucide-react";
 export const NAV_LINKS = [
   {
     label: "About",
-    path: "/about",
+    path: "/#about",
   },
   {
     label: "Projects",

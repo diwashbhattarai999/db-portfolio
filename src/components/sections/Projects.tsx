@@ -16,11 +16,11 @@ const Projects = () => {
             return (
               <li
                 key={project.url}
-                className="flex justify-between gap-8 p-4 rounded-md hover:bg-accent hover:bg-opacity-50 hover:scale-[0.99] cursor-pointer duration-300"
+                className="flex max-md:flex-col justify-between gap-8 p-4 rounded-md hover:bg-accent hover:bg-opacity-50 hover:scale-[0.99] cursor-pointer duration-300"
               >
                 <Image
                   src={project.imagePath}
-                  className="h-auto w-60 object-cover border-4 border-border rounded-md"
+                  className="h-auto w-60 max-sm:w-full max-md:w-2/3 object-cover border-4 border-border rounded-md"
                   alt=""
                   width="500"
                   height="500"
