@@ -67,7 +67,7 @@ const Navbar = ({ contentRef }: NavbarProps) => {
                 >
                   <Link
                     href={link.path}
-                    className={`p-2 rounded-md hover:text-secondary-foreground transition ease-linear duration-300 ${
+                    className={`p-2 rounded-md hover:text-secondary-foreground hover:bg-muted transition ease-linear duration-300 ${
                       navLinkActive === link.label && "bg-muted"
                     }`}
                   >

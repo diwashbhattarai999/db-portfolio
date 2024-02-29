@@ -32,6 +32,7 @@ export default function ThemeSwitcher() {
   };
 
   const handleChangeTheme = (name: string) => {
+    setIsThemeOpen(false);
     setTheme(name.toLowerCase());
   };
 
@@ -45,7 +46,7 @@ export default function ThemeSwitcher() {
         )}
       </Button>
       {isThemeOpen && (
-        <ul className="absolute right-0 top-14 bg-accent flex flex-col gap-2 w-[128px] rounded-[4px] py-2 px-1">
+        <ul className="absolute right-0 top-14 bg-accent flex flex-col gap-2 w-[128px] rounded-md py-2 px-1">
           {THEMES.map(({ label, Icon }) => {
             return (
               <li
