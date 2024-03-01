@@ -1,7 +1,8 @@
 import Image from "next/image";
-import React from "react";
-import Container from "../Container";
 import Link from "next/link";
+
+import Container from "@/components/Container";
+import Social from "@/components/Socials";
 
 const Home = () => {
   return (
@@ -23,6 +24,7 @@ const Home = () => {
             and explore every opportunity of my life.`}
           </p>
 
+          <Social />
           <Link
             href="/Resume.pdf"
             target="_blank"
