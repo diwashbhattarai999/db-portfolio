@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Montserrat } from "next/font/google";
+import { Fira_Sans, Montserrat, Poppins } from "next/font/google";
 
 import { siteConfig } from "@/config";
 import { cn } from "@/lib/utils";
@@ -9,6 +9,7 @@ import "./globals.css";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800", "900"],
   variable: "--font-montserrat",
 });
 
@@ -23,8 +24,8 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body
         className={cn(
-          "font-montserrat antialiased flex flex-col min-h-screen bg-background",
-          montserrat.className
+          montserrat.variable,
+          "antialiased flex flex-col min-h-screen bg-background"
         )}
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>

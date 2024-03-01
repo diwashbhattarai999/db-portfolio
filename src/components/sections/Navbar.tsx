@@ -47,7 +47,7 @@ const Navbar = ({ contentRef }: NavbarProps) => {
   });
 
   return (
-    <nav className="h-[62px] border-b border-b-border backdrop-blur dark:bg-[#070707]/90 bg-white/90  fixed w-full top-0">
+    <nav className="h-[62px] border-b border-b-border backdrop-blur dark:bg-[#070707]/90 bg-[#fcfcfc]/90  fixed w-full top-0 z-50">
       <Container className="h-full flex items-center justify-between">
         <Link
           href="/"
@@ -59,7 +59,7 @@ const Navbar = ({ contentRef }: NavbarProps) => {
             B
           </span>
         </Link>
-        <div className="flex max-md:hidden lg:gap-24 gap-16 text-sm">
+        <div className="flex max-md:hidden lg:gap-24 gap-16 text-sm font-medium">
           <ul className="flex gap-4 items-center justify-between">
             {NAV_LINKS.map((link) => {
               return (

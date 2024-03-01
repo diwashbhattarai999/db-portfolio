@@ -23,7 +23,6 @@ const MobileMenu = ({
     >
       <ul className="flex flex-col gap-4 items-center justify-center h-1/2">
         {NAV_LINKS.map((link) => {
-          console.log(navLinkActive, link.label);
           return (
             <li
               key={link.label + link.path}

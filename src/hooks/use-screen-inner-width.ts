@@ -3,7 +3,9 @@
 import { useEffect, useState } from "react";
 
 const useScreenInnerWidth = () => {
-  const [innerWidth, setInnerWidth] = useState(window.innerWidth);
+  const [innerWidth, setInnerWidth] = useState(
+    typeof window === "object" ? window.innerWidth : 0
+  );
 
   useEffect(() => {
     const handleResize = () => {

@@ -51,7 +51,7 @@ export default function ThemeSwitcher() {
             return (
               <li
                 key={label + Icon}
-                className="p-2 rounded-md text-sm flex gap-2 items-center justify-start hover:bg-muted cursor-pointer duration-300"
+                className="p-2 rounded-md text-sm font-medium flex gap-2 items-center justify-start hover:bg-muted cursor-pointer duration-300"
                 onClick={() => handleChangeTheme(label)}
               >
                 <Icon size={16} />
