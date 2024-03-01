@@ -6,7 +6,7 @@ import Social from "@/components/Socials";
 
 const Home = () => {
   return (
-    <section id="#home" className="min-h-minusNavHeight pt-14 max-md:pt-10">
+    <section id="#home" className="min-h-minusNavHeight pt-14">
       <Container className="flex items-center justify-between gap-8 max-md:flex-col-reverse max-md:gap-0">
         <div className="flex flex-col justify-center my-28">
           <h6 className="text-lg">

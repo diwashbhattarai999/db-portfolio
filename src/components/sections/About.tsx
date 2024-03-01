@@ -1,8 +1,9 @@
-import Container from "@/components/Container";
-import { CONNECT_LINKS, SKILLS } from "@/constants";
-import Contact from "@/components/sections/Contact";
 import Link from "next/link";
+
+import { CONNECT_LINKS, SKILLS } from "@/constants";
+
 import { ArrowUpRight } from "@/components/ui/Icons";
+import Container from "@/components/Container";
 
 const About = () => {
   return (
@@ -13,7 +14,10 @@ const About = () => {
           <p className="text-primary-foreground">Just a quick glimpse.</p>
         </div>
 
-        <section id="about" className="flex justify-center gap-20">
+        <section
+          id="about"
+          className="flex max-md:flex-col justify-center gap-20"
+        >
           <h2 className="md:w-32">About</h2>
           <div className="flex flex-col items-start  w-full gap-8 text-base text-secondary-foreground">
             <div className="flex flex-col gap-2">
@@ -44,7 +48,10 @@ const About = () => {
           </div>
         </section>
 
-        <section id="contact" className="flex justify-center gap-20 mt-20">
+        <section
+          id="contact"
+          className="flex max-md:flex-col justify-center gap-20 mt-20"
+        >
           <h2 className="md:w-32">Contact me</h2>
           <div className="flex flex-col items-start w-full gap-8 text-base text-primary-foreground">
             <p>
