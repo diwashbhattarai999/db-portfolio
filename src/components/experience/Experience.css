@@ -1,0 +1,83 @@
+.experience {
+  max-width: 900px;
+  text-align: right;
+}
+
+.experience h2::before {
+  margin-right: 20px;
+  content: "";
+  position: relative;
+  top: 1px;
+  display: block;
+  height: 1px;
+  width: 34%;
+  background-color: var(--color-tertiary);
+}
+
+.experience__skills {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 2.4rem;
+  padding-top: 1rem;
+}
+
+.experience__skills-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.4rem;
+}
+
+.experience__skills-details .ex-logo {
+  background-color: var(--skill-primary);
+  border-radius: 50%;
+  padding: 0.7rem;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.experience__skills-details .ex-logo:hover {
+  opacity: 0.8;
+}
+
+.experience__skills-details .skill-icon {
+  display: block;
+  width: 2.6rem;
+  height: 2.6rem;
+}
+
+.experience__skills-details h4 {
+  font-size: var(--font-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.experience__skills-details .skill-img {
+  display: block;
+  width: 2rem;
+  height: 2rem;
+}
+
+.experience__info-container .skill-check {
+  color: var(--color-tertiary);
+}
+
+/* =============== MEDIA QUERIES(MEDIUM DEVICES) =============== */
+@media screen and (max-width: 1024px) {
+  .experience h2 {
+    margin-bottom: 4rem;
+  }
+
+  .experience__skills-details h4 {
+    font-size: var(--font-xs);
+  }
+}
+
+/* =============== MEDIA QUERIES(SMALL DEVICES) =============== */
+@media screen and (max-width: 778px) {
+  .experience h2::before {
+    width: 100%;
+  }
+}
