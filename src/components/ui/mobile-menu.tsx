@@ -23,6 +23,7 @@ const MobileMenu = ({
     >
       <ul className="flex flex-col gap-4 items-center justify-center h-1/2">
         {NAV_LINKS.map((link) => {
+          console.log(navLinkActive, link.label);
           return (
             <li
               key={link.label + link.path}
@@ -34,7 +35,7 @@ const MobileMenu = ({
               <Link
                 href={link.path}
                 className={`p-2 rounded-md hover:text-secondary-foreground transition ease-linear duration-300 ${
-                  navLinkActive === link.label && "bg-muted"
+                  navLinkActive === link.label.toLowerCase() && "bg-muted"
                 }`}
               >
                 {link.label}

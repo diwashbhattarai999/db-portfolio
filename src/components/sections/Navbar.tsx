@@ -12,6 +12,8 @@ import Container from "@/components/Container";
 import ThemeSwitcher from "@/components/theme-switcher";
 import MobileMenu from "@/components/ui/mobile-menu";
 import { usePathname } from "next/navigation";
+import useScreenInnerWidth from "@/hooks/use-screen-inner-width";
+import useBlurBody from "@/hooks/use-blur-body";
 
 interface NavbarProps {
   contentRef: React.RefObject<HTMLDivElement>;
@@ -32,13 +34,8 @@ const Navbar = ({ contentRef }: NavbarProps) => {
     setNavLinkActive(label.toLowerCase());
   };
 
-  useEffect(() => {
-    if (contentRef.current && isMenuOpen) {
-      contentRef.current.classList.add("blur");
-    } else if (contentRef.current) {
-      contentRef.current.classList.remove("blur");
-    }
-  }, [contentRef, isMenuOpen]);
+  const screenWidth = useScreenInnerWidth();
+  useBlurBody(contentRef, isMenuOpen && screenWidth <= 768);
 
   useEffect(() => {
     if (isMenuOpen) document.body.style.overflow = "hidden";
