@@ -1,0 +1,93 @@
+.social__container {
+  position: fixed;
+  left: 3rem;
+  right: 3rem;
+  bottom: 0;
+  top: 36%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+  width: 1.6rem;
+  z-index: 999;
+}
+
+.social__line {
+  width: 1px;
+  height: 2rem;
+  background-color: var(--color-tertiary);
+}
+
+/* ====================  Social left ==================== */
+.social__left {
+  right: auto;
+}
+
+/* ====================  Social right ==================== */
+
+.social__right {
+  left: auto;
+}
+
+.scroll__down {
+  transform: rotate(90deg);
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+  width: max-content;
+  padding: 2rem 0;
+}
+
+.dark__mode {
+  margin-bottom: -0.2rem;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.scroll__down:hover {
+  color: var(--color-highlight);
+}
+
+.social__link {
+  width: 1.6rem;
+  height: 1.6rem;
+  padding: 0.2rem;
+}
+
+.social__link:hover {
+  color: var(--color-highlight);
+  cursor: pointer;
+}
+
+/* =============== MEDIA QUERIES(SMALL DEVICES) =============== */
+@media screen and (max-width: 768px) {
+  .social__container {
+    /* background-color: var(--color-highlight); */
+    right: 2rem;
+    bottom: 0;
+    top: 90%;
+    padding: 0.2rem;
+  }
+
+  .social__left,
+  .social__line,
+  .scroll__down {
+    display: none;
+  }
+
+  .dark__mode {
+    background-color: var(--color-highlight);
+    width: 2.4rem;
+    height: 2.4rem;
+    border-radius: 50%;
+    padding: .5rem;
+    color: var(--btn-text);
+    border: 2px solid transparent;
+  }
+  .dark__mode:hover{
+    color: var(--color-primary);
+    background-color: transparent;
+    border: 2px solid var(--btn-primary);
+  }
+}

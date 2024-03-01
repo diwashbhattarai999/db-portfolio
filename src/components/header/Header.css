@@ -1,0 +1,76 @@
+.home{
+  width: 100%;
+  background: var(--home-primary);
+}
+
+.header__container {
+  position: relative;
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  min-height: 90vh;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+
+.header__container h5 {
+  font-size: clamp(var(--font-xs) ,3vw, var(--font-md));
+}
+
+.header__container h5 > img {
+  width: 24px;
+  display: inline-block;
+}
+
+.header__container h1 {
+  margin-left: -.5rem;
+  line-height: initial;
+  font-size: clamp(26px, 8vw, 80px);
+}
+
+.header__container  h3 {
+  margin-top: -0.4rem;
+  font-size: clamp(20px, 5vw, 40px);
+}
+
+.header__container  .header__hero-para {
+  margin-top: 1.6rem;
+  max-width: 36rem;
+}
+
+.header__container  .btn {
+  margin-top: 2.8rem;
+}
+
+
+/* =============== MEDIA QUERIES(MEDIUM DEVICES) =============== */
+@media screen and (max-width: 1024px) {
+  .header__container  h1 {
+    margin-left: -.3rem;
+  }
+}
+
+/* =============== MEDIA QUERIES(SMALL DEVICES) =============== */
+@media screen and (max-width: 600px) {
+  .header__container  h5 {
+    margin-bottom: 0;
+    margin-left: -.1rem;
+  }
+  .header__container  h3 {
+    margin-top: 0;
+
+  }
+}
+
+/* =============== MEDIA QUERIES(VERY SMALL DEVICES) =============== */
+@media screen and (max-width: 480px) {
+  .header__container h1{
+    margin-left: -0.2rem;
+  }
+  .header__container h3{
+    margin-left: -0.1rem;
+  }
+}
