@@ -1,6 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import Container from "../Container";
+import Link from "next/link";
 
 const Home = () => {
   return (
@@ -22,13 +23,14 @@ const Home = () => {
             and explore every opportunity of my life.`}
           </p>
 
-          <a
-            href="~/Diwash-Bhattarai-Resume.pdf"
+          <Link
+            href="/Resume.pdf"
+            target="_blank"
             download
             className="bg-accent p-4 mt-8 w-fit rounded-md hover:bg-muted duration-300"
           >
             Download Resume
-          </a>
+          </Link>
         </div>
 
         <Image

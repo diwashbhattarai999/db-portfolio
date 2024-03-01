@@ -2,14 +2,16 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { Menu, X } from "lucide-react";
 
 import { NAV_LINKS } from "@/constants";
 
+import useOnClickOutside from "@/hooks/use-on-click-outside";
+
 import Container from "@/components/Container";
 import ThemeSwitcher from "@/components/theme-switcher";
-import { Menu, X } from "lucide-react";
-import MobileMenu from "../ui/mobile-menu";
-import useOnClickOutside from "@/hooks/use-on-click-outside";
+import MobileMenu from "@/components/ui/mobile-menu";
+import { usePathname } from "next/navigation";
 
 interface NavbarProps {
   contentRef: React.RefObject<HTMLDivElement>;
@@ -17,7 +19,9 @@ interface NavbarProps {
 
 const Navbar = ({ contentRef }: NavbarProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [navLinkActive, setNavLinkActive] = useState("");
+  const [navLinkActive, setNavLinkActive] = useState(
+    usePathname().split("/")[1]
+  );
   const menuRef = useRef<HTMLDivElement>(null);
 
   const handleMenu = () => {
@@ -25,7 +29,7 @@ const Navbar = ({ contentRef }: NavbarProps) => {
   };
 
   const handleNavLinkActive = (label: string) => {
-    setNavLinkActive(label);
+    setNavLinkActive(label.toLowerCase());
   };
 
   useEffect(() => {
@@ -47,9 +51,9 @@ const Navbar = ({ contentRef }: NavbarProps) => {
 
   return (
     <nav className="h-[62px] border-b border-b-border backdrop-blur dark:bg-[#070707]/90 bg-white/90  fixed w-full top-0">
-      <Container className="h-full flex items-center justify-between max-w-[1250px]">
+      <Container className="h-full flex items-center justify-between">
         <Link
-          href="/#home"
+          href="/"
           className="font-bold text-3xl tracking-[-8px] text-foreground hover:text-primary-foreground"
           onClick={() => setNavLinkActive("")}
         >
@@ -69,7 +73,7 @@ const Navbar = ({ contentRef }: NavbarProps) => {
                   <Link
                     href={link.path}
                     className={`p-2 rounded-md hover:bg-muted transition ease-linear duration-300 ${
-                      navLinkActive === link.label && "bg-muted"
+                      navLinkActive === link.label.toLowerCase() && "bg-muted"
                     }`}
                   >
                     {link.label}
@@ -78,9 +82,13 @@ const Navbar = ({ contentRef }: NavbarProps) => {
               );
             })}
           </ul>
-          <p className="p-2 border border-border rounded-md hover:bg-muted duration-300 cursor-pointer">
+          <Link
+            href="/Resume.pdf"
+            target="_blank"
+            className="p-2 border border-border rounded-md hover:bg-muted duration-300 cursor-pointer"
+          >
             Resume
-          </p>
+          </Link>
         </div>
         <div className="flex gap-4 items-center z-50" ref={menuRef}>
           <ThemeSwitcher />
