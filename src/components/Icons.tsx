@@ -1,8 +1,11 @@
+"use client";
+
 interface IconProps {
   fillColor?: string;
+  className?: string;
 }
 
-export const HTML5 = ({ fillColor }: IconProps) => {
+export const HTML5 = ({ fillColor, className }: IconProps) => {
   return (
     <svg
       width="56px"
@@ -10,6 +13,7 @@ export const HTML5 = ({ fillColor }: IconProps) => {
       viewBox="0 0 32 32"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      className={className}
     >
       <path d="M6 28L4 3H28L26 28L16 31L6 28Z" fill="#E44D26" />
       <path d="M26 5H16V29.5L24 27L26 5Z" fill="#F16529" />
@@ -21,7 +25,7 @@ export const HTML5 = ({ fillColor }: IconProps) => {
   );
 };
 
-export const CSS3 = ({ fillColor }: IconProps) => {
+export const CSS3 = ({ fillColor, className }: IconProps) => {
   return (
     <svg
       width="56px"
@@ -29,6 +33,7 @@ export const CSS3 = ({ fillColor }: IconProps) => {
       viewBox="0 0 32 32"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      className={className}
     >
       <path d="M6 28L4 3H28L26 28L16 31L6 28Z" fill="#1172B8" />
       <path d="M26 5H16V29.5L24 27L26 5Z" fill="#33AADD" />
@@ -40,13 +45,14 @@ export const CSS3 = ({ fillColor }: IconProps) => {
   );
 };
 
-export const TailwindCSS = ({ fillColor }: IconProps) => {
+export const TailwindCSS = ({ fillColor, className }: IconProps) => {
   return (
     <svg
       width="56px"
       height="56px"
       viewBox="0 0 32 32"
       xmlns="http://www.w3.org/2000/svg"
+      className={className}
     >
       <title>file_type_tailwind</title>
       <path
@@ -57,7 +63,7 @@ export const TailwindCSS = ({ fillColor }: IconProps) => {
   );
 };
 
-export const JavaScript = ({ fillColor }: IconProps) => {
+export const JavaScript = ({ fillColor, className }: IconProps) => {
   return (
     <svg
       width="56px"
@@ -65,6 +71,7 @@ export const JavaScript = ({ fillColor }: IconProps) => {
       viewBox="0 0 32 32"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      className={className}
     >
       <rect x="2" y="2" width="28" height="28" fill="#FFCA28" />
       <path
@@ -79,13 +86,14 @@ export const JavaScript = ({ fillColor }: IconProps) => {
   );
 };
 
-export const TypeScript = ({ fillColor }: IconProps) => {
+export const TypeScript = ({ fillColor, className }: IconProps) => {
   return (
     <svg
       width="56px"
       height="56px"
       viewBox="0 0 32 32"
       xmlns="http://www.w3.org/2000/svg"
+      className={className}
     >
       <title>file_type_typescript_official</title>
       <rect x="2" y="2" width="28" height="28" rx="1.312" fill="#3178c6" />
@@ -98,7 +106,7 @@ export const TypeScript = ({ fillColor }: IconProps) => {
   );
 };
 
-export const ReactJS = ({ fillColor }: IconProps) => {
+export const ReactJS = ({ fillColor, className }: IconProps) => {
   return (
     <svg
       width="56px"
@@ -106,6 +114,7 @@ export const ReactJS = ({ fillColor }: IconProps) => {
       viewBox="0 0 32 32"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      className={className}
     >
       <path
         d="M18.6789 15.9759C18.6789 14.5415 17.4796 13.3785 16 13.3785C14.5206 13.3785 13.3211 14.5415 13.3211 15.9759C13.3211 17.4105 14.5206 18.5734 16 18.5734C17.4796 18.5734 18.6789 17.4105 18.6789 15.9759Z"
@@ -121,7 +130,7 @@ export const ReactJS = ({ fillColor }: IconProps) => {
   );
 };
 
-export const NextJS = ({ fillColor }: IconProps) => {
+export const NextJS = ({ fillColor, className }: IconProps) => {
   return (
     <svg
       width="56px"
@@ -129,6 +138,7 @@ export const NextJS = ({ fillColor }: IconProps) => {
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      className={className}
     >
       <g clipPath="url(#clip0)">
         <path
@@ -145,7 +155,7 @@ export const NextJS = ({ fillColor }: IconProps) => {
   );
 };
 
-export const NodeJS = ({ fillColor }: IconProps) => {
+export const NodeJS = ({ fillColor, className }: IconProps) => {
   return (
     <svg
       width="56px"
@@ -153,6 +163,7 @@ export const NodeJS = ({ fillColor }: IconProps) => {
       viewBox="0 -183.5 512 512"
       xmlns="http://www.w3.org/2000/svg"
       preserveAspectRatio="xMinYMin meet"
+      className={className}
     >
       <g fill="#83CD29">
         <path d="M471.05 51.611c-1.244 0-2.454.257-3.525.863l-33.888 19.57c-2.193 1.264-3.526 3.65-3.526 6.189v39.069c0 2.537 1.333 4.92 3.526 6.187l8.85 5.109c4.3 2.119 5.885 2.086 7.842 2.086 6.366 0 10.001-3.863 10.001-10.576V81.542c0-.545-.472-.935-1.007-.935h-4.245c-.544 0-1.007.39-1.007.935v38.566c0 2.975-3.1 5.968-8.13 3.453l-9.21-5.396c-.326-.177-.576-.49-.576-.863v-39.07c0-.37.247-.747.576-.935L470.547 57.8a.998.998 0 0 1 1.007 0l33.817 19.498c.322.194.576.553.576.936v39.069c0 .373-.188.755-.504.935l-33.889 19.498c-.29.173-.69.173-1.007 0l-8.706-5.18a.905.905 0 0 0-.863 0c-2.403 1.362-2.855 1.52-5.109 2.302-.555.194-1.398.495.288 1.44l11.368 6.69a6.995 6.995 0 0 0 3.526.936 6.949 6.949 0 0 0 3.525-.935l33.889-19.499c2.193-1.275 3.525-3.65 3.525-6.187v-39.07c0-2.538-1.332-4.92-3.525-6.187l-33.889-19.57c-1.062-.607-2.28-.864-3.525-.864z" />
@@ -173,7 +184,7 @@ export const NodeJS = ({ fillColor }: IconProps) => {
   );
 };
 
-export const ExpressJS = ({ fillColor }: IconProps) => {
+export const ExpressJS = ({ fillColor, className }: IconProps) => {
   return (
     <svg
       fill="#3c3c3c"
@@ -182,19 +193,21 @@ export const ExpressJS = ({ fillColor }: IconProps) => {
       viewBox="0 0 24 24"
       role="img"
       xmlns="http://www.w3.org/2000/svg"
+      className={className}
     >
       <path d="M24 18.588a1.529 1.529 0 0 1-1.895-.72l-3.45-4.771-.5-.667-4.003 5.444a1.466 1.466 0 0 1-1.802.708l5.158-6.92-4.798-6.251a1.595 1.595 0 0 1 1.9.666l3.576 4.83 3.596-4.81a1.435 1.435 0 0 1 1.788-.668L21.708 7.9l-2.522 3.283a.666.666 0 0 0 0 .994l4.804 6.412zM.002 11.576l.42-2.075c1.154-4.103 5.858-5.81 9.094-3.27 1.895 1.489 2.368 3.597 2.275 5.973H1.116C.943 16.447 4.005 19.009 7.92 17.7a4.078 4.078 0 0 0 2.582-2.876c.207-.666.548-.78 1.174-.588a5.417 5.417 0 0 1-2.589 3.957 6.272 6.272 0 0 1-7.306-.933 6.575 6.575 0 0 1-1.64-3.858c0-.235-.08-.455-.134-.666A88.33 88.33 0 0 1 0 11.577zm1.127-.286h9.654c-.06-3.076-2.001-5.258-4.59-5.278-2.882-.04-4.944 2.094-5.071 5.264z" />
     </svg>
   );
 };
 
-export const MongoDB = ({ fillColor }: IconProps) => {
+export const MongoDB = ({ fillColor, className }: IconProps) => {
   return (
     <svg
       width="56px"
       height="56px"
       viewBox="0 0 1024 1024"
       xmlns="http://www.w3.org/2000/svg"
+      className={className}
     >
       <circle cx="512" cy="512" r="512" fill="#13aa52" />
       <path
@@ -205,7 +218,10 @@ export const MongoDB = ({ fillColor }: IconProps) => {
   );
 };
 
-export const ArrowUpRight = ({ fillColor = "#ffffff" }: IconProps) => {
+export const ArrowUpRight = ({
+  fillColor = "#ffffff",
+  className,
+}: IconProps) => {
   return (
     <svg
       width="24px"
@@ -213,7 +229,7 @@ export const ArrowUpRight = ({ fillColor = "#ffffff" }: IconProps) => {
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 20 20"
       fill={fillColor}
-      className="w-5 h-5 ml-auto text-primary-foreground"
+      className={`w-5 h-5 ml-auto text-primary-foreground ${className}`}
     >
       <path
         fillRule="evenodd"
@@ -224,7 +240,7 @@ export const ArrowUpRight = ({ fillColor = "#ffffff" }: IconProps) => {
   );
 };
 
-export const GitHub = ({ fillColor = "#ffffff" }: IconProps) => {
+export const GitHub = ({ fillColor = "#ffffff", className }: IconProps) => {
   return (
     <svg
       width="24px"
@@ -233,6 +249,7 @@ export const GitHub = ({ fillColor = "#ffffff" }: IconProps) => {
       version="1.1"
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
+      className={className}
     >
       <title>github [#142]</title>
       <desc>Created with Sketch.</desc>
@@ -261,7 +278,7 @@ export const GitHub = ({ fillColor = "#ffffff" }: IconProps) => {
   );
 };
 
-export const Instagram = ({ fillColor = "#ffffff" }: IconProps) => {
+export const Instagram = ({ fillColor = "#ffffff", className }: IconProps) => {
   return (
     <svg
       width="24px"
@@ -269,6 +286,7 @@ export const Instagram = ({ fillColor = "#ffffff" }: IconProps) => {
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      className={className}
     >
       <path
         fillRule="evenodd"
@@ -290,7 +308,7 @@ export const Instagram = ({ fillColor = "#ffffff" }: IconProps) => {
   );
 };
 
-export const LinkedIn = ({ fillColor = "#ffffff" }: IconProps) => {
+export const LinkedIn = ({ fillColor = "#ffffff", className }: IconProps) => {
   return (
     <svg
       width="24px"
@@ -298,6 +316,7 @@ export const LinkedIn = ({ fillColor = "#ffffff" }: IconProps) => {
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      className={className}
     >
       <path
         d="M18.72 3.99997H5.37C5.19793 3.99191 5.02595 4.01786 4.86392 4.07635C4.70189 4.13484 4.55299 4.22471 4.42573 4.34081C4.29848 4.45692 4.19537 4.59699 4.12232 4.75299C4.04927 4.909 4.0077 5.07788 4 5.24997V18.63C4.01008 18.9901 4.15766 19.3328 4.41243 19.5875C4.6672 19.8423 5.00984 19.9899 5.37 20H18.72C19.0701 19.9844 19.4002 19.8322 19.6395 19.5761C19.8788 19.32 20.0082 18.9804 20 18.63V5.24997C20.0029 5.08247 19.9715 4.91616 19.9078 4.76122C19.8441 4.60629 19.7494 4.466 19.6295 4.34895C19.5097 4.23191 19.3672 4.14059 19.2108 4.08058C19.0544 4.02057 18.8874 3.99314 18.72 3.99997ZM9 17.34H6.67V10.21H9V17.34ZM7.89 9.12997C7.72741 9.13564 7.5654 9.10762 7.41416 9.04768C7.26291 8.98774 7.12569 8.89717 7.01113 8.78166C6.89656 8.66615 6.80711 8.5282 6.74841 8.37647C6.6897 8.22474 6.66301 8.06251 6.67 7.89997C6.66281 7.73567 6.69004 7.57169 6.74995 7.41854C6.80986 7.26538 6.90112 7.12644 7.01787 7.01063C7.13463 6.89481 7.2743 6.80468 7.42793 6.74602C7.58157 6.68735 7.74577 6.66145 7.91 6.66997C8.07259 6.66431 8.2346 6.69232 8.38584 6.75226C8.53709 6.8122 8.67431 6.90277 8.78887 7.01828C8.90344 7.13379 8.99289 7.27174 9.05159 7.42347C9.1103 7.5752 9.13699 7.73743 9.13 7.89997C9.13719 8.06427 9.10996 8.22825 9.05005 8.3814C8.99014 8.53456 8.89888 8.6735 8.78213 8.78931C8.66537 8.90513 8.5257 8.99526 8.37207 9.05392C8.21843 9.11259 8.05423 9.13849 7.89 9.12997ZM17.34 17.34H15V13.44C15 12.51 14.67 11.87 13.84 11.87C13.5822 11.8722 13.3313 11.9541 13.1219 12.1045C12.9124 12.2549 12.7546 12.4664 12.67 12.71C12.605 12.8926 12.5778 13.0865 12.59 13.28V17.34H10.29V10.21H12.59V11.21C12.7945 10.8343 13.0988 10.5225 13.4694 10.3089C13.84 10.0954 14.2624 9.98848 14.69 9.99997C16.2 9.99997 17.34 11 17.34 13.13V17.34Z"
@@ -307,7 +326,7 @@ export const LinkedIn = ({ fillColor = "#ffffff" }: IconProps) => {
   );
 };
 
-export const Mail = ({ fillColor = "#ffffff" }: IconProps) => {
+export const Mail = ({ fillColor = "#e6e6e6", className }: IconProps) => {
   return (
     <svg
       width="24px"
@@ -315,6 +334,7 @@ export const Mail = ({ fillColor = "#ffffff" }: IconProps) => {
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      className={className}
     >
       <path
         d="M3 8L8.44992 11.6333C9.73295 12.4886 10.3745 12.9163 11.0678 13.0825C11.6806 13.2293 12.3194 13.2293 12.9322 13.0825C13.6255 12.9163 14.2671 12.4886 15.5501 11.6333L21 8M6.2 19H17.8C18.9201 19 19.4802 19 19.908 18.782C20.2843 18.5903 20.5903 18.2843 20.782 17.908C21 17.4802 21 16.9201 21 15.8V8.2C21 7.0799 21 6.51984 20.782 6.09202C20.5903 5.71569 20.2843 5.40973 19.908 5.21799C19.4802 5 18.9201 5 17.8 5H6.2C5.0799 5 4.51984 5 4.09202 5.21799C3.71569 5.40973 3.40973 5.71569 3.21799 6.09202C3 6.51984 3 7.07989 3 8.2V15.8C3 16.9201 3 17.4802 3.21799 17.908C3.40973 18.2843 3.71569 18.5903 4.09202 18.782C4.51984 19 5.07989 19 6.2 19Z"
@@ -327,7 +347,7 @@ export const Mail = ({ fillColor = "#ffffff" }: IconProps) => {
   );
 };
 
-export const ChainLink = ({ fillColor = "#ffffff" }: IconProps) => {
+export const ChainLink = ({ fillColor = "#ffffff", className }: IconProps) => {
   return (
     <svg
       width="24px"
@@ -335,6 +355,7 @@ export const ChainLink = ({ fillColor = "#ffffff" }: IconProps) => {
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      className={className}
     >
       <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
       <g

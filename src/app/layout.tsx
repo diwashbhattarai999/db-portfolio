@@ -28,7 +28,7 @@ export default function RootLayout({
           "antialiased flex flex-col min-h-screen bg-background"
         )}
       >
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           {children}
         </ThemeProvider>
       </body>

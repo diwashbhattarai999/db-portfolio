@@ -2,22 +2,27 @@ import Image from "next/image";
 import Link from "next/link";
 
 import Container from "@/components/Container";
-import Social from "@/components/Socials";
-import AnimationWrapper from "../ui/animation-wrapper";
+import Social from "@/components/ui/Socials";
+import MotionDiv from "@/components/motion-div";
+import MotionText from "@/components/motion-text";
 
 const Home = () => {
   return (
     <section id="#home" className="min-h-minusNavHeight pt-14">
-      <AnimationWrapper>
-        <Container className="flex items-center justify-between gap-8 max-md:flex-col-reverse max-md:gap-0">
+      <Container className="flex items-center justify-between gap-8 max-md:flex-col-reverse max-md:gap-0">
+        <MotionDiv delayOffset={0}>
           <div className="flex flex-col justify-center my-28">
             <h6 className="text-lg font-medium">
               <span className="text-accent-secondary">Hey there</span> , my name
               is
             </h6>
-            <h1 className="text-6xl font-semibold mt-4 -ml-1">
+
+            <MotionText
+              className="text-6xl font-semibold mt-4 -ml-1"
+              delayOffset={0}
+            >
               Diwash Bhattarai
-            </h1>
+            </MotionText>
             <h2 className="text-4xl font-medium mt-2">FullStack Developer</h2>
             <p className="max-w-[28rem] text-base font-normal mt-3 text-secondary-foreground ">
               {`A passionate student learning to code from Nepal🇳🇵. I'm a CSIT
@@ -36,7 +41,9 @@ const Home = () => {
               Download Resume
             </Link>
           </div>
+        </MotionDiv>
 
+        <MotionDiv delayOffset={0.1}>
           <Image
             src="/images/profile.png"
             className="h-80 w-80 dark:opacity-70 opacity-90 -z-10 border border-border rounded-full -mt-8"
@@ -44,8 +51,8 @@ const Home = () => {
             width={500}
             height={500}
           />
-        </Container>
-      </AnimationWrapper>
+        </MotionDiv>
+      </Container>
     </section>
   );
 };
