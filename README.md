@@ -1,35 +1,39 @@
-## Personal Portfolio Website - v1.0.0
+# Personal Portfolio Website - v2.0.0
 
-I am excited to announce the initial release of my personal portfolio website! This release marks the culmination of hard work and dedication, showcasing my skills and projects.
+I'm thrilled to present the latest version of my personal portfolio website! This release signifies the culmination of persistent effort and showcases a comprehensive overview of my skills and projects.
 
-### Key Features:
+## Key Features:
 
-- **About Me:** An introduction to who I am and my background.
-- **Skills:** All the skills i learnt till date.
-- **Portfolio:** Highlighting key projects I have worked on.
-- **Resume:** Providing access to my resume and professional experience.
-- **Contact:** Ways to get in touch with me.
+- **About Me:** Explore a detailed introduction to who I am and my professional journey.
+- **Projects:** Dive into the showcase of key projects, each offering a unique perspective on my capabilities.
+- **Skills:** A comprehensive list of the technologies and skills I bring to the table.
+- **Contact:** Find various ways to connect with me and engage in meaningful conversations.
+- **Resume:** Access my resume to delve deeper into my professional background and experience.
 
-### Technologies Used:
+## Technologies Utilized:
 
-- HTML5
-- CSS3 
-- JavaScript
 - ReactJS
-- Framer motion
+- NextJS
+- Tailwind CSS
+- TypeScript
+- Framer Motion
+- MongoDB
+- Prisma
 
-### How to Access:
+## How to Access:
 
-Visit [https://diwashb.com.np/](https://diwashb.com.np/)
+Visit [https://diwashb.com.np/](https://diwashb.com.np/) to explore the interactive and engaging interface of my portfolio.
 
-### Feedback and Contributions:
+## Feedback and Contributions:
 
-I welcome feedback on the design, content, or any issues you may encounter. Feel free to open [GitHub Issues](https://github.com/diwashbhattarai999/db-portfolio/issues) for bug reports or feature requests.
+Your feedback is invaluable! Whether it's regarding the design, content, or if you encounter any issues, please feel free to open [GitHub Issues](https://github.com/diwashbhattarai999/db-portfolio/issues) for bug reports or feature requests.
 
-Thank you for checking out my portfolio!
+Thank you for taking the time to explore my portfolio!
 
-![Portfolio-Home](https://github.com/diwashbhattarai999/db-portfolio/assets/87477700/a5196318-8525-463c-beda-1af340b3f0fe)
-![Portfolio-About](https://github.com/diwashbhattarai999/db-portfolio/assets/87477700/af2a3334-a429-4497-8a96-93a36383918c)
-![Portfolio-Skills](https://github.com/diwashbhattarai999/db-portfolio/assets/87477700/50dfb050-4545-415c-b38e-3dc8052cb699)
-![Portfolio-Projects](https://github.com/diwashbhattarai999/db-portfolio/assets/87477700/e21aa3ce-ef8e-48f2-81b2-0d4f8efdcc1c)
-![Portfolio-Contact](https://github.com/diwashbhattarai999/db-portfolio/assets/87477700/7779120d-1e94-463e-b163-b58e021ab1cd)
+![Portfolio-Home]()
+![Portfolio-About]()
+![Portfolio-Skills]()
+![Portfolio-Projects]()
+![Portfolio-Contact]()
+
+This is a significant upgrade from version 1.0.0, and I hope you enjoy the enhanced features and content.
