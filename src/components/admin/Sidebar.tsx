@@ -22,8 +22,8 @@ const Sidebar = () => {
         setExpandSidebar(false);
         setProfileOpen(false);
       }}
-      className={`bg-border rounded-r-2xl h-screen p-5 md:p-8 cursor-pointer transition-all duration-500 flex flex-col items-start justify-between w-16 overflow-hidden ${
-        expandSidebar ? "md:w-56" : "md:w-24"
+      className={`bg-border rounded-r-2xl h-screen p-5 md:p-8 cursor-pointer transition-all duration-500 flex flex-col items-start justify-between  overflow-hidden z-0 ${
+        expandSidebar ? "w-56" : "w-16 md:w-24"
       }`}
     >
       <MotionSidebar delayOffset={0}>
@@ -53,7 +53,7 @@ const Sidebar = () => {
                 {expandSidebar && (
                   <MotionSidebar
                     delayOffset={0.2}
-                    className={`text-sm max-md:hidden rounded-md p-3 hover:bg-muted transition-colors w-28 ${
+                    className={`text-sm rounded-md p-3 hover:bg-muted transition-colors w-28 ${
                       pathname === link.href && "bg-muted"
                     }`}
                   >
@@ -65,7 +65,7 @@ const Sidebar = () => {
           );
         })}
       </MotionList>
-      <div className="w-full group relative">
+      <div className="w-full group relative z-0">
         {/* //TODO: Add user profile and logout button when hovering instead of icon below*/}
         <div className="w-full">
           <MotionSidebar delayOffset={0}>
@@ -82,7 +82,7 @@ const Sidebar = () => {
           {profileOpen && (
             <MotionSidebar
               delayOffset={0.2}
-              className="absolute -top-[10.8rem] left-0 bg-accent rounded-md py-3 px-2 w-40 text-primary-foreground"
+              className="absolute z-50 -top-[11rem] left-0 bg-accent rounded-md py-3 px-2 w-40 text-primary-foreground"
             >
               <div className="flex flex-col gap-2">
                 {ADMIN_PROFILE_LINKS.map((link) => {
