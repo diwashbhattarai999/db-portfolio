@@ -11,8 +11,6 @@ const config: Config = {
     extend: {
       colors: {
         border: "var(--border)",
-        input: "var(--input)",
-        ring: "var(--ring)",
         background: "var(--background)",
         foreground: "var(--foreground)",
         primary: {
@@ -23,10 +21,6 @@ const config: Config = {
           DEFAULT: "var(--secondary)",
           foreground: "var(--secondary-foreground)",
         },
-        destructive: {
-          DEFAULT: "var(--destructive)",
-          foreground: "var(--destructive-foreground)",
-        },
         muted: {
           DEFAULT: "var(--muted)",
           foreground: "var(--muted-foreground)",
@@ -35,10 +29,6 @@ const config: Config = {
           DEFAULT: "var(--accent)",
           foreground: "var(--accent-foreground)",
           secondary: "var(--accent-secondary)",
-        },
-        card: {
-          DEFAULT: "var(--card)",
-          foreground: "var(--card-foreground)",
         },
       },
       minHeight: {
