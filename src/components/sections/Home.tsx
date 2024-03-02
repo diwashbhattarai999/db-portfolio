@@ -13,17 +13,21 @@ const Home = () => {
         <MotionDiv delayOffset={0}>
           <div className="flex flex-col justify-center my-28">
             <h6 className="text-lg font-medium">
-              <span className="text-accent-secondary">Hey there</span> , my name
-              is
+              <span className="text-accent-secondary ml-[2px] md:ml-0">
+                Hey there
+              </span>{" "}
+              , my name is
             </h6>
 
             <MotionText
-              className="text-6xl font-semibold mt-4 -ml-1"
+              className="text-4xl md:text-6xl font-semibold mt-4 "
               delayOffset={0}
             >
               Diwash Bhattarai
             </MotionText>
-            <h2 className="text-4xl font-medium mt-2">FullStack Developer</h2>
+            <h2 className="text-lg md:text-xl font-medium mt-2">
+              FullStack Developer
+            </h2>
             <p className="max-w-[28rem] text-base font-normal mt-3 text-secondary-foreground ">
               {`A passionate student learning to code from Nepal🇳🇵. I'm a CSIT
             student and enthusiastic programmer building my version of the
@@ -46,10 +50,11 @@ const Home = () => {
         <MotionDiv delayOffset={0.1}>
           <Image
             src="/images/profile.png"
-            className="h-80 w-80 dark:opacity-70 opacity-90 -z-10 border border-border rounded-full -mt-8"
+            className="h-64 sm:h-80 w-64 sm:w-80 dark:opacity-70 opacity-90 -z-10 border border-border rounded-full mt-6 md:-mt-8"
             alt="Profile"
             width={500}
             height={500}
+            priority
           />
         </MotionDiv>
       </Container>

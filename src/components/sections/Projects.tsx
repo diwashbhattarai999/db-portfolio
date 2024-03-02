@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
+import { useTheme } from "next-themes";
 
 import { PROJECTS } from "@/constants";
 
@@ -9,6 +12,8 @@ import MotionDiv from "@/components/motion-div";
 import MotionList from "@/components/motion-list";
 
 const Projects = () => {
+  const { resolvedTheme } = useTheme();
+
   return (
     <section id="projects" className="pt-20 mb-16">
       <Container className="flex flex-col gap-12 justify-center">
@@ -49,14 +54,22 @@ const Projects = () => {
                       target="_blank"
                       className="bg-muted py-2 px-4 w-fit rounded-md hover:bg-secondary duration-300 text-center text-sm"
                     >
-                      <ChainLink />
+                      <ChainLink
+                        fillColor={
+                          resolvedTheme === "light" ? "#1d1d1d" : "#ebebeb"
+                        }
+                      />
                     </Link>
                     <Link
                       href={project.url}
                       target="_blank"
                       className="bg-muted py-2 px-4 w-fit rounded-md hover:bg-secondary duration-300 text-center text-sm"
                     >
-                      <GitHub />
+                      <GitHub
+                        fillColor={
+                          resolvedTheme === "light" ? "#1d1d1d" : "#ebebeb"
+                        }
+                      />
                     </Link>
                   </div>
                 </div>

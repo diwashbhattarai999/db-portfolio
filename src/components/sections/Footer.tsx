@@ -9,7 +9,7 @@ const Footer = () => {
   return (
     <footer className={font.className}>
       <div className="mt-8 border-t border-t-border shadow-sm">
-        <Container className="flex items-center justify-between py-12 text-sm">
+        <Container className="flex max-sm:flex-col max-sm:gap-2 items-center justify-between py-12 text-xs md:text-sm">
           <MotionDiv delayOffset={0}>
             <p>All Rights Reserved &copy; 2024</p>
           </MotionDiv>
