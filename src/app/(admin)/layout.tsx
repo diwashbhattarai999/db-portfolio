@@ -6,7 +6,7 @@ export default function AdminLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen flex gap-4">
       <Sidebar />
       {children}
     </main>
