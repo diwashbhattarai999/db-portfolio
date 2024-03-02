@@ -1,17 +1,18 @@
 "use client";
 
 import Link from "next/link";
+import { useTheme } from "next-themes";
 
 import { CONNECT_LINKS, SKILLS } from "@/constants";
 
 import { ArrowUpRight } from "@/components/Icons";
 import Container from "@/components/Container";
-import { useTheme } from "next-themes";
-import MotionDiv from "../motion-div";
-import MotionList from "../motion-list";
+import MotionDiv from "@/components/motion-div";
+import MotionList from "@/components/motion-list";
 
 const About = () => {
   const { resolvedTheme } = useTheme();
+
   return (
     <div className="py-20">
       <Container className="flex flex-col gap-12 justify-center">
@@ -64,20 +65,27 @@ const About = () => {
           id="contact"
           className="flex max-md:flex-col justify-center gap-20 mt-20"
         >
-          <h2 className="md:w-32 font-medium">Contact me</h2>
+          <MotionDiv delayOffset={0}>
+            <h2 className="md:w-32 font-medium">Contact me</h2>
+          </MotionDiv>
           <div className="flex flex-col items-start w-full gap-8 text-base text-primary-foreground">
-            <p>
-              Have a question or just want to chat? Feel free to{" "}
-              <Link
-                href="mailto:diwashb999@gmail.com"
-                className="border-b border-accent hover:border-muted text-secondary-foreground hover:text-primary-foreground font-semibold"
-              >
-                email me
-              </Link>{" "}
-              .
-            </p>
+            <MotionDiv delayOffset={0.1}>
+              <p>
+                Have a question or just want to chat? Feel free to{" "}
+                <Link
+                  href="mailto:diwashb999@gmail.com"
+                  className="border-b border-accent hover:border-muted text-secondary-foreground hover:text-primary-foreground font-semibold"
+                >
+                  email me
+                </Link>{" "}
+                .
+              </p>
+            </MotionDiv>
 
-            <MotionList className="flex-grow grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
+            <MotionList
+              delayOffset={0.2}
+              className="flex-grow grid grid-cols-1 md:grid-cols-2 gap-4 w-full"
+            >
               {CONNECT_LINKS.map((link) => (
                 <div className="col-span-1" key={link.label}>
                   <Link
