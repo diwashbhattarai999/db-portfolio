@@ -1,6 +1,5 @@
 import Link from "next/link";
 
-import { GitHub, Instagram, LinkedIn } from "@/components/ui/Icons";
 import { CONNECT_LINKS } from "@/constants";
 
 const Social = () => {
@@ -13,7 +12,7 @@ const Social = () => {
           return (
             <li key={connectLink.label} className="text-accent">
               <Link href={connectLink.href} target="_blank" rel="noreferrer">
-                <connectLink.icon color="#cacaca" />
+                <connectLink.icon fillColor="#cacaca" />
               </Link>
             </li>
           );
