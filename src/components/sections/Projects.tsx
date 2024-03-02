@@ -4,10 +4,9 @@ import Image from "next/image";
 import { PROJECTS } from "@/constants";
 
 import Container from "@/components/Container";
-import { ArrowUpRight, ChainLink, GitHub } from "@/components/Icons";
-import AnimationWrapper from "../animation-wrapper";
-import MotionDiv from "../motion-div";
-import MotionList from "../motion-list";
+import { ChainLink, GitHub } from "@/components/Icons";
+import MotionDiv from "@/components/motion-div";
+import MotionList from "@/components/motion-list";
 
 const Projects = () => {
   return (
