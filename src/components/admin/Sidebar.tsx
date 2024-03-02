@@ -8,6 +8,7 @@ import MotionList from "../motion-list";
 import MotionSidebar from "../motion-sidebar";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
+import ThemeSwitcher from "../theme-switcher";
 
 const Sidebar = () => {
   const [expandSidebar, setExpandSidebar] = useState(false);
@@ -17,7 +18,10 @@ const Sidebar = () => {
   return (
     <div
       onMouseEnter={() => setExpandSidebar(true)}
-      onMouseLeave={() => setExpandSidebar(false)}
+      onMouseLeave={() => {
+        setExpandSidebar(false);
+        setProfileOpen(false);
+      }}
       className={`bg-border rounded-r-2xl h-screen p-5 md:p-8 cursor-pointer transition-all duration-500 flex flex-col items-start justify-between w-16 overflow-hidden ${
         expandSidebar ? "md:w-56" : "md:w-24"
       }`}
@@ -63,12 +67,7 @@ const Sidebar = () => {
       </MotionList>
       <div className="w-full group relative">
         {/* //TODO: Add user profile and logout button when hovering instead of icon below*/}
-        <div
-          className="w-full"
-          onClick={() => setProfileOpen((currValue) => !currValue)}
-          onMouseEnter={() => setProfileOpen(true)}
-          onMouseLeave={() => setProfileOpen(false)}
-        >
+        <div className="w-full">
           <MotionSidebar delayOffset={0}>
             <Image
               src="/images/profile.png"
@@ -76,12 +75,14 @@ const Sidebar = () => {
               width={100}
               height={100}
               className="h-6 md:h-8 w-6 md:w-8 rounded-full group-hover:opacity-70"
+              onClick={() => setProfileOpen((currValue) => !currValue)}
+              onMouseEnter={() => setProfileOpen(true)}
             />
           </MotionSidebar>
           {profileOpen && (
             <MotionSidebar
               delayOffset={0.2}
-              className="absolute -top-[7.6rem] left-0 bg-accent rounded-md py-3 px-2 w-40 text-primary-foreground"
+              className="absolute -top-[10.8rem] left-0 bg-accent rounded-md py-3 px-2 w-40 text-primary-foreground"
             >
               <div className="flex flex-col gap-2">
                 {ADMIN_PROFILE_LINKS.map((link) => {
@@ -92,10 +93,11 @@ const Sidebar = () => {
                       className="flex items-center gap-3 px-2 rounded-md font-medium transition-colors hover:text-foreground hover:bg-muted"
                     >
                       <link.icon className="py-3 w-auto h-11" />
-                      {link.label}
+                      <h3>{link.label}</h3>
                     </Link>
                   );
                 })}
+                <ThemeSwitcher admin />
               </div>
             </MotionSidebar>
           )}

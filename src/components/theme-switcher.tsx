@@ -2,13 +2,13 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useTheme } from "next-themes";
-import { MoonIcon, SunIcon } from "lucide-react";
+import { MoonIcon, SunIcon, ToggleLeft, ToggleRight } from "lucide-react";
 
 import { Button } from "@/components/ui/Button";
 import { THEMES } from "@/constants";
 import useOnClickOutside from "@/hooks/use-on-click-outside";
 
-export default function ThemeSwitcher() {
+export default function ThemeSwitcher({ admin }: { admin?: boolean }) {
   const [mounted, setMounted] = useState(false);
   const [isThemeOpen, setIsThemeOpen] = useState(false);
   const themeRef = useRef<HTMLDivElement>(null);
@@ -35,6 +35,33 @@ export default function ThemeSwitcher() {
     setIsThemeOpen(false);
     setTheme(name.toLowerCase());
   };
+
+  const handleToggleTheme = () => {
+    setTheme(resolvedTheme === "dark" ? "light" : "dark");
+  };
+
+  if (admin) {
+    return (
+      <div className="relative z-50" ref={themeRef}>
+        <div
+          onClick={handleToggleTheme}
+          className="flex items-center gap-3 px-2 rounded-md font-medium transition-colors hover:text-foreground hover:bg-muted"
+        >
+          {resolvedTheme === "dark" ? (
+            <>
+              <ToggleLeft className="py-3 w-auto h-11" />
+              <h3>Dark Mode</h3>
+            </>
+          ) : (
+            <>
+              <ToggleRight className="py-3 w-auto h-11" />
+              <h3>Light Mode</h3>
+            </>
+          )}
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="relative z-50" ref={themeRef}>
