@@ -10,9 +10,15 @@ import Container from "@/components/Container";
 import { ChainLink, GitHub } from "@/components/Icons";
 import MotionDiv from "@/components/motion-div";
 import MotionList from "@/components/motion-list";
+import { useEffect, useState } from "react";
 
 const Projects = () => {
-  const { resolvedTheme } = useTheme();
+  const [isMounted, setIsMounted] = useState(false);
+  const { theme } = useTheme();
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   return (
     <section id="projects" className="pt-20 mb-16">
@@ -56,7 +62,11 @@ const Projects = () => {
                     >
                       <ChainLink
                         fillColor={
-                          resolvedTheme === "light" ? "#1d1d1d" : "#ebebeb"
+                          isMounted
+                            ? theme === "light"
+                              ? "#1d1d1d"
+                              : "#ebebeb"
+                            : "#7c7c7c"
                         }
                       />
                     </Link>
@@ -67,7 +77,11 @@ const Projects = () => {
                     >
                       <GitHub
                         fillColor={
-                          resolvedTheme === "light" ? "#1d1d1d" : "#ebebeb"
+                          isMounted
+                            ? theme === "light"
+                              ? "#1d1d1d"
+                              : "#ebebeb"
+                            : "#7c7c7c"
                         }
                       />
                     </Link>
