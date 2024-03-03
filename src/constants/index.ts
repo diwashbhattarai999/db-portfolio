@@ -26,7 +26,7 @@ import {
   GitHub,
   LinkedIn,
   Instagram,
-} from "@/components/Icons";
+} from "@/components/ui/Icons";
 
 export const NAV_LINKS = [
   {

@@ -24,7 +24,7 @@ const Button = ({
         "bg-accent text-accent-foreground hover:bg-muted hover:text-muted-foreground p-2 rounded-[4px] duration-300 font-medium",
         outline && "bg-transparent border border-border",
         icon &&
-          "bg-transparent hover:bg-accent flex items-center justify-center w-full py-[10px]",
+          "bg-transparent hover:bg-accent flex items-center justify-center gap-4 w-full py-[10px]",
         full ? "w-full" : "w-fit",
         disabled && "opacity-50",
         className

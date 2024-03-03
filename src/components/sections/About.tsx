@@ -5,7 +5,7 @@ import { useTheme } from "next-themes";
 
 import { CONNECT_LINKS, SKILLS } from "@/constants";
 
-import { ArrowUpRight } from "@/components/Icons";
+import { ArrowUpRight } from "@/components/ui/Icons";
 import Container from "@/components/Container";
 import MotionDiv from "@/components/motion-div";
 import MotionList from "@/components/motion-list";

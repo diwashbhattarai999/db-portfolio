@@ -7,7 +7,7 @@ import { useTheme } from "next-themes";
 import { PROJECTS } from "@/constants";
 
 import Container from "@/components/Container";
-import { ChainLink, GitHub } from "@/components/Icons";
+import { ChainLink, GitHub } from "@/components/ui/Icons";
 import MotionDiv from "@/components/motion-div";
 import MotionList from "@/components/motion-list";
 import { useEffect, useState } from "react";

@@ -13,6 +13,8 @@ const config: Config = {
         border: "var(--border)",
         input: "var(--input)",
         ring: "var(--ring)",
+        destructive: "var(--destructive)",
+        success: "var(--success)",
         background: "var(--background)",
         foreground: "var(--foreground)",
         primary: {

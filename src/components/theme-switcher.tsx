@@ -65,7 +65,7 @@ export default function ThemeSwitcher({ admin }: { admin?: boolean }) {
 
   return (
     <div className="relative z-50" ref={themeRef}>
-      <Button onclick={handleTheme} icon>
+      <Button onClick={handleTheme} icon>
         {resolvedTheme === "dark" ? (
           <MoonIcon size={22} />
         ) : (
