@@ -2,18 +2,20 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 
 import { NAV_LINKS } from "@/constants";
 
 import useOnClickOutside from "@/hooks/use-on-click-outside";
+import useScreenInnerWidth from "@/hooks/use-screen-inner-width";
+import useBlurBody from "@/hooks/use-blur-body";
 
 import Container from "@/components/Container";
 import ThemeSwitcher from "@/components/theme-switcher";
 import MobileMenu from "@/components/ui/mobile-menu";
-import { usePathname } from "next/navigation";
-import useScreenInnerWidth from "@/hooks/use-screen-inner-width";
-import useBlurBody from "@/hooks/use-blur-body";
+import MotionDiv from "../motion-div";
+import MotionList from "../motion-list";
 
 interface NavbarProps {
   contentRef: React.RefObject<HTMLDivElement>;
@@ -49,21 +51,23 @@ const Navbar = ({ contentRef }: NavbarProps) => {
   return (
     <nav className="h-[62px] border-b border-b-border backdrop-blur dark:bg-[#070707]/90 bg-[#fcfcfc]/90  fixed w-full top-0 z-50">
       <Container className="h-full flex items-center justify-between">
-        <Link
-          href="/"
-          className="font-bold text-3xl tracking-[-8px] text-foreground hover:text-primary-foreground"
-          onClick={() => setNavLinkActive("")}
-        >
-          D
-          <span className="text-primary-foreground hover:text-foreground">
-            B
-          </span>
-        </Link>
+        <MotionDiv delayOffset={0}>
+          <Link
+            href="/"
+            className="font-bold text-3xl tracking-[-8px] text-foreground hover:text-primary-foreground"
+            onClick={() => setNavLinkActive("")}
+          >
+            D
+            <span className="text-primary-foreground hover:text-foreground">
+              B
+            </span>
+          </Link>
+        </MotionDiv>
         <div className="flex max-md:hidden lg:gap-24 gap-16 text-sm font-medium">
-          <ul className="flex gap-4 items-center justify-between">
+          <MotionList className="flex gap-4 items-center justify-between">
             {NAV_LINKS.map((link) => {
               return (
-                <li
+                <div
                   key={link.label + link.path}
                   onClick={() => handleNavLinkActive(link.label)}
                 >
@@ -75,17 +79,19 @@ const Navbar = ({ contentRef }: NavbarProps) => {
                   >
                     {link.label}
                   </Link>
-                </li>
+                </div>
               );
             })}
-          </ul>
-          <Link
-            href="/Resume.pdf"
-            target="_blank"
-            className="p-2 border border-border rounded-md hover:bg-muted duration-300 cursor-pointer"
-          >
-            Resume
-          </Link>
+          </MotionList>
+          <MotionDiv delayOffset={0.7}>
+            <Link
+              href="/Resume.pdf"
+              target="_blank"
+              className="p-2 border border-border rounded-md hover:bg-muted duration-300 cursor-pointer"
+            >
+              Resume
+            </Link>
+          </MotionDiv>
         </div>
         <div className="flex gap-4 items-center z-50" ref={menuRef}>
           <ThemeSwitcher />

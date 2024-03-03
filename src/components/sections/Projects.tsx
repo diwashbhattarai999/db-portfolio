@@ -1,14 +1,25 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
+import { useTheme } from "next-themes";
 
 import { PROJECTS } from "@/constants";
 
 import Container from "@/components/Container";
-import { ChainLink, GitHub } from "@/components/Icons";
+import { ChainLink, GitHub } from "@/components/ui/Icons";
 import MotionDiv from "@/components/motion-div";
 import MotionList from "@/components/motion-list";
+import { useEffect, useState } from "react";
 
 const Projects = () => {
+  const [isMounted, setIsMounted] = useState(false);
+  const { theme } = useTheme();
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
   return (
     <section id="projects" className="pt-20 mb-16">
       <Container className="flex flex-col gap-12 justify-center">
@@ -49,14 +60,30 @@ const Projects = () => {
                       target="_blank"
                       className="bg-muted py-2 px-4 w-fit rounded-md hover:bg-secondary duration-300 text-center text-sm"
                     >
-                      <ChainLink />
+                      <ChainLink
+                        fillColor={
+                          isMounted
+                            ? theme === "light"
+                              ? "#1d1d1d"
+                              : "#ebebeb"
+                            : "#7c7c7c"
+                        }
+                      />
                     </Link>
                     <Link
                       href={project.url}
                       target="_blank"
                       className="bg-muted py-2 px-4 w-fit rounded-md hover:bg-secondary duration-300 text-center text-sm"
                     >
-                      <GitHub />
+                      <GitHub
+                        fillColor={
+                          isMounted
+                            ? theme === "light"
+                              ? "#1d1d1d"
+                              : "#ebebeb"
+                            : "#7c7c7c"
+                        }
+                      />
                     </Link>
                   </div>
                 </div>

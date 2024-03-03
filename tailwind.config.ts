@@ -11,6 +11,8 @@ const config: Config = {
     extend: {
       colors: {
         border: "var(--border)",
+        input: "var(--input)",
+        ring: "var(--ring)",
         background: "var(--background)",
         foreground: "var(--foreground)",
         primary: {
@@ -29,6 +31,14 @@ const config: Config = {
           DEFAULT: "var(--accent)",
           foreground: "var(--accent-foreground)",
           secondary: "var(--accent-secondary)",
+        },
+        destructive: {
+          DEFAULT: "var(--destructive)",
+          background: "var(--destructive-background)",
+        },
+        success: {
+          DEFAULT: "var(--success)",
+          background: "var(--success-background)",
         },
       },
       minHeight: {

@@ -1,4 +1,15 @@
-import { Laptop2, Moon, Sun, Home } from "lucide-react";
+import {
+  Laptop2,
+  Moon,
+  Sun,
+  Home,
+  Settings,
+  CircleUserRound,
+  FolderDot,
+  Contact,
+  LayoutDashboard,
+  LogOut,
+} from "lucide-react";
 
 import {
   HTML5,
@@ -15,7 +26,7 @@ import {
   GitHub,
   LinkedIn,
   Instagram,
-} from "@/components/Icons";
+} from "@/components/ui/Icons";
 
 export const NAV_LINKS = [
   {
@@ -150,23 +161,33 @@ export const PROJECTS = [
 
 export const ADMIN_LINKS = [
   {
-    id: "home",
+    href: "dashboard",
+    label: "Dashboard",
+    icon: LayoutDashboard,
+  },
+  {
+    href: "settings",
+    label: "Settings",
+    icon: Settings,
+  },
+  {
+    href: "home",
     label: "Home",
     icon: Home,
   },
   {
-    id: "about",
+    href: "about",
     label: "About",
-    icon: "home",
+    icon: CircleUserRound,
   },
   {
-    id: "projects",
+    href: "projects",
     label: "Projects",
-    icon: "home",
+    icon: FolderDot,
   },
   {
-    id: "contact",
+    href: "contact",
     label: "Contact",
-    icon: "home",
+    icon: Contact,
   },
 ];
