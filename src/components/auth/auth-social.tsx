@@ -2,16 +2,19 @@
 
 import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
+import { signIn } from "next-auth/react";
 
 import { Google, GitHub } from "@/components/ui/Icons";
+import { Button } from "../ui/button";
+import { DEFAULT_LOGIN_REDIRECT } from "../../../routes";
 
 const AUTH_SOCIAL_LINKS = [
   {
-    label: "Google",
+    label: "google",
     icon: Google,
   },
   {
-    label: "Projects",
+    label: "github",
     icon: GitHub,
   },
 ];
@@ -24,13 +27,23 @@ const AuthSocial = () => {
     setIsMounted(true);
   }, []);
 
+  const handleSocialLogin = (provider: "google" | "github") => {
+    signIn(provider, {
+      callbackUrl: DEFAULT_LOGIN_REDIRECT,
+    });
+  };
+
   return (
     <div className="w-full flex items-center justify-between gap-4">
       {AUTH_SOCIAL_LINKS.map((link) => {
         return (
-          <div
+          <Button
             key={link.label}
-            className="w-full bg-border flex items-center justify-center p-3 rounded-md cursor-pointer hover:bg-accent duration-300"
+            className="bg-border flex items-center justify-center p-3"
+            full
+            onClick={() =>
+              handleSocialLogin(link.label === "google" ? "google" : "github")
+            }
           >
             <link.icon
               fillColor={
@@ -41,7 +54,7 @@ const AuthSocial = () => {
                   : "#7c7c7c"
               }
             />
-          </div>
+          </Button>
         );
       })}
     </div>

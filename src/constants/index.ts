@@ -191,16 +191,3 @@ export const ADMIN_LINKS = [
     icon: Contact,
   },
 ];
-
-export const ADMIN_PROFILE_LINKS = [
-  {
-    href: "settings",
-    label: "Proile",
-    icon: CircleUserRound,
-  },
-  {
-    href: "logout",
-    label: "Logout",
-    icon: LogOut,
-  },
-];

@@ -16,6 +16,7 @@ import { Button } from "@/components/ui/button";
 import CardWrapper from "@/components/auth/card-wrapper";
 import FormError from "@/components/ui/form-error";
 import FormSuccess from "@/components/ui/form-success";
+import Link from "next/link";
 
 const defaultValues = {
   email: "",
@@ -61,9 +62,9 @@ const LoginForm = () => {
             reset();
             setSuccess(data?.success);
           }
-          if (data?.twoFactor) {
-            setShowTwoFactor(true);
-          }
+          // if (data?.twoFactor) {
+          //   setShowTwoFactor(true);
+          // }
         })
         .catch(() => setError("Something went wrong"));
     });
@@ -77,7 +78,10 @@ const LoginForm = () => {
       backButtonLabel="Don't have an account ? Register Now"
       showSocial
     >
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className="flex flex-col items-start"
+      >
         {/* User Inputs -- Email */}
         <Input
           label="Email"
@@ -107,6 +111,13 @@ const LoginForm = () => {
 
         {/* Error Message */}
         {error && <FormError message={error} />}
+
+        <Link
+          href="/reset"
+          className="underline text-secondary-foreground hover:text-primary-foreground text-sm mb-6"
+        >
+          Forgot Password?
+        </Link>
 
         {/* Submit Button */}
         <Button disabled={isPending} type="submit" full>

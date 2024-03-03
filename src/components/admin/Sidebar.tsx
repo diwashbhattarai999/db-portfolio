@@ -1,19 +1,27 @@
 "use client";
 
-import { ADMIN_LINKS, ADMIN_PROFILE_LINKS } from "@/constants";
-import { CircleUserRound, LogOut } from "lucide-react";
-import Link from "next/link";
 import { useState } from "react";
-import MotionList from "../motion-list";
-import MotionSidebar from "../motion-sidebar";
-import { usePathname } from "next/navigation";
+import Link from "next/link";
 import Image from "next/image";
-import ThemeSwitcher from "../theme-switcher";
+import { usePathname } from "next/navigation";
+import { CircleUserRound, LogOut } from "lucide-react";
+
+import { logout } from "@/actions/logout";
+
+import { ADMIN_LINKS } from "@/constants";
+
+import MotionList from "@/components/motion-list";
+import MotionSidebar from "@/components/motion-sidebar";
+import ThemeSwitcher from "@/components/theme-switcher";
 
 const Sidebar = () => {
   const [expandSidebar, setExpandSidebar] = useState(false);
   const [profileOpen, setProfileOpen] = useState(false);
   const pathname = usePathname().split("/")[2];
+
+  const handleLogout = () => {
+    logout();
+  };
 
   return (
     <div
@@ -66,7 +74,6 @@ const Sidebar = () => {
         })}
       </MotionList>
       <div className="w-full group relative z-0">
-        {/* //TODO: Add user profile and logout button when hovering instead of icon below*/}
         <div className="w-full">
           <MotionSidebar delayOffset={0}>
             <Image
@@ -85,18 +92,21 @@ const Sidebar = () => {
               className="absolute z-50 -top-[11rem] left-0 bg-accent rounded-md py-3 px-2 w-40 text-primary-foreground"
             >
               <div className="flex flex-col gap-2">
-                {ADMIN_PROFILE_LINKS.map((link) => {
-                  return (
-                    <Link
-                      key={link.href}
-                      href={`/admin/${link.href}`}
-                      className="flex items-center gap-3 px-2 rounded-md font-medium transition-colors hover:text-foreground hover:bg-muted"
-                    >
-                      <link.icon className="py-3 w-auto h-11" />
-                      <h3>{link.label}</h3>
-                    </Link>
-                  );
-                })}
+                <Link
+                  href="/admin/settings"
+                  className="flex items-center gap-3 px-2 rounded-md font-medium transition-colors hover:text-foreground hover:bg-muted"
+                >
+                  <CircleUserRound className="py-3 w-auto h-11" />
+                  <h3>Profile</h3>
+                </Link>
+                <div
+                  onClick={handleLogout}
+                  className="flex items-center gap-3 px-2 rounded-md font-medium transition-colors hover:text-foreground hover:bg-muted"
+                >
+                  <LogOut className="py-3 w-auto h-11" />
+                  <h3>Logout</h3>
+                </div>
+
                 <ThemeSwitcher admin />
               </div>
             </MotionSidebar>
