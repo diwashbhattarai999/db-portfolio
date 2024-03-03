@@ -20,6 +20,8 @@
     --ring: #6a6a6a;
 
     --destructive: #cb3535;
+    --destructive-foreground: #cb6262;
+
     --success: #008b00;
 
     --primary: #cecece;
@@ -47,8 +49,11 @@
     --input: #272727;
     --ring: #323232;
 
-    --destructive: #ef3737;
-    --success: #008b00;
+    --destructive: #e72424;
+    --destructive-background: #f58c8ce3;
+
+    --success: #033604;
+    --success-background: #bff3beb8;
 
     --primary: #131313;
     --primary-foreground: #cecece;

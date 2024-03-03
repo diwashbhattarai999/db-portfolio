@@ -1,18 +1,20 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useTransition } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { CircleUser, KeyRound, Mail } from "lucide-react";
 
-import { LoginSchema, RegisterSchema } from "@/schemas";
+import { register } from "@/actions/register";
+
+import { RegisterSchema } from "@/schemas";
 
 import Input from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import FormError from "@/components/ui/form-error";
+import FormSuccess from "@/components/ui/form-success";
 import CardWrapper from "@/components/auth/card-wrapper";
-import FormError from "../ui/form-error";
-import FormSuccess from "../ui/form-success";
 
 const defaultValues = {
   fullname: "",
@@ -24,12 +26,11 @@ const defaultValues = {
 const RegisterForm = () => {
   const [error, setError] = useState<string | undefined>("");
   const [success, setSuccess] = useState<string | undefined>("");
-  const [loading, setLoading] = useState(false);
+  const [isPending, startTransition] = useTransition();
 
   const {
-    register,
+    register: reg,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm<z.infer<typeof RegisterSchema>>({
     resolver: zodResolver(RegisterSchema),
@@ -38,8 +39,17 @@ const RegisterForm = () => {
 
   //   console.log(errors);
 
-  const onSubmit: SubmitHandler<typeof defaultValues> = (data) =>
-    console.log(data);
+  const onSubmit: SubmitHandler<typeof defaultValues> = (values) => {
+    setError("");
+    setSuccess("");
+
+    startTransition(() => {
+      register(values).then((data) => {
+        setError(data.error);
+        setSuccess(data.sucess);
+      });
+    });
+  };
 
   return (
     <CardWrapper
@@ -58,8 +68,8 @@ const RegisterForm = () => {
           placeholder="Full Name"
           icon={CircleUser}
           error={errors.fullname?.message}
-          disabled={loading}
-          register={register("fullname")}
+          disabled={isPending}
+          register={reg("fullname")}
         />
 
         {/* User Inputs -- Email */}
@@ -70,8 +80,8 @@ const RegisterForm = () => {
           placeholder="Email"
           icon={Mail}
           error={errors.email?.message}
-          disabled={loading}
-          register={register("email")}
+          disabled={isPending}
+          register={reg("email")}
         />
 
         {/* User Inputs -- Password */}
@@ -82,8 +92,8 @@ const RegisterForm = () => {
           placeholder="******"
           icon={KeyRound}
           error={errors.password?.message}
-          disabled={loading}
-          register={register("password")}
+          disabled={isPending}
+          register={reg("password")}
         />
 
         {/* User Inputs -- Password */}
@@ -94,8 +104,8 @@ const RegisterForm = () => {
           placeholder="******"
           icon={KeyRound}
           error={errors.confirmPassword?.message}
-          disabled={loading}
-          register={register("confirmPassword")}
+          disabled={isPending}
+          register={reg("confirmPassword")}
         />
 
         {/* Sucess Message */}
@@ -105,8 +115,8 @@ const RegisterForm = () => {
         {error && <FormError message={error} />}
 
         {/* Submit Button */}
-        <Button disabled={loading} type="submit" full>
-          Login
+        <Button disabled={isPending} type="submit" full>
+          Register
         </Button>
       </form>
     </CardWrapper>

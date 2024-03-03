@@ -8,8 +8,8 @@ const FormError = ({ message }: FormErrorProps) => {
   if (!message) return null;
 
   return (
-    <div className="bg-destructive/15 p-3 rounded-md flex items-center gap-x-2 text-sm text-destructive">
-      <AlertTriangle className="h-4 w-4" />
+    <div className="bg-destructive-background p-3 my-4 rounded-md flex items-center gap-x-2 font-semibold text-destructive">
+      <AlertTriangle className="h-5 w-5" />
       <p>{message}</p>
     </div>
   );

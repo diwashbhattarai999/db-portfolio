@@ -1,18 +1,21 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useTransition } from "react";
+import { useSearchParams } from "next/navigation";
 import { useForm, SubmitHandler } from "react-hook-form";
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { KeyRound, Mail } from "lucide-react";
+
+import { login } from "@/actions/login";
 
 import { LoginSchema } from "@/schemas";
 
 import Input from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import CardWrapper from "@/components/auth/card-wrapper";
-import FormError from "../ui/form-error";
-import FormSuccess from "../ui/form-success";
+import FormError from "@/components/ui/form-error";
+import FormSuccess from "@/components/ui/form-success";
 
 const defaultValues = {
   email: "",
@@ -22,20 +25,48 @@ const defaultValues = {
 const LoginForm = () => {
   const [error, setError] = useState<string | undefined>("");
   const [success, setSuccess] = useState<string | undefined>("");
-  const [loading, setLoading] = useState(false);
+  const [isPending, startTransition] = useTransition();
+
+  const searchParams = useSearchParams();
+  const callbackUrl = searchParams.get("callbackUrl");
+  const urlError =
+    searchParams.get("error") === "OAuthAccountNotLinked"
+      ? "Email already in use with different Provider!"
+      : "";
 
   const {
     register,
     handleSubmit,
-    watch,
+    reset,
     formState: { errors },
   } = useForm<z.infer<typeof LoginSchema>>({
     resolver: zodResolver(LoginSchema),
     defaultValues,
   });
 
-  const onSubmit: SubmitHandler<typeof defaultValues> = (data) => {
-    console.log(data);
+  const onSubmit: SubmitHandler<typeof defaultValues> = (
+    values: z.infer<typeof LoginSchema>
+  ) => {
+    setError("");
+    setSuccess("");
+
+    startTransition(() => {
+      login(values, callbackUrl)
+        .then((data) => {
+          if (data?.error) {
+            reset();
+            setError(data?.error);
+          }
+          if (data?.success) {
+            reset();
+            setSuccess(data?.success);
+          }
+          if (data?.twoFactor) {
+            setShowTwoFactor(true);
+          }
+        })
+        .catch(() => setError("Something went wrong"));
+    });
   };
 
   return (
@@ -55,7 +86,7 @@ const LoginForm = () => {
           placeholder="Email"
           icon={Mail}
           error={errors.email?.message}
-          disabled={loading}
+          disabled={isPending}
           register={register("email")}
         />
 
@@ -67,7 +98,7 @@ const LoginForm = () => {
           placeholder="******"
           icon={KeyRound}
           error={errors.password?.message}
-          disabled={loading}
+          disabled={isPending}
           register={register("password")}
         />
 
@@ -78,7 +109,7 @@ const LoginForm = () => {
         {error && <FormError message={error} />}
 
         {/* Submit Button */}
-        <Button disabled={loading} type="submit" full>
+        <Button disabled={isPending} type="submit" full>
           Login
         </Button>
       </form>
