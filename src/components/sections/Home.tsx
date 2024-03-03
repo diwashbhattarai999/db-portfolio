@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import Container from "@/components/Container";
-import Social from "@/components/ui/Socials";
+import Social from "@/components/socials";
 import MotionDiv from "@/components/motion-div";
 import MotionText from "@/components/motion-text";
 

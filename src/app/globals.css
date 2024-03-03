@@ -16,6 +16,8 @@
     --accent-secondary: #e4bd0f;
 
     --border: #f5f5f5;
+    --input: #f5f5f5;
+    --ring: #6a6a6a;
 
     --primary: #cecece;
     --primary-foreground: #3b3b3b;
@@ -39,6 +41,8 @@
     --accent-secondary: #ecc414;
 
     --border: #27272738;
+    --input: #272727;
+    --ring: #323232;
 
     --primary: #131313;
     --primary-foreground: #cecece;
