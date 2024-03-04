@@ -12,7 +12,7 @@ import { register } from "@/actions/register";
 import { RegisterSchema } from "@/schemas";
 
 import Input from "@/components/ui/input";
-import Button from "@/components/ui/button";
+import Button from "@/components/ui/Button";
 import FormError from "@/components/ui/form-error";
 import FormSuccess from "@/components/ui/form-success";
 import CardWrapper from "@/components/auth/card-wrapper";

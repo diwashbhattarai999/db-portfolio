@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { useTheme } from "next-themes";
 import { MoonIcon, SunIcon, ToggleLeft, ToggleRight } from "lucide-react";
 
-import Button from "@/components/ui/button";
+import Button from "@/components/ui/Button";
 import { THEMES } from "@/constants";
 import useOnClickOutside from "@/hooks/use-on-click-outside";
 import MotionDiv from "./motion-div";
