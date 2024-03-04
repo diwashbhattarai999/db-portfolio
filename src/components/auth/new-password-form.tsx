@@ -13,7 +13,7 @@ import { newPassword } from "@/actions/new-password";
 import { NewPasswordSchema } from "@/schemas";
 
 import Input from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
+import Button from "@/components/ui/button";
 import FormError from "@/components/ui/form-error";
 import FormSuccess from "@/components/ui/form-success";
 import CardWrapper from "@/components/auth/card-wrapper";
