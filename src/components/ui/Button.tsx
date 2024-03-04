@@ -21,15 +21,15 @@ const Button = ({
   return (
     <button
       className={cn(
-        "bg-accent text-accent-foreground hover:bg-muted hover:text-muted-foreground p-2 rounded-[4px] duration-300 font-medium",
+        "bg-accent text-accent-foreground hover:bg-muted hover:text-muted-foreground p-2 rounded-[4px] duration-300 font-medium cursor-pointer disabled:cursor-not-allowed disabled:opacity-50",
         outline && "bg-transparent border border-border",
         icon &&
           "bg-transparent hover:bg-accent flex items-center justify-center gap-4 w-full py-[10px]",
         full ? "w-full" : "w-fit",
-        disabled && "opacity-50",
         className
       )}
       {...props}
+      disabled={disabled}
     >
       {children}
     </button>

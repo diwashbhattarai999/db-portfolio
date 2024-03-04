@@ -1,12 +1,14 @@
 import NextAuth from "next-auth";
 import { PrismaAdapter } from "@auth/prisma-adapter";
+import { UserRole } from "@prisma/client";
+
+import authConfig from "@/auth.config";
 
 import { getUserById } from "@/data/user";
-import { getTwoFactorConfirmationByUserId } from "@/data/two-factor-confirmation";
-import { db } from "@/lib/db";
-import authConfig from "../auth.config";
 import { getAccountByUserId } from "@/data/account";
-import { UserRole } from "@prisma/client";
+import { getTwoFactorConfirmationByUserId } from "@/data/two-factor-confirmation";
+
+import { db } from "@/lib/db";
 
 export const {
   handlers: { GET, POST },
@@ -17,6 +19,7 @@ export const {
   pages: {
     signIn: "/login",
     error: "/error",
+    signOut: "/",
   },
   events: {
     async linkAccount({ user }) {
@@ -80,7 +83,7 @@ export const {
       const existingAccount = await getAccountByUserId(existingUser.id);
 
       token.isOAuth = !!existingAccount;
-      token.name = existingUser.fullname;
+      token.name = existingUser.name;
       token.email = existingUser.email;
       token.role = existingUser.role;
       token.isTwoFactorEnabled = existingUser.isTwoFactorEnabled;

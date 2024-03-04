@@ -1,8 +1,9 @@
 "use client";
 
 import { useState, useTransition } from "react";
-import { useForm, SubmitHandler } from "react-hook-form";
+
 import * as z from "zod";
+import { useForm, SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { CircleUser, KeyRound, Mail } from "lucide-react";
 
@@ -17,7 +18,7 @@ import FormSuccess from "@/components/ui/form-success";
 import CardWrapper from "@/components/auth/card-wrapper";
 
 const defaultValues = {
-  fullname: "",
+  name: "",
   email: "",
   password: "",
   confirmPassword: "",
@@ -63,13 +64,13 @@ const RegisterForm = () => {
         {/* User Inputs -- UserName */}
         <Input
           label="Full Name"
-          name="fullname"
+          name="name"
           type="text"
           placeholder="Full Name"
           icon={CircleUser}
-          error={errors.fullname?.message}
+          error={errors.name?.message}
           disabled={isPending}
-          register={reg("fullname")}
+          register={reg("name")}
         />
 
         {/* User Inputs -- Email */}

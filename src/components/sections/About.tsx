@@ -90,6 +90,7 @@ const About = () => {
                 <div className="col-span-1" key={link.label}>
                   <Link
                     href={link.href}
+                    target="_blank"
                     className="flex items-center justify-between w-full border rounded-lg p-4 border-accent hover:bg-border duration-300"
                   >
                     <div className="flex items-center gap-3 font-medium">

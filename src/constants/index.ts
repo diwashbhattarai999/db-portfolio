@@ -131,7 +131,7 @@ export const PROJECTS = [
       "A sleek e-commerce clone using Next.js, Tailwind CSS, and MongoDB. Secure authentication and a responsive design make for a seamless shopping experience.",
     imagePath: "/images/sastodeal.png",
     url: "https://db-ecommerce-clone.vercel.app/",
-    github: "",
+    github: "https://github.com/diwashbhattarai999/e-commerce-clone",
   },
   {
     label: "Airbnb clone | Next.JS",
@@ -139,7 +139,7 @@ export const PROJECTS = [
       "This project is a clone of the popular vacation rental platform, Airbnb, built with modern web technologies.The frontend is powered by Next.js for server-side rendering, tailwind css for styling and zustand for state management.",
     imagePath: "/images/airbnb.png",
     url: "https://db-booking-app.vercel.app/",
-    github: "",
+    github: "https://github.com/diwashbhattarai999/Airbnb-Clone-Next.JS",
   },
   {
     label: "Moviz | React | Redux",
@@ -147,7 +147,7 @@ export const PROJECTS = [
       "Moviz App provides the information of all the movies including trending, popular, upcoming and many more. You can find any movies in this app. This app uses the TMDB api to fetch the data of moives.",
     imagePath: "/images/moviz.png",
     url: "https://db-movie-app.vercel.app/",
-    github: "",
+    github: "https://github.com/diwashbhattarai999/movie_app_react",
   },
   {
     label: "Quiz app | React",
@@ -155,7 +155,7 @@ export const PROJECTS = [
       "Quiz App is a general Knowledge and IQ game with a variety of options to play. There are different levels from easy to hard and different categories to choose for a player.",
     imagePath: "/images/quizapp.png",
     url: "https://db-quiz-app.netlify.app/",
-    github: "",
+    github: "https://github.com/diwashbhattarai999/quiz_app",
   },
 ];
 

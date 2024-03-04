@@ -71,7 +71,7 @@ const Projects = () => {
                       />
                     </Link>
                     <Link
-                      href={project.url}
+                      href={project.github}
                       target="_blank"
                       className="bg-muted py-2 px-4 w-fit rounded-md hover:bg-secondary duration-300 text-center text-sm"
                     >

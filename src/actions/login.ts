@@ -6,13 +6,9 @@ import bcrypt from "bcryptjs";
 
 import { signIn } from "@/auth";
 
-import { DEFAULT_LOGIN_REDIRECT } from "@/../routes";
+import { DEFAULT_LOGIN_REDIRECT } from "@/routes";
 
 import { LoginSchema } from "@/schemas";
-
-import { getUserByEmail } from "@/data/user";
-import { getTwoFactorTokenByEmail } from "@/data/two-factor-tokens";
-import { getTwoFactorConfirmationByUserId } from "@/data/two-factor-confirmation";
 
 import { db } from "@/lib/db";
 import { sendVerificationEmail, sendTwoFactorTokenEmail } from "@/lib/mail";
@@ -20,6 +16,10 @@ import {
   generateVerificationToken,
   generateTwoFactorToken,
 } from "@/lib/tokens";
+
+import { getUserByEmail } from "@/data/user";
+import { getTwoFactorTokenByEmail } from "@/data/two-factor-tokens";
+import { getTwoFactorConfirmationByUserId } from "@/data/two-factor-confirmation";
 
 export const login = async (
   values: z.infer<typeof LoginSchema>,

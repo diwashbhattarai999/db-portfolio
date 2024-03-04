@@ -48,7 +48,7 @@ const Sidebar = () => {
       <MotionList className="flex flex-col gap-6">
         {ADMIN_LINKS.map((link) => {
           return (
-            <div key={link.href}>
+            <div key={link.href} onClick={() => setProfileOpen(false)}>
               <Link
                 href={`/admin/${link.href}`}
                 className={`flex items-center gap-6 font-semibold text-lg transition-colors hover:text-foreground ${
