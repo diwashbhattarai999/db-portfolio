@@ -7,10 +7,10 @@
     --background: #fdfdfd;
     --foreground: #0a0a0a;
 
-    --muted: #f1f1f1;
+    --muted: #dadada;
     --muted-foreground: #131313;
 
-    --accent: #e6e6e6;
+    --accent: #d5d5d5;
     --accent-foreground: #1d1d1d;
 
     --accent-secondary: #e4bd0f;
@@ -24,7 +24,7 @@
 
     --success: #008b00;
 
-    --primary: #cecece;
+    --primary: #dfdfdf;
     --primary-foreground: #3b3b3b;
 
     --secondary: #c4c4c4;

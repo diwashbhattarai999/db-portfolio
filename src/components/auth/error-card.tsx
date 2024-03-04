@@ -5,9 +5,14 @@ import MotionDiv from "../motion-div";
 interface ErrorCardProps {
   backButtonLabel: string;
   backButtonHref: string;
+  children?: React.ReactNode;
 }
 
-const ErrorCard = ({ backButtonHref, backButtonLabel }: ErrorCardProps) => {
+const ErrorCard = ({
+  backButtonHref,
+  backButtonLabel,
+  children,
+}: ErrorCardProps) => {
   return (
     <section className="flex h-[calc(100vh_-_90px)] w-full flex-col items-center justify-center gap-4">
       <MotionDiv delayOffset={0}>
@@ -15,6 +20,9 @@ const ErrorCard = ({ backButtonHref, backButtonLabel }: ErrorCardProps) => {
       </MotionDiv>
       <MotionDiv delayOffset={0.1}>
         <p>Could not find requested resource</p>
+      </MotionDiv>
+      <MotionDiv delayOffset={0.2}>
+        <div>{children}</div>
       </MotionDiv>
       <MotionDiv delayOffset={0.2}>
         <Link href={backButtonHref}>

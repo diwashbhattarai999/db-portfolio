@@ -9,10 +9,11 @@ interface CardWrapperProps {
   children: React.ReactNode;
   headerLabel: string;
   subHeaderLabel: string;
-  backButtonLabel: string;
-  backButtonHref: string;
+  backButtonLabel?: string;
+  backButtonHref?: string;
   showSocial?: boolean;
   disabled?: boolean;
+  maxWidthFull?: boolean;
 }
 
 const CardWrapper = ({
@@ -23,6 +24,7 @@ const CardWrapper = ({
   backButtonHref,
   showSocial,
   disabled,
+  maxWidthFull,
 }: CardWrapperProps) => {
   return (
     <Container
@@ -31,7 +33,12 @@ const CardWrapper = ({
         disabled && "cursor-not-allowed opacity-50"
       )}
     >
-      <div className="w-full max-w-md shadow-md rounded-md bg-border p-4 flex flex-col items-center justify-center gap-4">
+      <div
+        className={cn(
+          "w-full shadow-md rounded-md bg-border p-4 flex flex-col items-center justify-center gap-4",
+          maxWidthFull ? "max-w-full" : "max-w-md"
+        )}
+      >
         {/* Form Title */}
         <div className="border-b border-accent w-full text-center pb-4">
           <h1 className="text-4xl text-foreground mb-1">{headerLabel}</h1>
@@ -39,7 +46,12 @@ const CardWrapper = ({
             {subHeaderLabel}
           </h3>
         </div>
-        <div className="border-b border-accent w-full text-center pb-4">
+        <div
+          className={cn(
+            "w-full text-center pb-4",
+            (showSocial || backButtonHref) && "border-b border-accent "
+          )}
+        >
           {children}
         </div>
         {showSocial && (
@@ -47,15 +59,17 @@ const CardWrapper = ({
             <AuthSocial disabled={disabled} />
           </div>
         )}
-        <Link
-          href={backButtonHref}
-          className={cn(
-            "underline text-secondary-foreground hover:text-primary-foreground text-sm ",
-            disabled && "cursor-not-allowed opacity-50"
-          )}
-        >
-          {backButtonLabel}
-        </Link>
+        {backButtonHref && backButtonLabel && (
+          <Link
+            href={backButtonHref}
+            className={cn(
+              "underline text-secondary-foreground hover:text-primary-foreground text-sm ",
+              disabled && "cursor-not-allowed opacity-50"
+            )}
+          >
+            {backButtonLabel}
+          </Link>
+        )}
       </div>
     </Container>
   );

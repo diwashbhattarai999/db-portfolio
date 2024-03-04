@@ -13,6 +13,7 @@ import { ADMIN_LINKS } from "@/constants";
 import MotionList from "@/components/motion-list";
 import MotionSidebar from "@/components/motion-sidebar";
 import ThemeSwitcher from "@/components/theme-switcher";
+import { cn } from "@/lib/utils";
 
 const Sidebar = () => {
   const [expandSidebar, setExpandSidebar] = useState(false);
@@ -30,9 +31,10 @@ const Sidebar = () => {
         setExpandSidebar(false);
         setProfileOpen(false);
       }}
-      className={`bg-border rounded-r-2xl h-screen p-5 md:p-8 cursor-pointer transition-all duration-500 flex flex-col items-start justify-between  overflow-hidden z-0 ${
-        expandSidebar ? "w-56" : "w-16 md:w-24"
-      }`}
+      className={cn(
+        "bg-primary md:rounded-r-2xl h-fit md:h-screen p-5 md:p-8 md:cursor-pointer md:transition-all md:duration-500 flex md:flex-col items-center md:items-start justify-between overflow-hidden z-20 left-0 w-full md:sticky top-0 md:left-0 ",
+        expandSidebar ? "md:w-[260px]" : "md:w-28"
+      )}
     >
       <MotionSidebar delayOffset={0}>
         <Link
@@ -45,7 +47,7 @@ const Sidebar = () => {
           </span>
         </Link>
       </MotionSidebar>
-      <MotionList className="flex flex-col gap-6">
+      <MotionList className="hidden md:flex flex-col gap-6">
         {ADMIN_LINKS.map((link) => {
           return (
             <div key={link.href} onClick={() => setProfileOpen(false)}>
@@ -73,7 +75,7 @@ const Sidebar = () => {
           );
         })}
       </MotionList>
-      <div className="w-full group relative z-0">
+      <div className="md:w-full group md:relative z-0">
         <div className="w-full">
           <MotionSidebar delayOffset={0}>
             <Image
@@ -81,33 +83,55 @@ const Sidebar = () => {
               alt="profile"
               width={100}
               height={100}
-              className="h-6 md:h-8 w-6 md:w-8 rounded-full group-hover:opacity-70"
+              className="h-9 w-9 rounded-full group-hover:opacity-70 cursor-pointer"
               onClick={() => setProfileOpen((currValue) => !currValue)}
               onMouseEnter={() => setProfileOpen(true)}
             />
           </MotionSidebar>
           {profileOpen && (
             <MotionSidebar
-              delayOffset={0.2}
-              className="absolute z-50 -top-[11rem] left-0 bg-accent rounded-md py-3 px-2 w-40 text-primary-foreground"
+              delayOffset={0}
+              className="absolute z-50 top-16 md:-top-[8rem] right-5 md:right-0 md:left-0 bg-accent rounded-md py-3 px-2 w-40 text-primary-foreground"
             >
               <div className="flex flex-col gap-2">
-                <Link
-                  href="/admin/settings"
-                  className="flex items-center gap-3 px-2 rounded-md font-medium transition-colors hover:text-foreground hover:bg-muted"
-                >
-                  <CircleUserRound className="py-3 w-auto h-11" />
-                  <h3>Profile</h3>
-                </Link>
-                <div
-                  onClick={handleLogout}
-                  className="flex items-center gap-3 px-2 rounded-md font-medium transition-colors hover:text-foreground hover:bg-muted"
-                >
-                  <LogOut className="py-3 w-auto h-11" />
-                  <h3>Logout</h3>
-                </div>
+                <MotionList className="flex md:hidden flex-col gap-2">
+                  {ADMIN_LINKS.map((link) => {
+                    return (
+                      <Link
+                        key={link.href}
+                        href={`/admin/${link.href}`}
+                        onClick={() => setProfileOpen(false)}
+                        className={cn(
+                          "flex items-center gap-3 px-2 rounded-md font-medium transition-colors hover:text-foreground hover:bg-muted",
+                          pathname === link.href && "text-foreground"
+                        )}
+                      >
+                        <link.icon className="py-3 w-auto h-11" />
+                        {expandSidebar && (
+                          <MotionSidebar delayOffset={0.2}>
+                            {link.label}
+                          </MotionSidebar>
+                        )}
+                      </Link>
+                    );
+                  })}
+                </MotionList>
 
-                <ThemeSwitcher admin />
+                <hr className="md:hidden my-2 bg-muted" />
+
+                <MotionSidebar delayOffset={0.1}>
+                  <div
+                    onClick={handleLogout}
+                    className="flex items-center gap-3 px-2 rounded-md font-medium transition-colors hover:text-foreground hover:bg-muted cursor-pointer"
+                  >
+                    <LogOut className="py-3 w-auto h-11" />
+                    <h3>Logout</h3>
+                  </div>
+                </MotionSidebar>
+
+                <MotionSidebar delayOffset={0.2}>
+                  <ThemeSwitcher admin />
+                </MotionSidebar>
               </div>
             </MotionSidebar>
           )}

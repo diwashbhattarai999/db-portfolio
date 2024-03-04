@@ -43,7 +43,7 @@ export default function ThemeSwitcher({ admin }: { admin?: boolean }) {
 
   if (admin) {
     return (
-      <div className="relative z-50" ref={themeRef}>
+      <div className="relative z-50 cursor-pointer" ref={themeRef}>
         <div
           onClick={handleToggleTheme}
           className="flex items-center gap-3 px-2 rounded-md font-medium transition-colors hover:text-foreground hover:bg-muted"

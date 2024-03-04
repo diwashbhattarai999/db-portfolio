@@ -80,8 +80,8 @@ export const SettingsSchema = z
     isTwoFactorEnabled: z.optional(z.boolean()),
     role: z.enum([UserRole.ADMIN, UserRole.USER]),
     email: z.optional(z.string().email()),
-    password: z.optional(z.string().min(6)),
-    newPassword: z.optional(z.string().min(6)),
+    password: z.optional(z.string()),
+    newPassword: z.optional(z.string()),
   })
   .refine(
     (data) => {
@@ -108,4 +108,45 @@ export const SettingsSchema = z
       message: "Password is required!",
       path: ["password"],
     }
+  )
+  .refine(
+    (data) => {
+      if (data.password) {
+        // Only validate password if it's provided
+        return data.password.length >= 6;
+      }
+
+      return true; // Allow empty password
+    },
+    {
+      message: "Password must be at least 6 characters",
+      path: ["password"],
+    }
+  )
+  .refine(
+    (data) => {
+      if (data.newPassword) {
+        // Only validate newPassword if it's provided
+        return data.newPassword.length >= 6;
+      }
+
+      return true; // Allow empty newPassword
+    },
+    {
+      message: "New password must be at least 6 characters",
+      path: ["newPassword"],
+    }
   );
+// .refine(
+//   (data) => {
+//     if (data.newPassword === data.password) {
+//       return true;
+//     }
+
+//     return false;
+//   },
+//   {
+//     message: "New password is same as old. Please try another password.",
+//     path: ["newPassword", "password"],
+//   }
+// );
