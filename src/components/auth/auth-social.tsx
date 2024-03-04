@@ -4,9 +4,10 @@ import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 import { signIn } from "next-auth/react";
 
+import { DEFAULT_LOGIN_REDIRECT } from "@/../routes";
+
 import { Google, GitHub } from "@/components/ui/Icons";
 import { Button } from "@/components/ui/button";
-import { DEFAULT_LOGIN_REDIRECT } from "@/../routes";
 
 const AUTH_SOCIAL_LINKS = [
   {

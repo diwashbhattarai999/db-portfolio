@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 import AuthSocial from "@/components/auth/auth-social";
 import Container from "@/components/Container";

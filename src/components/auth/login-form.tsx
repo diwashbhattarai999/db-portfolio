@@ -24,6 +24,7 @@ const defaultValues = {
 };
 
 const LoginForm = () => {
+  const [showTwoFactor, setShowTwoFactor] = useState(false);
   const [error, setError] = useState<string | undefined>("");
   const [success, setSuccess] = useState<string | undefined>("");
   const [isPending, startTransition] = useTransition();
@@ -62,9 +63,9 @@ const LoginForm = () => {
             reset();
             setSuccess(data?.success);
           }
-          // if (data?.twoFactor) {
-          //   setShowTwoFactor(true);
-          // }
+          if (data?.twoFactor) {
+            setShowTwoFactor(true);
+          }
         })
         .catch(() => setError("Something went wrong"));
     });
