@@ -1,7 +1,9 @@
 "use client";
 
 import { useState, useTransition } from "react";
+import Link from "next/link";
 import { useSearchParams } from "next/navigation";
+
 import { useForm, SubmitHandler } from "react-hook-form";
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -13,10 +15,9 @@ import { LoginSchema } from "@/schemas";
 
 import Input from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import CardWrapper from "@/components/auth/card-wrapper";
 import FormError from "@/components/ui/form-error";
 import FormSuccess from "@/components/ui/form-success";
-import Link from "next/link";
+import CardWrapper from "@/components/auth/card-wrapper";
 
 const defaultValues = {
   email: "",
@@ -24,6 +25,7 @@ const defaultValues = {
 };
 
 const LoginForm = () => {
+  const [showTwoFactor, setShowTwoFactor] = useState(false);
   const [error, setError] = useState<string | undefined>("");
   const [success, setSuccess] = useState<string | undefined>("");
   const [isPending, startTransition] = useTransition();
@@ -55,16 +57,15 @@ const LoginForm = () => {
       login(values, callbackUrl)
         .then((data) => {
           if (data?.error) {
-            reset();
             setError(data?.error);
           }
           if (data?.success) {
             reset();
             setSuccess(data?.success);
           }
-          // if (data?.twoFactor) {
-          //   setShowTwoFactor(true);
-          // }
+          if (data?.twoFactor) {
+            setShowTwoFactor(true);
+          }
         })
         .catch(() => setError("Something went wrong"));
     });
@@ -72,45 +73,67 @@ const LoginForm = () => {
 
   return (
     <CardWrapper
-      headerLabel="Login"
-      subHeaderLabel="Welcome back"
+      headerLabel={showTwoFactor ? "Two Factor Code" : "Login"}
+      subHeaderLabel={showTwoFactor ? "" : "Welcome back"}
       backButtonHref="/register"
       backButtonLabel="Don't have an account ? Register Now"
-      showSocial
+      showSocial={showTwoFactor ? false : true}
+      disabled={isPending}
     >
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="flex flex-col items-start"
       >
-        {/* User Inputs -- Email */}
-        <Input
-          label="Email"
-          name="email"
-          type="email"
-          placeholder="Email"
-          icon={Mail}
-          error={errors.email?.message}
-          disabled={isPending}
-          register={register("email")}
-        />
+        {/* 2FA  */}
 
-        {/* User Inputs -- Password */}
-        <Input
-          label="Password"
-          name="password"
-          type="password"
-          placeholder="******"
-          icon={KeyRound}
-          error={errors.password?.message}
-          disabled={isPending}
-          register={register("password")}
-        />
+        {showTwoFactor ? (
+          <>
+            {/* 2FA */}
+            {/* User Inputs -- Code */}
+            <Input
+              label="2FA Code"
+              name="code"
+              type="number"
+              placeholder="Code"
+              icon={Mail}
+              error={errors.code?.message}
+              disabled={isPending}
+              register={register("code")}
+            />
+          </>
+        ) : (
+          <>
+            {/* User Inputs -- Email */}
+            <Input
+              label="Email"
+              name="email"
+              type="email"
+              placeholder="Email"
+              icon={Mail}
+              error={errors.email?.message}
+              disabled={isPending}
+              register={register("email")}
+            />
+
+            {/* User Inputs -- Password */}
+            <Input
+              label="Password"
+              name="password"
+              type="password"
+              placeholder="******"
+              icon={KeyRound}
+              error={errors.password?.message}
+              disabled={isPending}
+              register={register("password")}
+            />
+          </>
+        )}
 
         {/* Sucess Message */}
         {success && <FormSuccess message={success} />}
 
         {/* Error Message */}
-        {error && <FormError message={error} />}
+        {error && <FormError message={error || urlError} />}
 
         <Link
           href="/reset"
@@ -121,7 +144,7 @@ const LoginForm = () => {
 
         {/* Submit Button */}
         <Button disabled={isPending} type="submit" full>
-          Login
+          {showTwoFactor ? "Confirm" : "Login"}
         </Button>
       </form>
     </CardWrapper>

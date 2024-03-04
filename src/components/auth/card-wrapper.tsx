@@ -1,8 +1,9 @@
-"use client";
-
 import Link from "next/link";
-import AuthSocial from "@/components/auth/auth-social";
+
+import { cn } from "@/lib/utils";
+
 import Container from "@/components/Container";
+import AuthSocial from "@/components/auth/auth-social";
 
 interface CardWrapperProps {
   children: React.ReactNode;
@@ -11,6 +12,7 @@ interface CardWrapperProps {
   backButtonLabel: string;
   backButtonHref: string;
   showSocial?: boolean;
+  disabled?: boolean;
 }
 
 const CardWrapper = ({
@@ -20,9 +22,15 @@ const CardWrapper = ({
   subHeaderLabel,
   backButtonHref,
   showSocial,
+  disabled,
 }: CardWrapperProps) => {
   return (
-    <Container className="w-full min-h-screen flex items-center justify-center">
+    <Container
+      className={cn(
+        "w-full min-h-screen flex items-center justify-center",
+        disabled && "cursor-not-allowed opacity-50"
+      )}
+    >
       <div className="w-full max-w-md shadow-md rounded-md bg-border p-4 flex flex-col items-center justify-center gap-4">
         {/* Form Title */}
         <div className="border-b border-accent w-full text-center pb-4">
@@ -36,12 +44,15 @@ const CardWrapper = ({
         </div>
         {showSocial && (
           <div className="w-full">
-            <AuthSocial />
+            <AuthSocial disabled={disabled} />
           </div>
         )}
         <Link
           href={backButtonHref}
-          className="underline text-secondary-foreground hover:text-primary-foreground text-sm "
+          className={cn(
+            "underline text-secondary-foreground hover:text-primary-foreground text-sm ",
+            disabled && "cursor-not-allowed opacity-50"
+          )}
         >
           {backButtonLabel}
         </Link>

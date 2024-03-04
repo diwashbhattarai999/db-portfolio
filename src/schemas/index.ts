@@ -19,13 +19,13 @@ export const LoginSchema = z.object({
 
 export const RegisterSchema = z
   .object({
-    fullname: z
+    name: z
       .string()
       .trim()
       .min(1, {
         message: "Username is required",
       })
-      .refine((fullname) => fullname.length > 3 && fullname.length < 255, {
+      .refine((name) => name.length > 3 && name.length < 255, {
         message: "Full name must be between 3 and 255 characters",
       }),
     email: z

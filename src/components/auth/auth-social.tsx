@@ -4,9 +4,10 @@ import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 import { signIn } from "next-auth/react";
 
+import { DEFAULT_LOGIN_REDIRECT } from "@/routes";
+
 import { Google, GitHub } from "@/components/ui/Icons";
-import { Button } from "../ui/button";
-import { DEFAULT_LOGIN_REDIRECT } from "../../../routes";
+import { Button } from "@/components/ui/button";
 
 const AUTH_SOCIAL_LINKS = [
   {
@@ -19,7 +20,7 @@ const AUTH_SOCIAL_LINKS = [
   },
 ];
 
-const AuthSocial = () => {
+const AuthSocial = ({ disabled }: { disabled?: boolean }) => {
   const [isMounted, setIsMounted] = useState(false);
   const { theme } = useTheme();
 
@@ -44,6 +45,7 @@ const AuthSocial = () => {
             onClick={() =>
               handleSocialLogin(link.label === "google" ? "google" : "github")
             }
+            disabled={disabled}
           >
             <link.icon
               fillColor={

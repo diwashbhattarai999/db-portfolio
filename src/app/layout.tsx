@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
-import { Fira_Sans, Montserrat, Poppins } from "next/font/google";
+import { Montserrat } from "next/font/google";
+import { SessionProvider } from "next-auth/react";
+import { auth } from "../auth";
 
 import { siteConfig } from "@/config";
 import { cn } from "@/lib/utils";
@@ -15,23 +17,27 @@ const montserrat = Montserrat({
 
 export const metadata: Metadata = siteConfig;
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const session = await auth();
+
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body
-        className={cn(
-          montserrat.variable,
-          "antialiased flex flex-col min-h-screen bg-background"
-        )}
-      >
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
-          {children}
-        </ThemeProvider>
-      </body>
-    </html>
+    <SessionProvider session={session}>
+      <html lang="en" suppressHydrationWarning>
+        <body
+          className={cn(
+            montserrat.variable,
+            "antialiased flex flex-col min-h-screen bg-background"
+          )}
+        >
+          <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
+            {children}
+          </ThemeProvider>
+        </body>
+      </html>
+    </SessionProvider>
   );
 }

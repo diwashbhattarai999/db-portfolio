@@ -33,12 +33,18 @@ const Input = ({
   const EyeIcon = passwordVisible ? Eye : EyeOff;
 
   return (
-    <div className="relative w-full mb-4 flex flex-col gap-2 items-start">
+    <div
+      className={cn(
+        "relative w-full mb-4 flex flex-col gap-2 items-start ",
+        disabled && "cursor-not-allowed opacity-50"
+      )}
+    >
       <label
         htmlFor={name}
         className={cn(
-          "text-primary-foreground cursor-pointer",
-          error && "text-destructive opacity-80"
+          "text-primary-foreground cursor-pointer ",
+          error && "text-destructive opacity-80",
+          disabled && "cursor-not-allowed opacity-50"
         )}
       >
         {label}
@@ -62,11 +68,12 @@ const Input = ({
             defaultValue={value}
             id={name}
             disabled={disabled}
-            className={`w-full h-full py-4 pl-10 bg-transparent border rounded-md text-primary-foreground placeholder:text-secondary-foreground outline-none ${
+            className={cn(
+              "w-full h-full py-4 pl-10 bg-transparent border rounded-md text-primary-foreground placeholder:text-secondary-foreground outline-none disabled:cursor-not-allowed disabled:opacity-50",
               error
                 ? "border-destructive focus:border-destructive"
                 : "border-input focus:border-secondary-foreground"
-            } ${disabled && "disabled"}`}
+            )}
           />
         </div>
 

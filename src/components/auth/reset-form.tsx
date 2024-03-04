@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useTransition } from "react";
+
 import * as z from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -43,7 +44,7 @@ const ResetForm = () => {
         setSuccess(data?.success);
       });
     });
-    console.log(values);
+    // console.log(values);
   };
 
   return (
