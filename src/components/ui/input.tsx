@@ -42,7 +42,7 @@ const Input = ({
       <label
         htmlFor={name}
         className={cn(
-          "text-primary-foreground cursor-pointer ",
+          "text-primary-foreground cursor-pointer",
           error && "text-destructive opacity-80",
           disabled && "cursor-not-allowed opacity-50"
         )}
@@ -52,7 +52,7 @@ const Input = ({
       <div className="w-full flex items-center justify-between">
         <div className="flex items-center w-full relative">
           {Icon && (
-            <Icon className="absolute left-2 pointer-events-none h-5 w-5 text-secondary-foreground -z-20" />
+            <Icon className="absolute left-2 pointer-events-none h-5 w-5 text-secondary-foreground" />
           )}
           <input
             {...register}
@@ -79,7 +79,7 @@ const Input = ({
 
         {type == "password" && (
           <EyeIcon
-            className="absolute right-2 cursor-pointer pr-4 h-9 w-9 text-secondary-foreground -z-20"
+            className="absolute right-2 cursor-pointer pr-4 h-9 w-9 text-secondary-foreground"
             onClick={() => setPasswordVisible((currentVal) => !currentVal)}
           />
         )}

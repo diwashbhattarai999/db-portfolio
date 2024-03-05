@@ -10,7 +10,7 @@ import {
 
 const { auth } = NextAuth(authConfig);
 
-export default auth((req) => {
+export default auth(async (req) => {
   const { nextUrl } = req;
   const isLoggedIn = !!req.auth;
 
@@ -18,12 +18,7 @@ export default auth((req) => {
   const isPublicRoute = publicRoutes.includes(nextUrl.pathname);
   const isAuthRoute = authRoutes.includes(nextUrl.pathname);
 
-  if (isApiAuthRoute) {
-    if (isLoggedIn) {
-      return;
-    }
-    return Response.redirect(new URL("/error", nextUrl));
-  }
+  if (isApiAuthRoute) return;
 
   if (isAuthRoute) {
     if (isLoggedIn) {

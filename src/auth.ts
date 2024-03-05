@@ -69,6 +69,7 @@ export const {
         session.user.name = token.name;
         session.user.email = token.email as string;
         session.user.isOAuth = token.isOAuth as boolean;
+        session.user.image = token.image as string;
       }
 
       return session;
@@ -87,6 +88,7 @@ export const {
       token.email = existingUser.email;
       token.role = existingUser.role;
       token.isTwoFactorEnabled = existingUser.isTwoFactorEnabled;
+      token.image = existingUser.image;
 
       return token;
     },

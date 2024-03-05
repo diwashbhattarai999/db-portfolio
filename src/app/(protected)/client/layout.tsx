@@ -1,5 +1,3 @@
-import { Toaster } from "react-hot-toast";
-
 import { UserRole } from "@prisma/client";
 
 import Sidebar from "@/components/admin/Sidebar";
@@ -12,15 +10,11 @@ export default function AdminLayout({
 }>) {
   return (
     <RoleGate
-      allowedRole={[UserRole.ADMIN]}
+      allowedRole={[UserRole.USER, UserRole.ADMIN]}
       backButtonHref="/"
       backButtonLabel="Go to Home"
     >
-      <Toaster position="top-center" />
-      <main className="min-h-screen md:flex md:gap-4 relative">
-        <Sidebar />
-        {children}
-      </main>
+      <main className="min-h-screen md:flex md:gap-4 relative">{children}</main>
     </RoleGate>
   );
 }

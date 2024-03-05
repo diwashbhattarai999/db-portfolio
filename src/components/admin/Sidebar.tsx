@@ -4,16 +4,19 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { CircleUserRound, LogOut } from "lucide-react";
+import { LogOut } from "lucide-react";
 
 import { logout } from "@/actions/logout";
 
 import { ADMIN_LINKS } from "@/constants";
 
+import { cn } from "@/lib/utils";
+
+import { useCurrentUser } from "@/hooks/use-current-user";
+
 import MotionList from "@/components/motion-list";
 import MotionSidebar from "@/components/motion-sidebar";
 import ThemeSwitcher from "@/components/theme-switcher";
-import { cn } from "@/lib/utils";
 
 const Sidebar = () => {
   const [expandSidebar, setExpandSidebar] = useState(false);
@@ -24,6 +27,8 @@ const Sidebar = () => {
     logout();
   };
 
+  const user = useCurrentUser();
+
   return (
     <div
       onMouseEnter={() => setExpandSidebar(true)}
@@ -32,10 +37,11 @@ const Sidebar = () => {
         setProfileOpen(false);
       }}
       className={cn(
-        "bg-primary md:rounded-r-2xl h-fit md:h-screen p-5 md:p-8 md:cursor-pointer md:transition-all md:duration-500 flex md:flex-col items-center md:items-start justify-between overflow-hidden z-20 left-0 w-full md:sticky top-0 md:left-0 ",
+        "bg-primary md:rounded-r-2xl h-fit md:min-h-screen p-5 md:p-8 md:py-10 md:cursor-pointer md:transition-all md:duration-500 flex md:flex-col items-center md:items-start justify-between z-20 left-0 w-full sticky top-0 md:left-0",
         expandSidebar ? "md:w-[260px]" : "md:w-28"
       )}
     >
+      {/* Logo */}
       <MotionSidebar delayOffset={0}>
         <Link
           href="/admin"
@@ -47,6 +53,8 @@ const Sidebar = () => {
           </span>
         </Link>
       </MotionSidebar>
+
+      {/* Admin Links */}
       <MotionList className="hidden md:flex flex-col gap-6">
         {ADMIN_LINKS.map((link) => {
           return (
@@ -75,17 +83,18 @@ const Sidebar = () => {
           );
         })}
       </MotionList>
+
+      {/* User Profile */}
       <div className="md:w-full group md:relative">
         <div className="w-full">
           <MotionSidebar delayOffset={0}>
             <Image
-              src="/images/profile.png"
+              src={user?.image || "/images/default-profile.png"}
               alt="profile"
               width={100}
               height={100}
               className="h-9 w-9 rounded-full group-hover:opacity-70 cursor-pointer"
               onClick={() => setProfileOpen((currValue) => !currValue)}
-              onMouseEnter={() => setProfileOpen(true)}
             />
           </MotionSidebar>
           {profileOpen && (

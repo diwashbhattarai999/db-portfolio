@@ -32,14 +32,14 @@ const CardWrapper = ({
     <Container
       className={cn(
         "w-full min-h-screen flex items-center justify-center",
-        disabled && "cursor-not-allowed opacity-50 z-0",
-        className
+        disabled && "cursor-not-allowed opacity-50 z-0"
       )}
     >
       <div
         className={cn(
-          "w-full shadow-md rounded-md bg-border p-4 flex flex-col items-center justify-center gap-4",
-          maxWidthFull ? "max-w-full" : "max-w-md"
+          "w-full shadow-lg rounded-md bg-border border-2 border-border p-4 flex flex-col items-center justify-center gap-4",
+          maxWidthFull ? "max-w-full" : "max-w-md",
+          className
         )}
       >
         {/* Form Title */}

@@ -608,6 +608,36 @@
   resolved "https://registry.npmjs.org/@ungap/structured-clone/-/structured-clone-1.2.0.tgz"
   integrity sha512-zuVdFrMJiuCDQUMCzQaD6KL28MjnqqN8XnAqiEq9PNm/hCPTSGfrXCOfwj1ow4LFb/tNymJPwsNbVePc1xFqrQ==
 
+"@uploadthing/dropzone@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@uploadthing/dropzone/-/dropzone-0.2.0.tgz#4f66ace596ebb1a3e0eacd440f48394ab726fdfb"
+  integrity sha512-bqPdU15xknka6+QoUMLx8134vO1Ude18qst9FAVx1N3BSjAqlGRhvJCjWJ3yoE/ENi5nGi0zuOLM2aSQgG2dOg==
+  dependencies:
+    file-selector "^0.6.0"
+
+"@uploadthing/mime-types@^0.2.4":
+  version "0.2.4"
+  resolved "https://registry.yarnpkg.com/@uploadthing/mime-types/-/mime-types-0.2.4.tgz#ee2a7f62ccf7aeb18b504de0813caad5ad8cf4a2"
+  integrity sha512-P8rcS++LA8x9DTcL5FFAY7FB4z4frSWaSKztxv2duT4Mea/GxZe9pAXyMWX+ZfGYbt3n12SlSfvV28ZvC5XLqw==
+
+"@uploadthing/react@^6.3.2":
+  version "6.3.2"
+  resolved "https://registry.yarnpkg.com/@uploadthing/react/-/react-6.3.2.tgz#5070eda3d57ba4f5bc969141672017543cee18ac"
+  integrity sha512-jFB80vA1BakdMsKJJ2JuGY/sbPBY6WzFFlPRPlUse0nbp2OisnEKSN5PRt3ceXmNn3ButiQOdnMDZAyK4WP5vw==
+  dependencies:
+    "@uploadthing/dropzone" "^0.2.0"
+    "@uploadthing/shared" "^6.3.2"
+    attr-accept "^2.2.2"
+    file-selector "^0.6.0"
+    tailwind-merge "^2.2.1"
+
+"@uploadthing/shared@^6.3.2":
+  version "6.3.2"
+  resolved "https://registry.yarnpkg.com/@uploadthing/shared/-/shared-6.3.2.tgz#e283fa3d14bdf933c16d9874f04e101cd6e1134a"
+  integrity sha512-jt4+gEQRriUGYDnVfj6qIXzSvAp3NnJ11cOUAQSRcnvlTIFv02sTit2/JAldLa8KJNur+mM1bBUTkkdXRcVIxg==
+  dependencies:
+    std-env "^3.7.0"
+
 abbrev@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/abbrev/-/abbrev-2.0.0.tgz#cf59829b8b4f03f89dda2771cb7f3653828c89bf"
@@ -794,6 +824,11 @@ asynciterator.prototype@^1.0.0:
   integrity sha512-wwHYEIS0Q80f5mosx3L/dfG5t5rjEa9Ft51GTaNt862EnpyGHpgz2RkZvLPp1oF5TnAiTohkEKVEu8pQPJI7Vg==
   dependencies:
     has-symbols "^1.0.3"
+
+attr-accept@^2.2.2:
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/attr-accept/-/attr-accept-2.2.2.tgz#646613809660110749e92f2c10833b70968d929b"
+  integrity sha512-7prDjvt9HmqiZ0cl5CRjtS84sEyhsHP2coDkaZKRKVfCDo9s7iw7ChVmar78Gu9pC4SoR/28wFu/G5JJhTnqEg==
 
 autoprefixer@^10.0.1:
   version "10.4.17"
@@ -1008,6 +1043,11 @@ config-chain@^1.1.13:
   dependencies:
     ini "^1.3.4"
     proto-list "~1.2.1"
+
+consola@^3.2.3:
+  version "3.2.3"
+  resolved "https://registry.yarnpkg.com/consola/-/consola-3.2.3.tgz#0741857aa88cfa0d6fd53f1cff0375136e98502f"
+  integrity sha512-I5qxpzLv+sJhTVEoLYNcTW+bThDCPsit0vLNKShZx6rLtpilNpmmeTPaeqJb9ZE9dV3DGaeby6Vuhrw38WjeyQ==
 
 convert-source-map@^1.5.0:
   version "1.9.0"
@@ -1591,6 +1631,13 @@ file-entry-cache@^6.0.1:
   dependencies:
     flat-cache "^3.0.4"
 
+file-selector@^0.6.0:
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/file-selector/-/file-selector-0.6.0.tgz#fa0a8d9007b829504db4d07dd4de0310b65287dc"
+  integrity sha512-QlZ5yJC0VxHxQQsQhXvBaC7VRJ2uaxTf+Tfpu4Z/OcVQJVpZO+DGU0rkoVW5ce2SccxugvpBJoMvUs59iILYdw==
+  dependencies:
+    tslib "^2.4.0"
+
 fill-range@^7.0.1:
   version "7.0.1"
   resolved "https://registry.npmjs.org/fill-range/-/fill-range-7.0.1.tgz"
@@ -1773,6 +1820,11 @@ globby@^11.1.0:
     ignore "^5.2.0"
     merge2 "^1.4.1"
     slash "^3.0.0"
+
+goober@^2.1.10:
+  version "2.1.14"
+  resolved "https://registry.yarnpkg.com/goober/-/goober-2.1.14.tgz#4a5c94fc34dc086a8e6035360ae1800005135acd"
+  integrity sha512-4UpC0NdGyAFqLNPnhCT2iHpza2q+RAY3GV85a/mRPdzyPQMsj0KmMMuetdIkzWRbJ+Hgau1EZztq8ImmiMGhsg==
 
 gopd@^1.0.1:
   version "1.0.1"
@@ -2795,6 +2847,13 @@ react-hook-form@^7.51.0:
   resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-7.51.0.tgz#757ae71b37c26e00590bd3788508287dcc5ecdaf"
   integrity sha512-BggOy5j58RdhdMzzRUHGOYhSz1oeylFAv6jUSG86OvCIvlAvS7KvnRY7yoAf2pfEiPN7BesnR0xx73nEk3qIiw==
 
+react-hot-toast@^2.4.1:
+  version "2.4.1"
+  resolved "https://registry.yarnpkg.com/react-hot-toast/-/react-hot-toast-2.4.1.tgz#df04295eda8a7b12c4f968e54a61c8d36f4c0994"
+  integrity sha512-j8z+cQbWIM5LY37pR6uZR6D4LfseplqnuAO4co4u8917hBUvXlEqyP1ZzqVLcqoyUesZZv/ImreoCeHVDpE5pQ==
+  dependencies:
+    goober "^2.1.10"
+
 react-is@^16.13.1, react-is@^16.7.0:
   version "16.13.1"
   resolved "https://registry.npmjs.org/react-is/-/react-is-16.13.1.tgz"
@@ -3048,6 +3107,11 @@ sparse-bitfield@^3.0.3:
   integrity sha512-kvzhi7vqKTfkh0PZU+2D2PIllw2ymqJKujUcyPMd9Y75Nv4nPbGJZXNhxsgdQab2BmlDct1YnfQCguEvHr7VsQ==
   dependencies:
     memory-pager "^1.0.2"
+
+std-env@^3.7.0:
+  version "3.7.0"
+  resolved "https://registry.yarnpkg.com/std-env/-/std-env-3.7.0.tgz#c9f7386ced6ecf13360b6c6c55b8aaa4ef7481d2"
+  integrity sha512-JPbdCEQLj1w5GilpiHAx3qJvFndqybBysA3qUOnznweH4QbNYUsW/ea8QzSrnh0vNsezMMw5bcVool8lM0gwzg==
 
 streamsearch@^1.1.0:
   version "1.1.0"
@@ -3366,6 +3430,16 @@ update-browserslist-db@^1.0.13:
   dependencies:
     escalade "^3.1.1"
     picocolors "^1.0.0"
+
+uploadthing@^6.5.0:
+  version "6.5.0"
+  resolved "https://registry.yarnpkg.com/uploadthing/-/uploadthing-6.5.0.tgz#edd4589c5ab5b4ae26b4bdf57123f5e96abfc6b8"
+  integrity sha512-lW+wOpWQzw2qNCvbuz/cWw4H8tF7dNakuLNVllQbQJFlPniKwPqSXHMGumXEeOdQi4mR20fJH1YPJBq5bof3cg==
+  dependencies:
+    "@uploadthing/mime-types" "^0.2.4"
+    "@uploadthing/shared" "^6.3.2"
+    consola "^3.2.3"
+    std-env "^3.7.0"
 
 uri-js@^4.2.2:
   version "4.4.1"
