@@ -14,6 +14,7 @@ interface CardWrapperProps {
   showSocial?: boolean;
   disabled?: boolean;
   maxWidthFull?: boolean;
+  className?: string;
 }
 
 const CardWrapper = ({
@@ -25,12 +26,14 @@ const CardWrapper = ({
   showSocial,
   disabled,
   maxWidthFull,
+  className,
 }: CardWrapperProps) => {
   return (
     <Container
       className={cn(
         "w-full min-h-screen flex items-center justify-center",
-        disabled && "cursor-not-allowed opacity-50"
+        disabled && "cursor-not-allowed opacity-50 z-0",
+        className
       )}
     >
       <div

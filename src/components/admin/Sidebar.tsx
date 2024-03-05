@@ -75,7 +75,7 @@ const Sidebar = () => {
           );
         })}
       </MotionList>
-      <div className="md:w-full group md:relative z-0">
+      <div className="md:w-full group md:relative">
         <div className="w-full">
           <MotionSidebar delayOffset={0}>
             <Image

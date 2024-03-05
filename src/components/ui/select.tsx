@@ -12,7 +12,7 @@ type Options = {
   readonly label: string;
 };
 
-interface InputProps {
+interface SelectProps {
   name: string;
   register: UseFormRegisterReturn;
   value?: string;
@@ -23,7 +23,7 @@ interface InputProps {
   className?: string;
 }
 
-const ReactSelect = ({
+const Select = ({
   name,
   value,
   error,
@@ -32,7 +32,7 @@ const ReactSelect = ({
   options,
   props,
   className,
-}: InputProps) => {
+}: SelectProps) => {
   const [selectOpen, setSelectOpen] = useState(false);
   const [selectValue, setSelectValue] = useState(value || "Select a role");
 
@@ -100,4 +100,4 @@ const ReactSelect = ({
   );
 };
 
-export default ReactSelect;
+export default Select;

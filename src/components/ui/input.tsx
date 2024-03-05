@@ -35,7 +35,7 @@ const Input = ({
   return (
     <div
       className={cn(
-        "relative w-full mb-4 flex flex-col gap-2 items-start ",
+        "relative w-full mb-4 flex flex-col gap-2 items-start",
         disabled && "cursor-not-allowed opacity-50"
       )}
     >
@@ -52,7 +52,7 @@ const Input = ({
       <div className="w-full flex items-center justify-between">
         <div className="flex items-center w-full relative">
           {Icon && (
-            <Icon className="absolute left-2 pointer-events-none h-5 w-5 text-secondary-foreground" />
+            <Icon className="absolute left-2 pointer-events-none h-5 w-5 text-secondary-foreground -z-20" />
           )}
           <input
             {...register}
@@ -79,7 +79,7 @@ const Input = ({
 
         {type == "password" && (
           <EyeIcon
-            className="absolute right-2 cursor-pointer pr-4 h-9 w-9 text-secondary-foreground"
+            className="absolute right-2 cursor-pointer pr-4 h-9 w-9 text-secondary-foreground -z-20"
             onClick={() => setPasswordVisible((currentVal) => !currentVal)}
           />
         )}

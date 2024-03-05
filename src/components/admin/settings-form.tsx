@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useTransition } from "react";
-import Link from "next/link";
 
 import * as z from "zod";
 import { useForm } from "react-hook-form";
@@ -15,14 +14,13 @@ import { SettingsSchema } from "@/schemas";
 
 import { useCurrentUser } from "@/hooks/use-current-user";
 
-import { cn } from "@/lib/utils";
-
 import Input from "@/components/ui/input";
+import Select from "@/components/ui/select";
+import Switch from "@/components/ui/switch";
 import Button from "@/components/ui/Button";
 import FormError from "@/components/ui/form-error";
 import FormSuccess from "@/components/ui/form-success";
 import CardWrapper from "@/components/auth/card-wrapper";
-import ReactSelect from "../ui/select";
 
 const SettingsForm = () => {
   const [error, setError] = useState<string | undefined>();
@@ -53,30 +51,32 @@ const SettingsForm = () => {
 
   const onSubmit = (values: z.infer<typeof SettingsSchema>) => {
     startTransition(() => {
-      settings(values)
-        .then((data) => {
-          if (data.error) {
-            setError(data.error);
-          }
-          if (data.success) {
-            update();
-            setSuccess(data.success);
-          }
-        })
-        .catch(() => setError("Something went wrong!"));
+      // settings(values)
+      //   .then((data) => {
+      //     if (data.error) {
+      //       setError(data.error);
+      //     }
+      //     if (data.success) {
+      //       update();
+      //       setSuccess(data.success);
+      //     }
+      //   })
+      //   .catch(() => setError("Something went wrong!"));
+      console.log(values);
     });
   };
 
   return (
     <CardWrapper
       headerLabel="Settings"
-      subHeaderLabel=""
+      subHeaderLabel="Change your preferences"
       disabled={isPending}
       maxWidthFull
+      className="my-20"
     >
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="flex flex-col items-start"
+        className="flex flex-col items-start z-0 my-5"
       >
         {/* User Inputs -- Name */}
         <Input
@@ -89,7 +89,6 @@ const SettingsForm = () => {
           disabled={isPending}
           register={register("name")}
         />
-
         {user?.isOAuth === false && (
           <>
             {/* User Inputs -- Email */}
@@ -127,21 +126,31 @@ const SettingsForm = () => {
               disabled={isPending}
               register={register("newPassword")}
             />
-
-            {/* User Inputs -- Role */}
-
-            <ReactSelect
-              name="role"
-              value={defaultValues.role}
-              error={errors.role?.message}
-              disabled={isPending}
-              register={register("role")}
-              options={[
-                { label: "Admin", value: "ADMIN" },
-                { label: "User", value: "USER" },
-              ]}
-            />
           </>
+        )}
+        {/* User Inputs -- Role */}
+        <Select
+          name="role"
+          value={defaultValues.role}
+          error={errors.role?.message}
+          disabled={isPending}
+          register={register("role")}
+          options={[
+            { label: "Admin", value: "ADMIN" },
+            { label: "User", value: "USER" },
+          ]}
+        />
+
+        {/* User Inputs -- 2FA */}
+        {user?.isOAuth === false && (
+          <Switch
+            value={defaultValues.isTwoFactorEnabled}
+            error={errors.isTwoFactorEnabled?.message}
+            disabled={isPending}
+            setValue={setValue}
+            label="Two Factor Authentication"
+            descriptions="Enable two factor authentication for your account"
+          />
         )}
 
         {/* Sucess Message */}
