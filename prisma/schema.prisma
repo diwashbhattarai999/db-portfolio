@@ -15,7 +15,7 @@ enum UserRole {
 
 model User {
   id                      String                 @id @default(auto()) @map("_id") @db.ObjectId
-  name                String?
+  name                    String?
   email                   String?                @unique
   emailVerified           DateTime?
   image                   String?
@@ -81,3 +81,12 @@ model TwoFactorConfirmation {
 
   @@unique([userId])
 }
+
+// model Home {
+//   id          String  @id @default(auto()) @map("_id") @db.ObjectId
+//   name        String?
+//   title       String?
+//   description String?
+//   image       String?
+//   resume      String?
+// }

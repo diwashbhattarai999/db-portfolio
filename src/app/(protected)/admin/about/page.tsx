@@ -1,9 +1,12 @@
 import Container from "@/components/Container";
+import AboutForm from "@/components/admin/about-form";
 
 const AdminAboutPage = () => {
   return (
-    <Container>
-      <div className="">AdminAboutPage</div>
+    <Container className="flex-1">
+      <div className="w-full flex flex-col items-center justify-center">
+        <AboutForm />
+      </div>
     </Container>
   );
 };

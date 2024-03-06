@@ -8,7 +8,6 @@ import {
   FolderDot,
   Contact,
   LayoutDashboard,
-  LogOut,
 } from "lucide-react";
 
 import {
@@ -26,6 +25,8 @@ import {
   GitHub,
   LinkedIn,
   Instagram,
+  Git,
+  vsCode,
 } from "@/components/ui/Icons";
 
 export const NAV_LINKS = [
@@ -81,46 +82,77 @@ export const THEMES = [
   },
 ];
 
-export const SKILLS = [
+export const TECHNOLOGIES = [
   {
-    Icon: HTML5,
-    label: "HTML5",
+    title: "Frontend",
+    skills: [
+      {
+        Icon: HTML5,
+        label: "HTML5",
+      },
+      {
+        Icon: CSS3,
+        label: "CSS3",
+      },
+      {
+        Icon: TailwindCSS,
+        label: "Tailwind CSS",
+      },
+      {
+        Icon: JavaScript,
+        label: "JavaScript",
+      },
+      {
+        Icon: TypeScript,
+        label: "TypeScript",
+      },
+      {
+        Icon: ReactJS,
+        label: "React JS",
+      },
+      {
+        Icon: NextJS,
+        label: "Next JS",
+      },
+    ],
   },
   {
-    Icon: CSS3,
-    label: "CSS3",
+    title: "Backend",
+    skills: [
+      {
+        Icon: NextJS,
+        label: "Next JS",
+      },
+      {
+        Icon: NodeJS,
+        label: "Node JS",
+      },
+      {
+        Icon: ExpressJS,
+        label: "Express JS",
+      },
+      {
+        Icon: MongoDB,
+        label: "MongoDB",
+      },
+    ],
   },
   {
-    Icon: TailwindCSS,
-    label: "Tailwind CSS",
-  },
-  {
-    Icon: JavaScript,
-    label: "JavaScript",
-  },
-  {
-    Icon: TypeScript,
-    label: "TypeScript",
-  },
-  {
-    Icon: ReactJS,
-    label: "React JS",
-  },
-  {
-    Icon: NextJS,
-    label: "Next JS",
-  },
-  {
-    Icon: NodeJS,
-    label: "Node JS",
-  },
-  {
-    Icon: ExpressJS,
-    label: "Express JS",
-  },
-  {
-    Icon: MongoDB,
-    label: "MongoDB",
+    title: "Tools & Environments",
+    skills: [
+      {
+        Icon: Git,
+        label: "Git",
+      },
+      {
+        Icon: GitHub,
+        label: "GitHub",
+      },
+      {
+        Icon: vsCode,
+        label: "VS Code",
+      },
+    ],
   },
 ];
 

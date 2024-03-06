@@ -3,13 +3,20 @@
 interface IconProps {
   fillColor?: string;
   className?: string;
+  width?: string;
+  height?: string;
 }
 
-export const HTML5 = ({ fillColor, className }: IconProps) => {
+export const HTML5 = ({
+  fillColor,
+  className,
+  width = "56px",
+  height = "56px",
+}: IconProps) => {
   return (
     <svg
-      width="56px"
-      height="56px"
+      width={width}
+      height={height}
       viewBox="0 0 32 32"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -25,11 +32,16 @@ export const HTML5 = ({ fillColor, className }: IconProps) => {
   );
 };
 
-export const CSS3 = ({ fillColor, className }: IconProps) => {
+export const CSS3 = ({
+  fillColor,
+  className,
+  width = "56px",
+  height = "56px",
+}: IconProps) => {
   return (
     <svg
-      width="56px"
-      height="56px"
+      width={width}
+      height={height}
       viewBox="0 0 32 32"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -45,11 +57,16 @@ export const CSS3 = ({ fillColor, className }: IconProps) => {
   );
 };
 
-export const TailwindCSS = ({ fillColor, className }: IconProps) => {
+export const TailwindCSS = ({
+  fillColor,
+  className,
+  width = "56px",
+  height = "56px",
+}: IconProps) => {
   return (
     <svg
-      width="56px"
-      height="56px"
+      width={width}
+      height={height}
       viewBox="0 0 32 32"
       xmlns="http://www.w3.org/2000/svg"
       className={className}
@@ -63,11 +80,16 @@ export const TailwindCSS = ({ fillColor, className }: IconProps) => {
   );
 };
 
-export const JavaScript = ({ fillColor, className }: IconProps) => {
+export const JavaScript = ({
+  fillColor,
+  className,
+  width = "56px",
+  height = "56px",
+}: IconProps) => {
   return (
     <svg
-      width="56px"
-      height="56px"
+      width={width}
+      height={height}
       viewBox="0 0 32 32"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -86,11 +108,16 @@ export const JavaScript = ({ fillColor, className }: IconProps) => {
   );
 };
 
-export const TypeScript = ({ fillColor, className }: IconProps) => {
+export const TypeScript = ({
+  fillColor,
+  className,
+  width = "56px",
+  height = "56px",
+}: IconProps) => {
   return (
     <svg
-      width="56px"
-      height="56px"
+      width={width}
+      height={height}
       viewBox="0 0 32 32"
       xmlns="http://www.w3.org/2000/svg"
       className={className}
@@ -106,11 +133,16 @@ export const TypeScript = ({ fillColor, className }: IconProps) => {
   );
 };
 
-export const ReactJS = ({ fillColor, className }: IconProps) => {
+export const ReactJS = ({
+  fillColor,
+  className,
+  width = "56px",
+  height = "56px",
+}: IconProps) => {
   return (
     <svg
-      width="56px"
-      height="56px"
+      width={width}
+      height={height}
       viewBox="0 0 32 32"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -130,11 +162,16 @@ export const ReactJS = ({ fillColor, className }: IconProps) => {
   );
 };
 
-export const NextJS = ({ fillColor, className }: IconProps) => {
+export const NextJS = ({
+  fillColor,
+  className,
+  width = "56px",
+  height = "56px",
+}: IconProps) => {
   return (
     <svg
-      width="56px"
-      height="56px"
+      width={width}
+      height={height}
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -155,11 +192,16 @@ export const NextJS = ({ fillColor, className }: IconProps) => {
   );
 };
 
-export const NodeJS = ({ fillColor, className }: IconProps) => {
+export const NodeJS = ({
+  fillColor,
+  className,
+  width = "56px",
+  height = "56px",
+}: IconProps) => {
   return (
     <svg
-      width="56px"
-      height="56px"
+      width={width}
+      height={height}
       viewBox="0 -183.5 512 512"
       xmlns="http://www.w3.org/2000/svg"
       preserveAspectRatio="xMinYMin meet"
@@ -184,12 +226,17 @@ export const NodeJS = ({ fillColor, className }: IconProps) => {
   );
 };
 
-export const ExpressJS = ({ fillColor, className }: IconProps) => {
+export const ExpressJS = ({
+  fillColor,
+  className,
+  width = "56px",
+  height = "56px",
+}: IconProps) => {
   return (
     <svg
       fill="#3c3c3c"
-      width="56px"
-      height="56px"
+      width={width}
+      height={height}
       viewBox="0 0 24 24"
       role="img"
       xmlns="http://www.w3.org/2000/svg"
@@ -200,11 +247,16 @@ export const ExpressJS = ({ fillColor, className }: IconProps) => {
   );
 };
 
-export const MongoDB = ({ fillColor, className }: IconProps) => {
+export const MongoDB = ({
+  fillColor,
+  className,
+  width = "56px",
+  height = "56px",
+}: IconProps) => {
   return (
     <svg
-      width="56px"
-      height="56px"
+      width={width}
+      height={height}
       viewBox="0 0 1024 1024"
       xmlns="http://www.w3.org/2000/svg"
       className={className}
@@ -218,14 +270,48 @@ export const MongoDB = ({ fillColor, className }: IconProps) => {
   );
 };
 
-export const ArrowUpRight = ({
-  fillColor = "#ffffff",
+export const Git = ({
+  fillColor = "#DE4C36",
   className,
+  width = "56px",
+  height = "56px",
 }: IconProps) => {
   return (
     <svg
-      width="24px"
-      height="24px"
+      width={width}
+      height={height}
+      viewBox="0 0 256 256"
+      xmlns="http://www.w3.org/2000/svg"
+      preserveAspectRatio="xMinYMin meet"
+      fill="#000000"
+      className={className}
+    >
+      <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+      <g
+        id="SVGRepo_tracerCarrier"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      ></g>
+      <g id="SVGRepo_iconCarrier">
+        <path
+          d="M251.172 116.594L139.4 4.828c-6.433-6.437-16.873-6.437-23.314 0l-23.21 23.21 29.443 29.443c6.842-2.312 14.688-.761 20.142 4.693 5.48 5.489 7.02 13.402 4.652 20.266l28.375 28.376c6.865-2.365 14.786-.835 20.269 4.657 7.663 7.66 7.663 20.075 0 27.74-7.665 7.666-20.08 7.666-27.749 0-5.764-5.77-7.188-14.235-4.27-21.336l-26.462-26.462-.003 69.637a19.82 19.82 0 0 1 5.188 3.71c7.663 7.66 7.663 20.076 0 27.747-7.665 7.662-20.086 7.662-27.74 0-7.663-7.671-7.663-20.086 0-27.746a19.654 19.654 0 0 1 6.421-4.281V94.196a19.378 19.378 0 0 1-6.421-4.281c-5.806-5.798-7.202-14.317-4.227-21.446L81.47 39.442l-76.64 76.635c-6.44 6.443-6.44 16.884 0 23.322l111.774 111.768c6.435 6.438 16.873 6.438 23.316 0l111.251-111.249c6.438-6.44 6.438-16.887 0-23.324"
+          fill={fillColor}
+        ></path>
+      </g>
+    </svg>
+  );
+};
+
+export const ArrowUpRight = ({
+  fillColor = "#ffffff",
+  className,
+  width = "24px",
+  height = "24px",
+}: IconProps) => {
+  return (
+    <svg
+      width={width}
+      height={height}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 20 20"
       fill={fillColor}
@@ -240,11 +326,16 @@ export const ArrowUpRight = ({
   );
 };
 
-export const Google = ({ fillColor, className }: IconProps) => {
+export const Google = ({
+  fillColor,
+  className,
+  width = "24px",
+  height = "24px",
+}: IconProps) => {
   return (
     <svg
-      width="24px"
-      height="24px"
+      width={width}
+      height={height}
       viewBox="-0.5 0 48 48"
       version="1.1"
       xmlns="http://www.w3.org/2000/svg"
@@ -310,11 +401,16 @@ export const Google = ({ fillColor, className }: IconProps) => {
   );
 };
 
-export const GitHub = ({ fillColor = "#ffffff", className }: IconProps) => {
+export const GitHub = ({
+  fillColor = "#ffffff",
+  className,
+  width = "24px",
+  height = "24px",
+}: IconProps) => {
   return (
     <svg
-      width="24px"
-      height="24px"
+      width={width}
+      height={height}
       viewBox="0 0 20 20"
       version="1.1"
       xmlns="http://www.w3.org/2000/svg"
@@ -348,11 +444,16 @@ export const GitHub = ({ fillColor = "#ffffff", className }: IconProps) => {
   );
 };
 
-export const Instagram = ({ fillColor = "#ffffff", className }: IconProps) => {
+export const Instagram = ({
+  fillColor = "#ffffff",
+  className,
+  width = "24px",
+  height = "24px",
+}: IconProps) => {
   return (
     <svg
-      width="24px"
-      height="24px"
+      width={width}
+      height={height}
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -378,11 +479,16 @@ export const Instagram = ({ fillColor = "#ffffff", className }: IconProps) => {
   );
 };
 
-export const LinkedIn = ({ fillColor = "#ffffff", className }: IconProps) => {
+export const LinkedIn = ({
+  fillColor = "#ffffff",
+  className,
+  width = "24px",
+  height = "24px",
+}: IconProps) => {
   return (
     <svg
-      width="24px"
-      height="24px"
+      width={width}
+      height={height}
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -396,11 +502,16 @@ export const LinkedIn = ({ fillColor = "#ffffff", className }: IconProps) => {
   );
 };
 
-export const Mail = ({ fillColor = "#e6e6e6", className }: IconProps) => {
+export const Mail = ({
+  fillColor = "#e6e6e6",
+  className,
+  width = "24px",
+  height = "24px",
+}: IconProps) => {
   return (
     <svg
-      width="24px"
-      height="24px"
+      width={width}
+      height={height}
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -417,15 +528,20 @@ export const Mail = ({ fillColor = "#e6e6e6", className }: IconProps) => {
   );
 };
 
-export const ChainLink = ({ fillColor = "#ffffff", className }: IconProps) => {
+export const ChainLink = ({
+  fillColor = "#ffffff",
+  className,
+  width = "24px",
+  height = "24px",
+}: IconProps) => {
   return (
     <svg
-      width="24px"
-      height="24px"
+      width={width}
+      height={height}
+      className={className}
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className={className}
     >
       <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
       <g
@@ -441,6 +557,89 @@ export const ChainLink = ({ fillColor = "#ffffff", className }: IconProps) => {
           strokeWidth="2"
           strokeLinecap="round"
         ></path>{" "}
+      </g>
+    </svg>
+  );
+};
+
+export const vsCode = ({
+  fillColor = "#ffffff",
+  className,
+  width = "24px",
+  height = "24px",
+}: IconProps) => {
+  return (
+    <svg
+      viewBox="0 0 32 32"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      width={width}
+      height={height}
+      className={className}
+    >
+      <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+      <g
+        id="SVGRepo_tracerCarrier"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      ></g>
+      <g id="SVGRepo_iconCarrier">
+        {" "}
+        <path
+          d="M21.0016 3.11679C21.0016 2.23783 20.0175 2.23782 19.5801 2.34769C20.1924 1.86426 20.9105 1.98147 21.1656 2.12796L27.079 5.02747C27.6424 5.30375 27.9998 5.8786 27.9998 6.50857V25.5831C27.9998 26.2215 27.6329 26.8025 27.058 27.0743L21.4937 29.7054C21.1109 29.8701 20.2799 30.2767 19.5801 29.7053C20.4549 29.8702 20.9287 29.2476 21.0016 28.8264V3.11679Z"
+          fill="url(#paint0_linear_87_8101)"
+        ></path>{" "}
+        <path
+          d="M19.6512 2.3319C20.1154 2.24017 21.0018 2.28271 21.0018 3.11685V9.68254L3.07359 23.2453C2.76022 23.4824 2.3192 23.443 2.05229 23.1542L0.204532 21.1548C-0.0849358 20.8416 -0.0646824 20.3513 0.249624 20.0633L19.5802 2.34775L19.6512 2.3319Z"
+          fill="url(#paint1_linear_87_8101)"
+        ></path>{" "}
+        <path
+          d="M21.0018 22.3708L3.07359 8.80801C2.76022 8.57094 2.3192 8.61028 2.05229 8.8991L0.204532 10.8985C-0.0849358 11.2117 -0.0646824 11.702 0.249624 11.9901L19.5802 29.7056C20.455 29.8704 20.9289 29.2478 21.0018 28.8266V22.3708Z"
+          fill="url(#paint2_linear_87_8101)"
+        ></path>{" "}
+        <defs>
+          {" "}
+          <linearGradient
+            id="paint0_linear_87_8101"
+            x1="23.79"
+            y1="2"
+            x2="23.79"
+            y2="30"
+            gradientUnits="userSpaceOnUse"
+          >
+            {" "}
+            <stop stop-color="#32B5F1"></stop>{" "}
+            <stop offset="1" stop-color="#2B9FED"></stop>{" "}
+          </linearGradient>{" "}
+          <linearGradient
+            id="paint1_linear_87_8101"
+            x1="21.0018"
+            y1="5.53398"
+            x2="1.0217"
+            y2="22.3051"
+            gradientUnits="userSpaceOnUse"
+          >
+            {" "}
+            <stop stop-color="#0F6FB3"></stop>{" "}
+            <stop offset="0.270551" stop-color="#1279B7"></stop>{" "}
+            <stop offset="0.421376" stop-color="#1176B5"></stop>{" "}
+            <stop offset="0.618197" stop-color="#0E69AC"></stop>{" "}
+            <stop offset="0.855344" stop-color="#0F70AF"></stop>{" "}
+            <stop offset="1" stop-color="#0F6DAD"></stop>{" "}
+          </linearGradient>{" "}
+          <linearGradient
+            id="paint2_linear_87_8101"
+            x1="1.15522"
+            y1="9.98389"
+            x2="21.0791"
+            y2="26.4808"
+            gradientUnits="userSpaceOnUse"
+          >
+            {" "}
+            <stop stop-color="#1791D2"></stop>{" "}
+            <stop offset="1" stop-color="#1173C5"></stop>{" "}
+          </linearGradient>{" "}
+        </defs>{" "}
       </g>
     </svg>
   );
