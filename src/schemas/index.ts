@@ -138,16 +138,17 @@ export const SettingsSchema = z
       path: ["newPassword"],
     }
   );
-// .refine(
-//   (data) => {
-//     if (data.newPassword === data.password) {
-//       return true;
-//     }
 
-//     return false;
-//   },
-//   {
-//     message: "New password is same as old. Please try another password.",
-//     path: ["newPassword", "password"],
-//   }
-// );
+export const HomeSchema = z.object({
+  name: z.optional(z.string()),
+  position: z.optional(z.string()),
+  description: z.optional(z.string()),
+  image: z.optional(z.string()),
+  resume: z.optional(
+    z.object({
+      id: z.string(),
+      name: z.optional(z.string()),
+      url: z.optional(z.string()),
+    })
+  ),
+});

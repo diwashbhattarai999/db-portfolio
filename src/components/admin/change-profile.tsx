@@ -1,11 +1,11 @@
 "use client";
 
-import { useState } from "react";
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 import toast from "react-hot-toast";
 
 import { UploadButton } from "@/lib/uploadthing";
 import { UseFormSetValue } from "react-hook-form";
+import { useState } from "react";
 
 interface ChangeProfileImgProps {
   value?: string;
@@ -21,14 +21,15 @@ interface ChangeProfileImgProps {
 }
 
 const ChangeProfileImg = ({ value, setValue }: ChangeProfileImgProps) => {
-  console.log(value);
+  const [imageUrl, setImageUrl] = useState("");
+
   return (
     <>
       <div className="mb-4 text-left flex flex-col gap-4">
         <h1 className="text-primary-foreground">Profile Image</h1>
         <div className="border-2 border-secondary-foreground h-40 w-40 p-1 rounded-full cursor-pointer duration-300 text-secondary-foreground relative">
           <Image
-            src={value || "/images/default-profile.png"}
+            src={imageUrl || value || "/images/default-profile.png"}
             alt="Profile"
             width={500}
             height={500}
@@ -40,6 +41,7 @@ const ChangeProfileImg = ({ value, setValue }: ChangeProfileImgProps) => {
           endpoint="imageUploader"
           onClientUploadComplete={(res) => {
             setValue("image", res[0].url);
+            setImageUrl(res[0].url);
 
             toast.success("Upload completed.");
           }}

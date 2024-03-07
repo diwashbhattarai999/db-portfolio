@@ -25,6 +25,9 @@ model User {
   isTwoFactorEnabled      Boolean                @default(false)
   twoFactorConfirmation   TwoFactorConfirmation?
   twoFactorConfirmationId String?                @db.ObjectId
+
+  homePage   HomePage?
+  homePageId String?   @db.ObjectId
 }
 
 model Account {
@@ -82,11 +85,25 @@ model TwoFactorConfirmation {
   @@unique([userId])
 }
 
-// model Home {
-//   id          String  @id @default(auto()) @map("_id") @db.ObjectId
-//   name        String?
-//   title       String?
-//   description String?
-//   image       String?
-//   resume      String?
-// }
+model HomePage {
+  id          String  @id @default(auto()) @map("_id") @db.ObjectId
+  name        String?
+  position    String?
+  description String?
+  image       String?
+
+  resume   Resume?
+  resumeId String? @db.ObjectId
+
+  User   User?  @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId String @unique @db.ObjectId
+}
+
+model Resume {
+  id   String  @id @default(auto()) @map("_id") @db.ObjectId
+  name String?
+  url  String?
+
+  HomePage   HomePage? @relation(fields: [homePageId], references: [id], onDelete: Cascade)
+  homePageId String    @unique @db.ObjectId
+}

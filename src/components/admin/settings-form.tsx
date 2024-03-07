@@ -90,7 +90,7 @@ const SettingsForm = () => {
             label="Name"
             name="name"
             type="text"
-            placeholder="John Doe"
+            placeholder="Full name"
             icon={UserRound}
             error={errors.name?.message}
             disabled={isPending}
@@ -103,7 +103,7 @@ const SettingsForm = () => {
                 label="Email"
                 name="email"
                 type="email"
-                placeholder="john.doe@example.com"
+                placeholder="name@example.com"
                 icon={Mail}
                 error={errors.email?.message}
                 disabled={isPending}

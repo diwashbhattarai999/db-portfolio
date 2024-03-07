@@ -1,5 +1,4 @@
 import Container from "@/components/Container";
-import AboutForm from "@/components/admin/about-form";
 import DashboardForm from "@/components/admin/dashboard-form";
 
 const AdminDashboardPage = () => {
