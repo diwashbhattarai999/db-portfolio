@@ -1,10 +1,10 @@
-import { useEffect, useLayoutEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { LucideIcon } from "lucide-react";
 import {
   FieldValues,
   Path,
   PathValue,
-  UseFormRegisterReturn,
+  UseFormRegister,
   UseFormSetValue,
 } from "react-hook-form";
 
@@ -18,6 +18,7 @@ interface TextareaProps<T extends FieldValues = FieldValues> {
   Icon?: LucideIcon;
   value?: string;
   setValue: UseFormSetValue<T>;
+  register: UseFormRegister<T>;
 }
 
 const Textarea = <T extends FieldValues>({
@@ -28,8 +29,10 @@ const Textarea = <T extends FieldValues>({
   Icon,
   value,
   setValue,
+  register,
 }: TextareaProps<T>) => {
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
+  const { ref, ...rest } = register(name as Path<T>);
 
   const handleTextChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     let input = e.target;
@@ -71,7 +74,10 @@ const Textarea = <T extends FieldValues>({
           <Icon className="absolute left-2 top-[1.1rem] pointer-events-none h-5 w-5 text-secondary-foreground" />
         )}
         <textarea
-          ref={textareaRef}
+          ref={(e) => {
+            ref(e);
+            textareaRef.current = e;
+          }}
           name={name as string}
           id={name as string}
           defaultValue={value}

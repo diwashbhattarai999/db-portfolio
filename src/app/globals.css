@@ -101,7 +101,7 @@
   }
 
   .svg svg {
-    @apply h-7 w-7 fill-primary-foreground;
+    @apply h-7 w-7 fill-primary-foreground group-hover:fill-foreground duration-300;
   }
 }
 

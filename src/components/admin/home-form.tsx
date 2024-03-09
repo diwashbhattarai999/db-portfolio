@@ -158,6 +158,7 @@ const HomeForm = ({
             disabled={isPending}
             value={defaultValues.description}
             error={errors.description?.message}
+            register={register}
           />
 
           {/* User Inputs -- Resume */}

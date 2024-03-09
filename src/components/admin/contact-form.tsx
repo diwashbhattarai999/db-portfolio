@@ -1,11 +1,12 @@
 "use client";
 
 import { useEffect, useState, useTransition } from "react";
+import Link from "next/link";
 import * as z from "zod";
 import { useForm } from "react-hook-form";
 import { useSession } from "next-auth/react";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { FolderPen, ImagePlus, Link } from "lucide-react";
+import { FolderPen, ImagePlus, Link as LucideLink } from "lucide-react";
 import axios from "axios";
 
 import { contact, deleteContact } from "@/actions/admin/contact";
@@ -85,18 +86,20 @@ const ContactForm = () => {
             setSuccess(data.success);
             setError("");
 
-            console.log("Added");
-            // reset({
-            //   name: "",
-            //   url: "",
-            //   icon: "",
-            // });
+            // Reset both form values and editingContact state
+            reset({
+              name: "",
+              icon: "",
+              url: "",
+            });
 
             setEditingContact({
               name: "",
-              url: "",
               icon: "",
+              url: "",
             });
+
+            setValue("icon", "");
           }
         })
         .catch(() => setError("Something went wrong!"));
@@ -105,16 +108,17 @@ const ContactForm = () => {
 
   const handleEditContact = (contact: Contact) => {
     // Populate the form fields with the contact details
-    reset({
-      name: contact.name,
-      url: contact.url,
-      icon: contact.icon,
-    });
 
     setEditingContact({
       name: contact.name,
-      url: contact.url,
       icon: contact.icon,
+      url: contact.url,
+    });
+
+    reset({
+      name: contact.name,
+      icon: contact.icon,
+      url: contact.url,
     });
   };
 
@@ -168,7 +172,7 @@ const ContactForm = () => {
             name="url"
             type="text"
             placeholder="Link"
-            icon={Link}
+            icon={LucideLink}
             error={errors.url?.message}
             disabled={isPending}
             value={defaultValues.url}
@@ -184,6 +188,7 @@ const ContactForm = () => {
             setValue={setValue}
             disabled={isPending}
             error={errors.icon?.message}
+            register={register}
           />
 
           {/* Add Add Button */}
@@ -209,20 +214,24 @@ const ContactForm = () => {
                 <li
                   key={i}
                   className={cn(
-                    "flex items-center justify-between py-4",
+                    "flex max-md:flex-col max-md:gap-4 items-start md:items-center justify-between py-4",
                     i !== contactData.length - 1 && " border-b border-input"
                   )}
                 >
-                  <div className="flex gap-2 items-center">
+                  <Link
+                    href={contact.url}
+                    target="_blank"
+                    className="flex gap-2 items-center group"
+                  >
                     <div
                       dangerouslySetInnerHTML={{ __html: contact.icon }}
                       className="svg"
                     ></div>
-                    <span className="text-secondary-foreground font-semibold">
+                    <span className="font-semibold text-secondary-foreground group-hover:text-foreground duration-300">
                       {contact.name}
                     </span>
-                  </div>
-                  <div className="flex gap-4">
+                  </Link>
+                  <div className="flex max-md:w-full gap-4">
                     <Button
                       className="bg-secondary hover:bg-secondary hover:opacity-70 w-24"
                       onClick={() => handleEditContact(contact)}
