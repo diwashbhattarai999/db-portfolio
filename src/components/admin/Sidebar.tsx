@@ -17,6 +17,7 @@ import { useCurrentUser } from "@/hooks/use-current-user";
 import MotionList from "@/components/motion-list";
 import MotionSidebar from "@/components/motion-sidebar";
 import ThemeSwitcher from "@/components/theme-switcher";
+import MotionDiv from "../motion-div";
 
 const Sidebar = () => {
   const [expandSidebar, setExpandSidebar] = useState(false);
@@ -55,7 +56,7 @@ const Sidebar = () => {
       </MotionSidebar>
 
       {/* Admin Links */}
-      <MotionList className="hidden md:flex flex-col gap-6">
+      <MotionList delayOffset={0} className="hidden md:flex flex-col gap-6">
         {ADMIN_LINKS.map((link) => {
           return (
             <div key={link.href} onClick={() => setProfileOpen(false)}>
@@ -103,7 +104,10 @@ const Sidebar = () => {
               className="absolute z-50 top-16 md:-top-[8rem] right-5 md:right-0 md:left-0 bg-accent rounded-md py-3 px-2 w-40 text-primary-foreground"
             >
               <div className="flex flex-col gap-2">
-                <MotionList className="flex md:hidden flex-col gap-2">
+                <MotionSidebar
+                  delayOffset={0}
+                  className="flex md:hidden flex-col gap-2"
+                >
                   {ADMIN_LINKS.map((link) => {
                     return (
                       <Link
@@ -116,19 +120,15 @@ const Sidebar = () => {
                         )}
                       >
                         <link.icon className="py-3 w-auto h-11" />
-                        {expandSidebar && (
-                          <MotionSidebar delayOffset={0.2}>
-                            {link.label}
-                          </MotionSidebar>
-                        )}
+                        {expandSidebar && <p>{link.label}</p>}
                       </Link>
                     );
                   })}
-                </MotionList>
+                </MotionSidebar>
 
                 <hr className="md:hidden my-2 bg-muted" />
 
-                <MotionSidebar delayOffset={0.1}>
+                <MotionSidebar delayOffset={0}>
                   <div
                     onClick={handleLogout}
                     className="flex items-center gap-3 px-2 rounded-md font-medium transition-colors hover:text-foreground hover:bg-muted cursor-pointer"
@@ -138,7 +138,7 @@ const Sidebar = () => {
                   </div>
                 </MotionSidebar>
 
-                <MotionSidebar delayOffset={0.2}>
+                <MotionSidebar delayOffset={0}>
                   <ThemeSwitcher admin />
                 </MotionSidebar>
               </div>
