@@ -1,12 +1,16 @@
 "use client";
 
-import Link from "next/link";
-
-import { CONNECT_LINKS } from "@/constants";
-import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
+import Link from "next/link";
+import { useTheme } from "next-themes";
 
-const Social = () => {
+import { Contact } from "@prisma/client";
+
+interface SocialProps {
+  contacts: Contact[] | null;
+}
+
+const Social = ({ contacts }: SocialProps) => {
   const [isMounted, setIsMounted] = useState(false);
   const { theme } = useTheme();
 
@@ -15,31 +19,26 @@ const Social = () => {
   }, []);
 
   return (
-    <div className="mt-6 flex gap-2 items-center justify-start">
-      <div className="h-1 w-2 bg-accent-foreground rounded-lg"></div>
+    <div className="-mt-12 flex gap-2 items-center justify-start">
+      {/* <hr className="h-[1px] w-[10vw] bg-border opacity-60 rounded-lg" /> */}
 
       <ul className="flex gap-4">
-        {CONNECT_LINKS.map((connectLink) => {
-          return (
-            <li key={connectLink.label}>
-              <Link href={connectLink.href} target="_blank" rel="noreferrer">
-                <connectLink.icon
-                  fillColor={
-                    isMounted
-                      ? theme === "light"
-                        ? "#1d1d1d"
-                        : "#ebebeb"
-                      : "#7c7c7c"
-                  }
-                  className="hover:scale-[1.1] h-5 w-5 hover:opacity-80"
-                />
-              </Link>
-            </li>
-          );
-        })}
+        {contacts &&
+          contacts.map((contact) => {
+            return (
+              <li key={contact.name}>
+                <Link href={contact.url} target="_blank" rel="noreferrer">
+                  <div
+                    dangerouslySetInnerHTML={{ __html: contact.icon }}
+                    className="svg p-2 bg-primary rounded-full hover:bg-accent hover:scale-110 duration-300"
+                  ></div>
+                </Link>
+              </li>
+            );
+          })}
       </ul>
 
-      <div className="h-1 w-2 bg-accent-foreground rounded-lg"></div>
+      {/* <hr className="h-[1px] w-full bg-border opacity-60 rounded-lg" /> */}
     </div>
   );
 };

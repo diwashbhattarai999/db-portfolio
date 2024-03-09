@@ -25,13 +25,12 @@ import FormSuccess from "@/components/ui/form-success";
 import MotionDiv from "@/components/motion-div";
 import CardWrapper from "@/components/auth/card-wrapper";
 
-const HomeForm = ({
-  homePageDatas,
-  resume,
-}: {
+interface HomeFormProps {
   homePageDatas: HomePage | null;
   resume: Resume | null;
-}) => {
+}
+
+const HomeForm = ({ homePageDatas, resume }: HomeFormProps) => {
   const [profileImg, setProfileImg] = useState("");
   const [uploadedResume, setUploadedResume] = useState({
     name: "",

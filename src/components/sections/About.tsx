@@ -1,18 +1,21 @@
 "use client";
 
 import Link from "next/link";
-import { useTheme } from "next-themes";
 
-import { CONNECT_LINKS, TECHNOLOGIES } from "@/constants";
+import { Contact } from "@prisma/client";
+
+import { TECHNOLOGIES } from "@/constants";
 
 import { ArrowUpRight } from "@/components/ui/Icons";
 import Container from "@/components/Container";
 import MotionDiv from "@/components/motion-div";
 import MotionList from "@/components/motion-list";
 
-const About = () => {
-  const { resolvedTheme } = useTheme();
+interface AboutProps {
+  contacts: Contact[] | null;
+}
 
+const About = ({ contacts }: AboutProps) => {
   return (
     <div className="py-20">
       <Container className="flex flex-col gap-12 justify-center">
@@ -103,32 +106,31 @@ const About = () => {
               </p>
             </MotionDiv>
 
-            <MotionList
-              delayOffset={0.2}
-              className="flex-grow grid grid-cols-1 md:grid-cols-2 gap-4 w-full"
-            >
-              {CONNECT_LINKS.map((link) => (
-                <div className="col-span-1" key={link.label}>
-                  <Link
-                    href={link.href}
-                    target="_blank"
-                    className="flex items-center justify-between w-full border rounded-lg p-4 border-accent hover:bg-border duration-300"
-                  >
-                    <div className="flex items-center gap-3 font-medium">
-                      <span className="text-xl">
-                        <link.icon
-                          fillColor={
-                            resolvedTheme === "dark" ? "#e6e6e6" : "#303030"
-                          }
-                        />
-                      </span>
-                      {link.label}
-                    </div>
-                    <ArrowUpRight />
-                  </Link>
-                </div>
-              ))}
-            </MotionList>
+            {contacts && (
+              <MotionList
+                delayOffset={0.2}
+                className="flex-grow grid grid-cols-1 md:grid-cols-2 gap-4 w-full"
+              >
+                {contacts.map((contact) => (
+                  <div className="col-span-1" key={contact.id}>
+                    <Link
+                      href={contact.url}
+                      target="_blank"
+                      className="flex items-center justify-between w-full border rounded-lg p-4 border-accent hover:bg-border duration-300"
+                    >
+                      <div className="flex items-center gap-3 font-medium">
+                        <div
+                          dangerouslySetInnerHTML={{ __html: contact.icon }}
+                          className="svg"
+                        ></div>
+                        {contact.name}
+                      </div>
+                      <ArrowUpRight />
+                    </Link>
+                  </div>
+                ))}
+              </MotionList>
+            )}
           </div>
         </section>
       </Container>

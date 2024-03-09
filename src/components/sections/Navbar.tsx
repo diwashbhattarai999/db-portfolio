@@ -5,6 +5,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 
+import { Resume } from "@prisma/client";
+
 import { NAV_LINKS } from "@/constants";
 
 import useOnClickOutside from "@/hooks/use-on-click-outside";
@@ -14,14 +16,15 @@ import useBlurBody from "@/hooks/use-blur-body";
 import Container from "@/components/Container";
 import ThemeSwitcher from "@/components/theme-switcher";
 import MobileMenu from "@/components/ui/mobile-menu";
-import MotionDiv from "../motion-div";
-import MotionList from "../motion-list";
+import MotionDiv from "@/components/motion-div";
+import MotionList from "@/components/motion-list";
 
 interface NavbarProps {
   contentRef: React.RefObject<HTMLDivElement>;
+  resume: Resume | null | undefined;
 }
 
-const Navbar = ({ contentRef }: NavbarProps) => {
+const Navbar = ({ contentRef, resume }: NavbarProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [navLinkActive, setNavLinkActive] = useState(
     usePathname().split("/")[1]
@@ -85,7 +88,7 @@ const Navbar = ({ contentRef }: NavbarProps) => {
           </MotionList>
           <MotionDiv delayOffset={0.7}>
             <Link
-              href="/Resume.pdf"
+              href={resume?.url || ""}
               target="_blank"
               className="p-2 border border-border rounded-md hover:bg-muted duration-300 cursor-pointer"
             >

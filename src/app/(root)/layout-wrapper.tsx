@@ -2,13 +2,19 @@
 
 import Footer from "@/components/sections/Footer";
 import Navbar from "@/components/sections/Navbar";
+import { HomePage, Resume } from "@prisma/client";
 import React, { useRef } from "react";
 
-const LayoutWrapper = ({ children }: { children: React.ReactNode }) => {
+interface LayoutWrapperProps {
+  resume?: Resume | null;
+  children: React.ReactNode;
+}
+
+const LayoutWrapper = ({ children, resume }: LayoutWrapperProps) => {
   const contentRef = useRef<HTMLDivElement>(null);
   return (
     <>
-      <Navbar contentRef={contentRef} />
+      <Navbar resume={resume} contentRef={contentRef} />
       <div className="flex flex-col min-h-screen" ref={contentRef}>
         <div className="flex-1 mt-[62px]">{children}</div>
         <Footer />
