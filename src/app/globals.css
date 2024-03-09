@@ -30,6 +30,9 @@
     --secondary: #c4c4c4;
     --secondary-foreground: #444444;
 
+    --white: #f3f3f3;
+    --black: #121212;
+
     --minus-nav-height: calc(100vh - 62px);
   }
 
@@ -60,6 +63,9 @@
 
     --secondary: #1d1d1d;
     --secondary-foreground: #858585;
+
+    --white: #f3f3f3;
+    --black: #121212;
 
     --minus-nav-height: calc(100vh - 62px);
   }
@@ -92,6 +98,10 @@
     user-select: none;
     position: relative;
     z-index: -50;
+  }
+
+  .svg svg {
+    @apply h-7 w-7 fill-primary-foreground;
   }
 }
 

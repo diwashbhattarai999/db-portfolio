@@ -167,7 +167,7 @@ const SettingsForm = () => {
           {error && <FormError message={error} />}
 
           {/* Submit Button */}
-          <Button disabled={isPending} type="submit" className="px-6">
+          <Button disabled={isPending} type="submit" className="px-6 w-24">
             Save
           </Button>
         </form>

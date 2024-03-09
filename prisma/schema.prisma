@@ -26,8 +26,8 @@ model User {
   twoFactorConfirmation   TwoFactorConfirmation?
   twoFactorConfirmationId String?                @db.ObjectId
 
-  homePage   HomePage?
-  homePageId String?   @db.ObjectId
+  homePage HomePage?
+  contacts Contact[]
 }
 
 model Account {
@@ -106,4 +106,14 @@ model Resume {
 
   HomePage   HomePage? @relation(fields: [homePageId], references: [id], onDelete: Cascade)
   homePageId String    @unique @db.ObjectId
+}
+
+model Contact {
+  id   String @id @default(auto()) @map("_id") @db.ObjectId
+  name String
+  icon String
+  url  String
+
+  User   User?  @relation(fields: [userId], references: [id])
+  userId String @db.ObjectId
 }

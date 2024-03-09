@@ -29,6 +29,7 @@ export const newVerification = async (token: string) => {
     data: {
       emailVerified: new Date(),
       email: existingToken.email,
+      
     },
   });
 

@@ -152,3 +152,15 @@ export const HomeSchema = z.object({
     })
   ),
 });
+
+export const ContactSchema = z.object({
+  name: z.string().min(1, {
+    message: "Name is required",
+  }),
+  icon: z.string().min(1, {
+    message: "Icon is required",
+  }),
+  url: z.string().min(1, {
+    message: "Url is required",
+  }),
+});

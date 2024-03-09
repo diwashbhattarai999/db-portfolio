@@ -1,25 +1,26 @@
-import { cn } from "@/lib/utils";
+import { useEffect, useLayoutEffect, useRef } from "react";
 import { LucideIcon } from "lucide-react";
-import { useEffect } from "react";
-import { UseFormSetValue } from "react-hook-form";
+import {
+  FieldValues,
+  Path,
+  PathValue,
+  UseFormRegisterReturn,
+  UseFormSetValue,
+} from "react-hook-form";
 
-interface TextareaProps {
-  name: string;
+import { cn } from "@/lib/utils";
+
+interface TextareaProps<T extends FieldValues = FieldValues> {
+  name: keyof T;
   label: string;
   disabled?: boolean;
   error?: string;
   Icon?: LucideIcon;
   value?: string;
-  setValue: UseFormSetValue<{
-    name?: string | undefined;
-    position?: string | undefined;
-    description?: string | undefined;
-    image?: string | undefined;
-    resume?: { id: string } | undefined;
-  }>;
+  setValue: UseFormSetValue<T>;
 }
 
-const Textarea = ({
+const Textarea = <T extends FieldValues>({
   name,
   label,
   disabled,
@@ -27,20 +28,21 @@ const Textarea = ({
   Icon,
   value,
   setValue,
-}: TextareaProps) => {
+}: TextareaProps<T>) => {
+  const textareaRef = useRef<HTMLTextAreaElement | null>(null);
+
   const handleTextChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     let input = e.target;
 
     input.style.height = "auto";
     input.style.height = input.scrollHeight + "px";
 
-    setValue("description", input.value);
+    setValue(name as Path<T>, input.value as PathValue<T, Path<T>>);
   };
 
   useEffect(() => {
-    const textarea = document.getElementById(
-      name
-    ) as HTMLTextAreaElement | null;
+    const textarea = textareaRef.current;
+
     if (textarea) {
       textarea.style.height = "auto";
       textarea.style.height = textarea.scrollHeight + "px";
@@ -55,7 +57,7 @@ const Textarea = ({
       )}
     >
       <label
-        htmlFor={name}
+        htmlFor={name as string}
         className={cn(
           "text-primary-foreground cursor-pointer",
           error && "text-destructive opacity-80",
@@ -69,11 +71,13 @@ const Textarea = ({
           <Icon className="absolute left-2 top-[1.1rem] pointer-events-none h-5 w-5 text-secondary-foreground" />
         )}
         <textarea
-          id={name}
+          ref={textareaRef}
+          name={name as string}
+          id={name as string}
           defaultValue={value}
           placeholder={label}
           className={cn(
-            "w-full h-full py-4 px-10 bg-transparent border rounded-md text-primary-foreground placeholder:text-secondary-foreground outline-none disabled:cursor-not-allowed disabled:opacity-50 resize-none leading-tight no-scrollbar",
+            "w-full py-4 px-10 bg-transparent border rounded-md text-primary-foreground placeholder:text-secondary-foreground outline-none disabled:cursor-not-allowed disabled:opacity-50 resize-none leading-tight no-scrollbar",
             error
               ? "border-destructive focus:border-destructive"
               : "border-input focus:border-secondary-foreground"
@@ -81,6 +85,7 @@ const Textarea = ({
           onChange={handleTextChange}
         ></textarea>
       </div>
+      {error && <div className="mb-4 text-destructive italic">{error}</div>}
     </div>
   );
 };

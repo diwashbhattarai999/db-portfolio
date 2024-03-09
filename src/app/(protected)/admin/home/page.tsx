@@ -1,7 +1,9 @@
+import { currentUser } from "@/lib/auth";
+
+import { getHomePageByUserId, getResumeByResumeId } from "@/data/home-page";
+
 import Container from "@/components/Container";
 import HomeForm from "@/components/admin/home-form";
-import { getHomePageByUserId, getResumeByResumeId } from "@/data/home-page";
-import { currentUser } from "@/lib/auth";
 
 const AdminHomePage = async () => {
   const user = await currentUser();
@@ -12,7 +14,7 @@ const AdminHomePage = async () => {
   return (
     <Container className="flex-1">
       <div className="w-full flex flex-col items-center justify-center">
-        <HomeForm homePageDatas={homepageDatas} resume={resume}/>
+        <HomeForm homePageDatas={homepageDatas} resume={resume} />
       </div>
     </Container>
   );

@@ -63,15 +63,6 @@ export const home = async (values: z.infer<typeof HomeSchema>) => {
         description: values.description,
         image: values.image,
         resumeId: resumeId,
-        // resumeId: resume?.id,
-        // resume: values.resume
-        //   ? {
-        //       update: {
-        //         name: values.resume.name,
-        //         url: values.resume.url,
-        //       },
-        //     }
-        //   : undefined,
       },
     });
   } else {
@@ -83,12 +74,6 @@ export const home = async (values: z.infer<typeof HomeSchema>) => {
         image: values.image,
         userId: dbUser.id,
         resumeId: resumeId,
-        // resume: {
-        //   create: {
-        //     name: values.resume?.name,
-        //     url: values.resume?.url,
-        //   },
-        // },
       },
     });
   }

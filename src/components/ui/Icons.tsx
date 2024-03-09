@@ -608,8 +608,8 @@ export const vsCode = ({
             gradientUnits="userSpaceOnUse"
           >
             {" "}
-            <stop stop-color="#32B5F1"></stop>{" "}
-            <stop offset="1" stop-color="#2B9FED"></stop>{" "}
+            <stop stopColor="#32B5F1"></stop>{" "}
+            <stop offset="1" stopColor="#2B9FED"></stop>{" "}
           </linearGradient>{" "}
           <linearGradient
             id="paint1_linear_87_8101"
@@ -620,12 +620,12 @@ export const vsCode = ({
             gradientUnits="userSpaceOnUse"
           >
             {" "}
-            <stop stop-color="#0F6FB3"></stop>{" "}
-            <stop offset="0.270551" stop-color="#1279B7"></stop>{" "}
-            <stop offset="0.421376" stop-color="#1176B5"></stop>{" "}
-            <stop offset="0.618197" stop-color="#0E69AC"></stop>{" "}
-            <stop offset="0.855344" stop-color="#0F70AF"></stop>{" "}
-            <stop offset="1" stop-color="#0F6DAD"></stop>{" "}
+            <stop stopColor="#0F6FB3"></stop>{" "}
+            <stop offset="0.270551" stopColor="#1279B7"></stop>{" "}
+            <stop offset="0.421376" stopColor="#1176B5"></stop>{" "}
+            <stop offset="0.618197" stopColor="#0E69AC"></stop>{" "}
+            <stop offset="0.855344" stopColor="#0F70AF"></stop>{" "}
+            <stop offset="1" stopColor="#0F6DAD"></stop>{" "}
           </linearGradient>{" "}
           <linearGradient
             id="paint2_linear_87_8101"
@@ -636,8 +636,8 @@ export const vsCode = ({
             gradientUnits="userSpaceOnUse"
           >
             {" "}
-            <stop stop-color="#1791D2"></stop>{" "}
-            <stop offset="1" stop-color="#1173C5"></stop>{" "}
+            <stop stopColor="#1791D2"></stop>{" "}
+            <stop offset="1" stopColor="#1173C5"></stop>{" "}
           </linearGradient>{" "}
         </defs>{" "}
       </g>
