@@ -1,6 +1,9 @@
 import { currentUser } from "@/lib/auth";
 
-import { getHomePageByUserId, getResumeByResumeId } from "@/data/home-page";
+import {
+  getHomePageByUserId,
+  getResumeByResumeId,
+} from "@/data/admin/home-page";
 
 import Container from "@/components/Container";
 import HomeForm from "@/components/admin/home-form";

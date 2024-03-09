@@ -8,7 +8,10 @@ import { getUserById } from "@/data/user";
 
 import { db } from "@/lib/db";
 import { currentUser } from "@/lib/auth";
-import { getHomePageByUserId, getResumeByResumeId } from "@/data/home-page";
+import {
+  getHomePageByUserId,
+  getResumeByResumeId,
+} from "@/data/admin/home-page";
 
 export const home = async (values: z.infer<typeof HomeSchema>) => {
   const user = await currentUser();

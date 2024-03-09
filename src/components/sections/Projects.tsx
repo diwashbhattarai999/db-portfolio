@@ -37,7 +37,7 @@ const Projects = () => {
             return (
               <div
                 key={project.url}
-                className="flex max-md:flex-col justify-center gap-8 p-4 border border-border rounded-md hover:bg-accent hover:bg-opacity-50 hover:scale-[0.99] cursor-pointer duration-300 shadow-sm"
+                className="flex max-md:flex-col gap-8 p-4 border border-border rounded-md hover:bg-border hover:scale-[0.99] cursor-pointer duration-300 shadow-sm"
               >
                 <Image
                   src={project.imagePath}

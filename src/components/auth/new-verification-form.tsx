@@ -7,7 +7,7 @@ import { newVerification } from "@/actions/new-verification";
 
 import FormError from "@/components/ui/form-error";
 import FormSuccess from "@/components/ui/form-success";
-import CardWrapper from "@/components/auth/card-wrapper";
+import CardWrapper from "@/components/ui/card-wrapper";
 
 const NewVerificationForm = () => {
   const [error, setError] = useState<string | undefined>();

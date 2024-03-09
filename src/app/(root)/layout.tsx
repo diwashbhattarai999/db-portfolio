@@ -1,6 +1,9 @@
 import { currentUser } from "@/lib/auth";
 import LayoutWrapper from "@/app/(root)/layout-wrapper";
-import { getHomePageByUserId, getResumeByResumeId } from "@/data/home-page";
+import {
+  getHomePageByUserId,
+  getResumeByResumeId,
+} from "@/data/admin/home-page";
 
 export default async function HomeLayout({
   children,

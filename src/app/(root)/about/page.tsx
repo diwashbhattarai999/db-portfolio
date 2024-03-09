@@ -1,5 +1,5 @@
 import About from "@/components/sections/About";
-import { getContactsByUserId } from "@/data/contact";
+import { getContactsByUserId } from "@/data/admin/contact";
 import { currentUser } from "@/lib/auth";
 import { Metadata } from "next";
 

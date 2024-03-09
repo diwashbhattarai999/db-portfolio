@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { LucideIcon } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 
@@ -9,6 +10,7 @@ interface CardWrapperProps {
   children: React.ReactNode;
   headerLabel: string;
   subHeaderLabel: string;
+  HeaderIcon?: LucideIcon;
   backButtonLabel?: string;
   backButtonHref?: string;
   showSocial?: boolean;
@@ -20,6 +22,7 @@ interface CardWrapperProps {
 const CardWrapper = ({
   children,
   headerLabel,
+  HeaderIcon,
   backButtonLabel,
   subHeaderLabel,
   backButtonHref,
@@ -44,7 +47,10 @@ const CardWrapper = ({
       >
         {/* Form Title */}
         <div className="border-b border-accent w-full text-center pb-4">
-          <h1 className="text-4xl text-foreground mb-1">{headerLabel}</h1>
+          <div className="flex gap-4 items-center justify-center text-foreground">
+            {HeaderIcon && <HeaderIcon className="w-7 h-7" />}
+            <h1 className="text-4xl  mb-1">{headerLabel}</h1>
+          </div>
           <h3 className="text-lg text-secondary-foreground">
             {subHeaderLabel}
           </h3>

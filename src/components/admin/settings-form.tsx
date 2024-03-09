@@ -5,7 +5,7 @@ import { useState, useTransition } from "react";
 import * as z from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { KeyRound, Mail, UserRound } from "lucide-react";
+import { KeyRound, Mail, Settings, UserRound } from "lucide-react";
 import { useSession } from "next-auth/react";
 
 import { settings } from "@/actions/settings";
@@ -21,7 +21,7 @@ import Button from "@/components/ui/Button";
 import FormError from "@/components/ui/form-error";
 import FormSuccess from "@/components/ui/form-success";
 import MotionDiv from "@/components/motion-div";
-import CardWrapper from "@/components/auth/card-wrapper";
+import CardWrapper from "@/components/ui/card-wrapper";
 import ChangeProfileImg from "@/components/admin/change-profile";
 
 const SettingsForm = () => {
@@ -74,6 +74,7 @@ const SettingsForm = () => {
     <MotionDiv delayOffset={0.1} className="w-full">
       <CardWrapper
         headerLabel="Settings"
+        HeaderIcon={Settings}
         subHeaderLabel="Change your account settings"
         disabled={isPending}
         maxWidthFull

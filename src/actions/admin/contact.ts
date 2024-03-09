@@ -3,7 +3,7 @@
 import * as z from "zod";
 
 import { getUserById } from "@/data/user";
-import { getContactsByUserId } from "@/data/contact";
+import { getContactsByUserId } from "@/data/admin/contact";
 
 import { db } from "@/lib/db";
 import { currentUser } from "@/lib/auth";

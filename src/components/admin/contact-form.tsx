@@ -6,7 +6,12 @@ import * as z from "zod";
 import { useForm } from "react-hook-form";
 import { useSession } from "next-auth/react";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { FolderPen, ImagePlus, Link as LucideLink } from "lucide-react";
+import {
+  Contact as LucideContact,
+  FolderPen,
+  ImagePlus,
+  Link as LucideLink,
+} from "lucide-react";
 import axios from "axios";
 
 import { contact, deleteContact } from "@/actions/admin/contact";
@@ -23,7 +28,7 @@ import Textarea from "@/components/ui/textarea";
 import FormError from "@/components/ui/form-error";
 import FormSuccess from "@/components/ui/form-success";
 import MotionDiv from "@/components/motion-div";
-import CardWrapper from "@/components/auth/card-wrapper";
+import CardWrapper from "@/components/ui/card-wrapper";
 import { useCurrentUser } from "@/hooks/use-current-user";
 
 const ContactForm = () => {
@@ -144,6 +149,7 @@ const ContactForm = () => {
     <MotionDiv delayOffset={0.1} className="w-full">
       <CardWrapper
         headerLabel="Contact"
+        HeaderIcon={LucideContact}
         subHeaderLabel="Change your Contact details"
         disabled={isPending}
         maxWidthFull

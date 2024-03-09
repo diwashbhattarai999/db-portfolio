@@ -9,7 +9,13 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useSession } from "next-auth/react";
 import { HomePage, Resume } from "@prisma/client";
-import { Briefcase, FileText, NotepadText, UserRound } from "lucide-react";
+import {
+  Briefcase,
+  FileText,
+  Home,
+  NotepadText,
+  UserRound,
+} from "lucide-react";
 
 import { home } from "@/actions/admin/home";
 
@@ -23,7 +29,7 @@ import Textarea from "@/components/ui/textarea";
 import FormError from "@/components/ui/form-error";
 import FormSuccess from "@/components/ui/form-success";
 import MotionDiv from "@/components/motion-div";
-import CardWrapper from "@/components/auth/card-wrapper";
+import CardWrapper from "@/components/ui/card-wrapper";
 
 interface HomeFormProps {
   homePageDatas: HomePage | null;
@@ -88,6 +94,7 @@ const HomeForm = ({ homePageDatas, resume }: HomeFormProps) => {
     <MotionDiv delayOffset={0.1} className="w-full">
       <CardWrapper
         headerLabel="Home"
+        HeaderIcon={Home}
         subHeaderLabel="Change your Home Page Contents"
         disabled={isPending}
         maxWidthFull
@@ -163,7 +170,7 @@ const HomeForm = ({ homePageDatas, resume }: HomeFormProps) => {
           {/* User Inputs -- Resume */}
           <div className="mb-4 text-left flex flex-col gap-4">
             <h1 className="text-primary-foreground">Upload Resume</h1>
-            <div className="flex max-sm:flex-col gap-4">
+            <div className="flex max-sm:flex-col items-start gap-4">
               <UploadButton
                 endpoint="pdfUploader"
                 onClientUploadComplete={(res) => {

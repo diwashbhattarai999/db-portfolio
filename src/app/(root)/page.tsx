@@ -1,9 +1,12 @@
 import { currentUser } from "@/lib/auth";
 
-import { getHomePageByUserId, getResumeByResumeId } from "@/data/home-page";
+import {
+  getHomePageByUserId,
+  getResumeByResumeId,
+} from "@/data/admin/home-page";
 
 import Home from "@/components/sections/Home";
-import { getContactsByUserId } from "@/data/contact";
+import { getContactsByUserId } from "@/data/admin/contact";
 
 export default async function HomePage() {
   const user = await currentUser();
@@ -14,7 +17,7 @@ export default async function HomePage() {
 
   return (
     <>
-      <Home homePageDatas={homepageDatas} resume={resume} contacts={contacts}/>
+      <Home homePageDatas={homepageDatas} resume={resume} contacts={contacts} />
     </>
   );
 }
