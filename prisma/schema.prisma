@@ -89,11 +89,12 @@ model TwoFactorConfirmation {
 }
 
 model HomePage {
-  id          String  @id @default(auto()) @map("_id") @db.ObjectId
-  name        String?
-  position    String?
-  description String?
-  image       String?
+  id               String  @id @default(auto()) @map("_id") @db.ObjectId
+  name             String?
+  position         String?
+  homeDescription  String?
+  aboutDescription String?
+  image            String?
 
   resume   Resume?
   resumeId String? @db.ObjectId

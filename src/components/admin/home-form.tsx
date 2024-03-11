@@ -50,7 +50,8 @@ const HomeForm = ({ homePageDatas, resume }: HomeFormProps) => {
   const defaultValues = {
     name: homePageDatas?.name || "",
     position: homePageDatas?.position || "",
-    description: homePageDatas?.description || "",
+    homeDescription: homePageDatas?.homeDescription || "",
+    aboutDescription: homePageDatas?.aboutDescription || "",
     image: homePageDatas?.image || profileImg || "",
     resume: {
       id: resume?.id,
@@ -155,15 +156,27 @@ const HomeForm = ({ homePageDatas, resume }: HomeFormProps) => {
             register={register("position")}
           />
 
-          {/* User Inputs -- Description */}
+          {/* User Inputs -- HomeDescription */}
           <Textarea
-            label="Description"
-            name="description"
+            label="Homepage Description"
+            name="homeDescription"
             Icon={NotepadText}
             setValue={setValue}
             disabled={isPending}
-            value={defaultValues.description}
-            error={errors.description?.message}
+            value={defaultValues.homeDescription}
+            error={errors.homeDescription?.message}
+            register={register}
+          />
+
+          {/* User Inputs -- AboutDescription */}
+          <Textarea
+            label="Aboutpage Description"
+            name="aboutDescription"
+            Icon={NotepadText}
+            setValue={setValue}
+            disabled={isPending}
+            value={defaultValues.aboutDescription}
+            error={errors.aboutDescription?.message}
             register={register}
           />
 

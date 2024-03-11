@@ -142,7 +142,8 @@ export const SettingsSchema = z
 export const HomeSchema = z.object({
   name: z.optional(z.string()),
   position: z.optional(z.string()),
-  description: z.optional(z.string()),
+  homeDescription: z.optional(z.string()),
+  aboutDescription: z.optional(z.string()),
   image: z.optional(z.string()),
   resume: z.optional(
     z.object({

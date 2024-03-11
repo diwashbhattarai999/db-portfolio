@@ -37,7 +37,7 @@ const Home = ({ homePageDatas, resume, contacts }: HomeProps) => {
                 {homePageDatas?.position || "FullStack Developer"}
               </h2>
               <p className="max-w-[28rem] text-base font-normal mt-3 text-secondary-foreground ">
-                {homePageDatas?.description}
+                {homePageDatas?.homeDescription}
               </p>
 
               {/* //TODO: Fix the download, now it's just redirecting to another page */}

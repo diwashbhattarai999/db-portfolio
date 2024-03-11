@@ -63,7 +63,8 @@ export const home = async (values: z.infer<typeof HomeSchema>) => {
       data: {
         name: values.name,
         position: values.position,
-        description: values.description,
+        homeDescription: values.homeDescription,
+        aboutDescription: values.aboutDescription,
         image: values.image,
         resumeId: resumeId,
       },
@@ -73,7 +74,8 @@ export const home = async (values: z.infer<typeof HomeSchema>) => {
       data: {
         name: values.name,
         position: values.position,
-        description: values.description,
+        homeDescription: values.homeDescription,
+        aboutDescription: values.aboutDescription,
         image: values.image,
         userId: dbUser.id,
         resumeId: resumeId,

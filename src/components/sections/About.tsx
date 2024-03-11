@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 
-import { Contact } from "@prisma/client";
+import { Category, Contact, Skill } from "@prisma/client";
 
 import { TECHNOLOGIES } from "@/constants";
 
@@ -10,12 +10,21 @@ import { ArrowUpRight } from "@/components/ui/Icons";
 import Container from "@/components/Container";
 import MotionDiv from "@/components/motion-div";
 import MotionList from "@/components/motion-list";
+import Image from "next/image";
 
 interface AboutProps {
   contacts: Contact[] | null;
+  aboutDescription: string | null | undefined;
+  skills: Skill[] | null;
+  categories: Category[] | null;
 }
 
-const About = ({ contacts }: AboutProps) => {
+const About = ({
+  contacts,
+  aboutDescription,
+  skills,
+  categories,
+}: AboutProps) => {
   return (
     <div className="py-20">
       <Container className="flex flex-col gap-12 justify-center">
@@ -37,15 +46,9 @@ const About = ({ contacts }: AboutProps) => {
           </MotionDiv>
           <MotionDiv delayOffset={0.1} className="w-full">
             <div className="flex flex-col items-start w-full gap-4 text-base text-secondary-foreground">
-              <p>{`Hello there,`}</p>
-              <p>
-                {`My name is Diwash Bhattarai, and I'm a CSIT student with a burning
-              passion for tech. My journey with code began at 18, and I've been
-              fascinated by its ability to bring ideas to life ever since.`}
-              </p>
-              <p>
-                {`As a believer in seamless and accessible experiences, I'm constantly learning and experimenting. While professional projects haven't come my way yet, I'm actively seeking opportunities to collaborate and apply my skills. So, if you have a cool project in mind or share my tech passion, let's connect and create something amazing!`}
-              </p>
+              {aboutDescription?.split("\n").map((paragraph, index) => (
+                <p key={index}>{paragraph}</p>
+              ))}
             </div>
           </MotionDiv>
         </section>
@@ -57,28 +60,40 @@ const About = ({ contacts }: AboutProps) => {
           <MotionDiv delayOffset={0} className="md:w-32">
             <h2 className="font-medium">Skills</h2>
           </MotionDiv>
-          <div className="flex flex-col gap-8">
-            {TECHNOLOGIES.map((skill) => {
+          <div className="flex flex-col gap-8 w-full">
+            {categories?.map((category) => {
+              const categorySkills = skills?.filter(
+                (skill) => skill.categoryId === category.id
+              );
+
               return (
-                <div key={skill.title} className="w-full flex flex-col gap-8">
+                <div key={category.id} className="w-full flex flex-col gap-8">
                   <MotionDiv delayOffset={0}>
                     <h3 className="text-primary-foreground border-b border-border pb-2">
-                      {skill.title}
+                      {category.name}
                     </h3>
                   </MotionDiv>
-                  <MotionList className="flex gap-8 flex-wrap w-full">
-                    {skill.skills.map((skill) => {
-                      return (
-                        <div
-                          key={skill.label}
-                          className="p-2 rounded-md text-base font-medium flex gap-2 items-center justify-start hover:bg-border hover:text-muted-foreground cursor-pointer duration-300"
-                        >
-                          <skill.Icon height="56px" width="56px" />
-                          {skill.label}
-                        </div>
-                      );
-                    })}
-                  </MotionList>
+                  {categorySkills && (
+                    <MotionList className="flex gap-8 flex-wrap w-full">
+                      {categorySkills.map((skill) => {
+                        return (
+                          <div
+                            key={skill.name}
+                            className="p-2 rounded-md text-base font-medium flex gap-2 items-center justify-start hover:bg-border hover:text-muted-foreground cursor-pointer duration-300"
+                          >
+                            <Image
+                              src={skill.image}
+                              alt={skill.name}
+                              width={500}
+                              height={500}
+                              className="h-14 w-14"
+                            />
+                            {skill.name}
+                          </div>
+                        );
+                      })}
+                    </MotionList>
+                  )}
                 </div>
               );
             })}

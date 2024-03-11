@@ -1,7 +1,12 @@
-import About from "@/components/sections/About";
-import { getContactsByUserId } from "@/data/admin/contact";
-import { currentUser } from "@/lib/auth";
 import { Metadata } from "next";
+
+import { currentUser } from "@/lib/auth";
+
+import { getContactsByUserId } from "@/data/admin/contact";
+import { getHomePageByUserId } from "@/data/admin/home-page";
+import { getCategoryByUserId, getSKillsByUserId } from "@/data/admin/skill";
+
+import About from "@/components/sections/About";
 
 export const metadata: Metadata = {
   title: "About Me | Diwash Bhattarai",
@@ -12,8 +17,20 @@ export const metadata: Metadata = {
 const AboutPage = async () => {
   const user = await currentUser();
   const contacts = await getContactsByUserId(user?.id as string);
+  const homepageDatas = await getHomePageByUserId(user?.id as string);
+  const skills = await getSKillsByUserId(user?.id as string);
+  const categories = await getCategoryByUserId(user?.id as string);
 
-  return <About contacts={contacts} />;
+  const aboutDescription = homepageDatas?.aboutDescription;
+
+  return (
+    <About
+      contacts={contacts}
+      aboutDescription={aboutDescription}
+      skills={skills}
+      categories={categories}
+    />
+  );
 };
 
 export default AboutPage;
