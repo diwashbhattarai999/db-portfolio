@@ -13,7 +13,7 @@ import {
   getSKillsByUserId,
 } from "@/data/admin/skill";
 
-export const about = async (values: z.infer<typeof SkillsSchema>) => {
+export const skills = async (values: z.infer<typeof SkillsSchema>) => {
   const user = await currentUser();
 
   if (!user) {

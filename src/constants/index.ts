@@ -4,10 +4,10 @@ import {
   Sun,
   Home,
   Settings,
-  CircleUserRound,
   FolderDot,
   Contact,
   LayoutDashboard,
+  BrainCircuit,
 } from "lucide-react";
 
 import {
@@ -208,9 +208,9 @@ export const ADMIN_LINKS = [
     icon: Home,
   },
   {
-    href: "about",
-    label: "About",
-    icon: CircleUserRound,
+    href: "skills",
+    label: "Skills",
+    icon: BrainCircuit,
   },
   {
     href: "projects",

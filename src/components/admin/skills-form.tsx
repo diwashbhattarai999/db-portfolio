@@ -7,7 +7,7 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import { useForm } from "react-hook-form";
 import { useSession } from "next-auth/react";
-import { CircleUserRound, FolderPen } from "lucide-react";
+import { BrainCircuit, FolderPen } from "lucide-react";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 import { Category, Skill } from "@prisma/client";
@@ -26,10 +26,10 @@ import FormError from "@/components/ui/form-error";
 import FormSuccess from "@/components/ui/form-success";
 import CardWrapper from "@/components/ui/card-wrapper";
 import MotionDiv from "@/components/motion-div";
-import { about, deleteSkill } from "@/actions/admin/about";
+import { skills, deleteSkill } from "@/actions/admin/skills";
 import useSkillsData, { SkillsWithCategory } from "@/hooks/use-skills-data";
 
-const AboutForm = ({
+const SkillsForm = ({
   categoryOptions,
 }: {
   categoryOptions: Category[] | null;
@@ -90,7 +90,7 @@ const AboutForm = ({
   const onSubmit = (values: z.infer<typeof SkillsSchema>) => {
     startTransition(() => {
       // console.log(values);
-      about(values)
+      skills(values)
         .then((data) => {
           if (data.error) {
             setError(data.error);
@@ -164,9 +164,9 @@ const AboutForm = ({
   return (
     <MotionDiv delayOffset={0.1} className="w-full">
       <CardWrapper
-        headerLabel="About"
-        HeaderIcon={CircleUserRound}
-        subHeaderLabel="Change your About Page Contents"
+        headerLabel="Skills"
+        HeaderIcon={BrainCircuit}
+        subHeaderLabel="Add or update your skills"
         disabled={isPending}
         maxWidthFull
         className="my-20"
@@ -317,4 +317,4 @@ const AboutForm = ({
   );
 };
 
-export default AboutForm;
+export default SkillsForm;

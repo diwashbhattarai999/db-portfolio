@@ -7,7 +7,7 @@ import { ChevronDown, Trash2, UserCog } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 import AddNewCategory from "@/components/admin/add-new-category";
-import { deleteCategory } from "@/actions/admin/about";
+import { deleteCategory } from "@/actions/admin/skills";
 
 export type Options = {
   readonly value: string;
