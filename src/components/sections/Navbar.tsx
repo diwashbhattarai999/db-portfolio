@@ -30,6 +30,7 @@ const Navbar = ({ contentRef, resume }: NavbarProps) => {
     usePathname().split("/")[1]
   );
   const menuRef = useRef<HTMLDivElement>(null);
+  const navRef = useRef<HTMLElement>(null);
 
   const handleMenu = () => {
     setIsMenuOpen((currentValue) => !currentValue);
@@ -52,7 +53,10 @@ const Navbar = ({ contentRef, resume }: NavbarProps) => {
   });
 
   return (
-    <nav className="h-[62px] border-b border-b-border backdrop-blur dark:bg-[#070707]/90 bg-[#fcfcfc]/90  fixed w-full top-0 z-50">
+    <nav
+      ref={navRef}
+      className="h-[62px] border-b border-b-border backdrop-blur dark:bg-[#070707]/90 bg-[#fcfcfc]/90  fixed w-full top-0 z-50"
+    >
       <Container className="h-full flex items-center justify-between">
         <MotionDiv delayOffset={0}>
           <Link

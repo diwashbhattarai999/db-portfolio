@@ -33,7 +33,7 @@ import CardWrapper from "@/components/ui/card-wrapper";
 import { useCurrentUser } from "@/hooks/use-current-user";
 import Image from "next/image";
 import { UploadButton } from "@/lib/uploadthing";
-import { project } from "@/actions/admin/project";
+import { deleteProject, project } from "@/actions/admin/project";
 
 const ProjectForm = () => {
   const [error, setError] = useState<string | undefined>();
@@ -123,7 +123,7 @@ const ProjectForm = () => {
     });
   };
 
-  const handleEditContact = (project: Project) => {
+  const handleEditProject = (project: Project) => {
     // Populate the form fields with the project details
 
     setEditingProject({
@@ -145,7 +145,7 @@ const ProjectForm = () => {
 
   const handleDeleteProject = (projectId: string) => {
     startTransition(() => {
-      deleteContact(projectId)
+      deleteProject(projectId)
         .then((data) => {
           if (data.error) {
             setError(data.error);
@@ -275,7 +275,7 @@ const ProjectForm = () => {
           <label className="text-primary-foreground font-semibold text-xl">
             All Projects
           </label>
-          {projectData ? (
+          {projectData && projectData.length > 0 ? (
             <ul className="border border-input p-2 mt-4 rounded-md shadow-sm bg-border">
               {projectData.map((project, i) => (
                 <li
@@ -285,7 +285,7 @@ const ProjectForm = () => {
                     i !== projectData.length - 1 && " border-b border-input"
                   )}
                 >
-                  <div className="flex gap-3 flex-row md:flex-col lg:flex-row">
+                  <div className="flex gap-3 flex-col lg:flex-row">
                     <Link
                       href={project.projectUrl}
                       target="_blank"
@@ -296,7 +296,7 @@ const ProjectForm = () => {
                         alt="Project"
                         width={500}
                         height={500}
-                        className="w-56 h-32 rounded-md"
+                        className="w-full h-full lg:w-56 lg:h-32 rounded-md"
                       />
                     </Link>
                     <div className="flex-1 flex flex-col gap-2 items-start text-left md:mr-8 lg:mr-0 lg:max-w-96">
@@ -311,7 +311,7 @@ const ProjectForm = () => {
                   <div className="flex max-md:w-full gap-4">
                     <Button
                       className="bg-secondary hover:bg-secondary hover:opacity-70 w-24"
-                      onClick={() => handleEditContact(project)}
+                      onClick={() => handleEditProject(project)}
                     >
                       Edit
                     </Button>

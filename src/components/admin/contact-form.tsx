@@ -214,7 +214,7 @@ const ContactForm = () => {
           <label className="text-primary-foreground font-semibold text-xl">
             All Contacts
           </label>
-          {contactData ? (
+          {contactData && contactData.length > 0 ? (
             <ul className="border border-input p-2 mt-4 rounded-md shadow-sm bg-border">
               {contactData.map((contact, i) => (
                 <li

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useTransition } from "react";
+import { useEffect, useState, useTransition } from "react";
 
 import * as z from "zod";
 import { useForm } from "react-hook-form";
@@ -28,6 +28,7 @@ const SettingsForm = () => {
   const [error, setError] = useState<string | undefined>();
   const [success, setSuccess] = useState<string | undefined>();
   const [isPending, startTransition] = useTransition();
+  const [selectValue, setSelectValue] = useState("Select a Role");
   const { update } = useSession();
 
   const user = useCurrentUser();
@@ -41,6 +42,12 @@ const SettingsForm = () => {
     role: user?.role || undefined,
     isTwoFactorEnabled: user?.isTwoFactorEnabled || undefined,
   };
+
+  useEffect(() => {
+    if (user) {
+      setSelectValue(user.role);
+    }
+  }, [user]);
 
   const {
     register,
@@ -138,8 +145,10 @@ const SettingsForm = () => {
           )}
           {/* User Inputs -- Role */}
           <Select
+            selectLabel="Role"
             name="role"
-            value={defaultValues.role}
+            value={selectValue}
+            setSelectValue={setSelectValue}
             error={errors.role?.message}
             disabled={isPending}
             register={register("role")}

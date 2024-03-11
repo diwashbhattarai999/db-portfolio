@@ -2,7 +2,7 @@
 
 import Footer from "@/components/sections/Footer";
 import Navbar from "@/components/sections/Navbar";
-import { HomePage, Resume } from "@prisma/client";
+import { Resume } from "@prisma/client";
 import React, { useRef } from "react";
 
 interface LayoutWrapperProps {

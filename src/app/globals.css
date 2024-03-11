@@ -91,14 +91,9 @@
     margin: 0;
   }
 
-  .blur {
-    filter: blur(5px) brightness(0.7);
-    transition: all 0.3s ease;
-    pointer-events: none;
-    user-select: none;
-    position: relative;
-    z-index: -50;
-  }
+  /* .bg-blur {
+    @apply blur duration-300 pointer-events-none select-none relative -z-50;
+  } */
 
   .svg svg {
     @apply h-6 w-6 fill-primary-foreground group-hover:fill-foreground duration-300;
@@ -115,4 +110,13 @@
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none; /* Firefox */
   }
+}
+
+.bg-blur {
+  filter: blur(5px) brightness(0.7);
+  transition: all 0.3s ease;
+  pointer-events: none;
+  user-select: none;
+  position: relative;
+  z-index: -50;
 }

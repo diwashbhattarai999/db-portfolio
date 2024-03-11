@@ -167,18 +167,30 @@ export const ContactSchema = z.object({
 
 export const ProjectsSchema = z.object({
   image: z.string().min(1, {
-    message: "Name is required",
+    message: "Image is required",
   }),
   title: z.string().min(1, {
-    message: "Icon is required",
+    message: "Title is required",
   }),
   description: z.string().min(1, {
-    message: "Url is required",
+    message: "Description is required",
   }),
   projectUrl: z.string().min(1, {
-    message: "Icon is required",
+    message: "Project Url is required",
   }),
   githubUrl: z.string().min(1, {
-    message: "Url is required",
+    message: "GitHub url is required",
+  }),
+});
+
+export const SkillsSchema = z.object({
+  image: z.string().min(1, {
+    message: "Image is required",
+  }),
+  name: z.string().min(1, {
+    message: "Name is required",
+  }),
+  category: z.string().min(1, {
+    message: "Category is required",
   }),
 });
