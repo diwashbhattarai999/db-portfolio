@@ -1,16 +1,14 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 
 import { Category, Contact, Skill } from "@prisma/client";
 
-import { TECHNOLOGIES } from "@/constants";
-
 import { ArrowUpRight } from "@/components/ui/Icons";
 import Container from "@/components/Container";
-import MotionDiv from "@/components/motion-div";
-import MotionList from "@/components/motion-list";
-import Image from "next/image";
+import MotionDiv from "@/components/animation/motion-div";
+import MotionList from "@/components/animation/motion-list";
 
 interface AboutProps {
   contacts: Contact[] | null;
@@ -46,9 +44,9 @@ const About = ({
           </MotionDiv>
           <MotionDiv delayOffset={0.1} className="w-full">
             <div className="flex flex-col items-start w-full gap-4 text-base text-secondary-foreground">
-              {aboutDescription?.split("\n").map((paragraph, index) => (
-                <p key={index}>{paragraph}</p>
-              ))}
+              {aboutDescription
+                ?.split("\n")
+                .map((paragraph, index) => <p key={index}>{paragraph}</p>)}
             </div>
           </MotionDiv>
         </section>

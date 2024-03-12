@@ -1,6 +1,7 @@
-import CardWrapper from "@/components/ui/card-wrapper";
-import MotionDiv from "@/components/motion-div";
 import { LayoutDashboard } from "lucide-react";
+
+import CardWrapper from "@/components/ui/card-wrapper";
+import MotionDiv from "@/components/animation/motion-div";
 
 const DashboardForm = () => {
   return (

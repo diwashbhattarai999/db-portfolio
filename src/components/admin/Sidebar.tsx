@@ -14,10 +14,9 @@ import { cn } from "@/lib/utils";
 
 import { useCurrentUser } from "@/hooks/use-current-user";
 
-import MotionList from "@/components/motion-list";
-import MotionSidebar from "@/components/motion-sidebar";
+import MotionList from "@/components/animation/motion-list";
+import MotionSidebar from "@/components/animation/motion-sidebar";
 import ThemeSwitcher from "@/components/theme-switcher";
-import MotionDiv from "../motion-div";
 
 const Sidebar = () => {
   const [expandSidebar, setExpandSidebar] = useState(false);

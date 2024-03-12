@@ -1,7 +1,8 @@
 import Link from "next/link";
 
 import { Contact } from "@prisma/client";
-import MotionDiv from "@/components/motion-div";
+
+import MotionDiv from "@/components/animation/motion-div";
 
 interface SocialProps {
   contacts: Contact[] | null;

@@ -22,14 +22,15 @@ import { cn } from "@/lib/utils";
 
 import { Contact } from "@prisma/client";
 
+import { useCurrentUser } from "@/hooks/use-current-user";
+
 import Input from "@/components/ui/input";
 import Button from "@/components/ui/Button";
 import Textarea from "@/components/ui/textarea";
 import FormError from "@/components/ui/form-error";
 import FormSuccess from "@/components/ui/form-success";
-import MotionDiv from "@/components/motion-div";
 import CardWrapper from "@/components/ui/card-wrapper";
-import { useCurrentUser } from "@/hooks/use-current-user";
+import MotionDiv from "@/components/animation/motion-div";
 
 const ContactForm = () => {
   const [error, setError] = useState<string | undefined>();

@@ -1,15 +1,16 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useTheme } from "next-themes";
 
+import { Project } from "@prisma/client";
+
 import Container from "@/components/Container";
 import { ChainLink, GitHub } from "@/components/ui/Icons";
-import MotionDiv from "@/components/motion-div";
-import MotionList from "@/components/motion-list";
-import { useEffect, useState } from "react";
-import { Project } from "@prisma/client";
+import MotionDiv from "@/components/animation/motion-div";
+import MotionList from "@/components/animation/motion-list";
 
 interface ProjectsProps {
   projects: Project[] | null;

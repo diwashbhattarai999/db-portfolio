@@ -1,11 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import { Contact, HomePage, Resume } from "@prisma/client";
+
 import Container from "@/components/Container";
 import Social from "@/components/ui/socials";
-import MotionDiv from "@/components/motion-div";
-import MotionText from "@/components/motion-text";
-import { Contact, HomePage, Resume } from "@prisma/client";
+import MotionDiv from "@/components/animation/motion-div";
+import MotionText from "@/components/animation/motion-text";
 
 interface HomeProps {
   homePageDatas: HomePage | null;

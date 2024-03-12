@@ -16,8 +16,8 @@ import useBlurBody from "@/hooks/use-blur-body";
 import Container from "@/components/Container";
 import ThemeSwitcher from "@/components/theme-switcher";
 import MobileMenu from "@/components/ui/mobile-menu";
-import MotionDiv from "@/components/motion-div";
-import MotionList from "@/components/motion-list";
+import MotionDiv from "@/components/animation/motion-div";
+import MotionList from "@/components/animation/motion-list";
 
 interface NavbarProps {
   contentRef: React.RefObject<HTMLDivElement>;

@@ -28,8 +28,8 @@ import Button from "@/components/ui/Button";
 import Textarea from "@/components/ui/textarea";
 import FormError from "@/components/ui/form-error";
 import FormSuccess from "@/components/ui/form-success";
-import MotionDiv from "@/components/motion-div";
 import CardWrapper from "@/components/ui/card-wrapper";
+import MotionDiv from "@/components/animation/motion-div";
 
 interface HomeFormProps {
   homePageDatas: HomePage | null;
@@ -72,7 +72,6 @@ const HomeForm = ({ homePageDatas, resume }: HomeFormProps) => {
 
   const onSubmit = (values: z.infer<typeof HomeSchema>) => {
     startTransition(() => {
-      // console.log(values);
       startTransition(() => {
         home(values)
           .then((data) => {

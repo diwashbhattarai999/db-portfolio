@@ -1,7 +1,7 @@
 import { Fira_Sans } from "next/font/google";
 
 import Container from "@/components/Container";
-import MotionDiv from "../motion-div";
+import MotionDiv from "@/components/animation/motion-div";
 
 const font = Fira_Sans({ subsets: ["latin"], weight: ["400", "500", "600"] });
 

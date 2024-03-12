@@ -1,9 +1,11 @@
 "use client";
 
+import React, { useRef } from "react";
+
+import { Resume } from "@prisma/client";
+
 import Footer from "@/components/sections/Footer";
 import Navbar from "@/components/sections/Navbar";
-import { Resume } from "@prisma/client";
-import React, { useRef } from "react";
 
 interface LayoutWrapperProps {
   resume?: Resume | null;

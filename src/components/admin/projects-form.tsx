@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState, useTransition } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import * as z from "zod";
 import axios from "axios";
@@ -15,25 +16,24 @@ import {
   NotepadText,
 } from "lucide-react";
 
-import { deleteContact } from "@/actions/admin/contact";
+import { deleteProject, project } from "@/actions/admin/project";
 
 import { ProjectsSchema } from "@/schemas";
 
 import { cn } from "@/lib/utils";
+import { UploadButton } from "@/lib/uploadthing";
 
 import { Project } from "@prisma/client";
+
+import { useCurrentUser } from "@/hooks/use-current-user";
 
 import Input from "@/components/ui/input";
 import Button from "@/components/ui/Button";
 import Textarea from "@/components/ui/textarea";
 import FormError from "@/components/ui/form-error";
 import FormSuccess from "@/components/ui/form-success";
-import MotionDiv from "@/components/motion-div";
 import CardWrapper from "@/components/ui/card-wrapper";
-import { useCurrentUser } from "@/hooks/use-current-user";
-import Image from "next/image";
-import { UploadButton } from "@/lib/uploadthing";
-import { deleteProject, project } from "@/actions/admin/project";
+import MotionDiv from "@/components/animation/motion-div";
 
 const ProjectForm = () => {
   const [error, setError] = useState<string | undefined>();

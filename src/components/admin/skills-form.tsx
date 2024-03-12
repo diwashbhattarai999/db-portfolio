@@ -10,6 +10,8 @@ import { useSession } from "next-auth/react";
 import { BrainCircuit, FolderPen } from "lucide-react";
 import { zodResolver } from "@hookform/resolvers/zod";
 
+import { skills, deleteSkill } from "@/actions/admin/skills";
+
 import { Category, Skill } from "@prisma/client";
 
 import { SkillsSchema } from "@/schemas";
@@ -18,6 +20,7 @@ import { UploadButton } from "@/lib/uploadthing";
 import { cn } from "@/lib/utils";
 
 import { useCurrentUser } from "@/hooks/use-current-user";
+import useSkillsData, { SkillsWithCategory } from "@/hooks/use-skills-data";
 
 import Input from "@/components/ui/input";
 import Select, { Options } from "@/components/ui/select";
@@ -25,9 +28,7 @@ import Button from "@/components/ui/Button";
 import FormError from "@/components/ui/form-error";
 import FormSuccess from "@/components/ui/form-success";
 import CardWrapper from "@/components/ui/card-wrapper";
-import MotionDiv from "@/components/motion-div";
-import { skills, deleteSkill } from "@/actions/admin/skills";
-import useSkillsData, { SkillsWithCategory } from "@/hooks/use-skills-data";
+import MotionDiv from "@/components/animation/motion-div";
 
 const SkillsForm = ({
   categoryOptions,

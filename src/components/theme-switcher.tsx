@@ -4,10 +4,12 @@ import { useEffect, useRef, useState } from "react";
 import { useTheme } from "next-themes";
 import { MoonIcon, SunIcon, ToggleLeft, ToggleRight } from "lucide-react";
 
-import Button from "@/components/ui/Button";
 import { THEMES } from "@/constants";
+
 import useOnClickOutside from "@/hooks/use-on-click-outside";
-import MotionDiv from "./motion-div";
+
+import Button from "@/components/ui/Button";
+import MotionDiv from "@/components/animation/motion-div";
 
 export default function ThemeSwitcher({ admin }: { admin?: boolean }) {
   const [mounted, setMounted] = useState(false);
