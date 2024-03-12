@@ -1,27 +1,15 @@
-"use client";
-
-import { useEffect, useState } from "react";
 import Link from "next/link";
-import { useTheme } from "next-themes";
 
 import { Contact } from "@prisma/client";
+import MotionDiv from "@/components/motion-div";
 
 interface SocialProps {
   contacts: Contact[] | null;
 }
 
 const Social = ({ contacts }: SocialProps) => {
-  const [isMounted, setIsMounted] = useState(false);
-  const { theme } = useTheme();
-
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
-
   return (
-    <div className="-mt-12 flex gap-2 items-center justify-start">
-      {/* <hr className="h-[1px] w-[10vw] bg-border opacity-60 rounded-lg" /> */}
-
+    <MotionDiv className="-mt-12 flex gap-2 items-center justify-start">
       <ul className="flex gap-4">
         {contacts &&
           contacts.map((contact) => {
@@ -37,9 +25,7 @@ const Social = ({ contacts }: SocialProps) => {
             );
           })}
       </ul>
-
-      {/* <hr className="h-[1px] w-full bg-border opacity-60 rounded-lg" /> */}
-    </div>
+    </MotionDiv>
   );
 };
 

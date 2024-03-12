@@ -82,7 +82,9 @@
 
   body {
     @apply bg-background text-foreground;
-    font-feature-settings: "rlig" 1, "calt" 1;
+    font-feature-settings:
+      "rlig" 1,
+      "calt" 1;
   }
 
   input[type="number"]::-webkit-inner-spin-button,
@@ -90,10 +92,6 @@
     -webkit-appearance: none;
     margin: 0;
   }
-
-  /* .bg-blur {
-    @apply blur duration-300 pointer-events-none select-none relative -z-50;
-  } */
 
   .svg svg {
     @apply h-6 w-6 fill-primary-foreground group-hover:fill-foreground duration-300;

@@ -1,5 +1,7 @@
-import { currentUser } from "@/lib/auth";
 import LayoutWrapper from "@/app/(root)/layout-wrapper";
+
+import { currentUser } from "@/lib/auth";
+
 import {
   getHomePageByUserId,
   getResumeByResumeId,

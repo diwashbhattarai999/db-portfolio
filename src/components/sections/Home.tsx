@@ -31,12 +31,12 @@ const Home = ({ homePageDatas, resume, contacts }: HomeProps) => {
                 className="text-4xl md:text-6xl font-semibold mt-4 -ml-1"
                 delayOffset={0}
               >
-                {homePageDatas?.name || "Diwash Bhattarai"}
+                {homePageDatas?.name || ""}
               </MotionText>
               <h2 className="text-lg md:text-xl font-medium mt-2">
-                {homePageDatas?.position || "FullStack Developer"}
+                {homePageDatas?.position}
               </h2>
-              <p className="max-w-[28rem] text-base font-normal mt-3 text-secondary-foreground ">
+              <p className="md:max-w-[28rem] w-full text-base font-normal mt-3 text-secondary-foreground ">
                 {homePageDatas?.homeDescription}
               </p>
 
@@ -55,7 +55,7 @@ const Home = ({ homePageDatas, resume, contacts }: HomeProps) => {
           <MotionDiv delayOffset={0.1}>
             <Image
               src="/images/profile.png"
-              className="h-64 sm:h-80 w-64 sm:w-80 dark:opacity-70 opacity-90 -z-10 border border-border rounded-full mt-6 md:-mt-8"
+              className="h-64 sm:h-80 w-64 sm:w-80 dark:opacity-70 opacity-90 -z-10 border-4 border-border rounded-full mt-6 md:-mt-8"
               alt="Profile"
               width={500}
               height={500}

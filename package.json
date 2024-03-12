@@ -1,5 +1,14 @@
 {
   "name": "db-portfolio",
+  "description": "Personal Website | Portfolio",
+  "author": "Diwash Bhattarai <diwashb999@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/diwashbhattarai999/db-portfolio"
+  },
+  "keywords": [
+    "nextjs"
+  ],
   "version": "0.1.0",
   "private": true,
   "scripts": {
