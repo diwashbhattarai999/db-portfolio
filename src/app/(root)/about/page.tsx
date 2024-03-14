@@ -7,6 +7,7 @@ import { getHomePageByUserId } from "@/data/admin/home-page";
 import { getCategoryByUserId, getSKillsByUserId } from "@/data/admin/skill";
 
 import About from "@/components/sections/About";
+import Curve from "@/components/animation/motion-curve";
 
 export const metadata: Metadata = {
   title: "About Me | Diwash Bhattarai",

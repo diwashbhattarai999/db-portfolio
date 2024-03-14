@@ -100,7 +100,7 @@ const Sidebar = () => {
           {profileOpen && (
             <MotionSidebar
               delayOffset={0}
-              className="absolute z-50 top-16 md:-top-[8rem] right-5 md:right-0 md:left-0 bg-accent rounded-md py-3 px-2 w-40 text-primary-foreground"
+              className="absolute z-50 top-16 md:-top-[12rem] right-5 md:right-0 md:left-0 bg-accent rounded-md py-3 px-2 w-40 text-primary-foreground"
             >
               <div className="flex flex-col gap-2">
                 <MotionSidebar
@@ -128,6 +128,10 @@ const Sidebar = () => {
                 <hr className="md:hidden my-2 bg-muted" />
 
                 <MotionSidebar delayOffset={0}>
+                  <ThemeSwitcher admin />
+                </MotionSidebar>
+
+                <MotionSidebar delayOffset={0}>
                   <div
                     onClick={handleLogout}
                     className="flex items-center gap-3 px-2 rounded-md font-medium transition-colors hover:text-foreground hover:bg-muted cursor-pointer"
@@ -138,7 +142,9 @@ const Sidebar = () => {
                 </MotionSidebar>
 
                 <MotionSidebar delayOffset={0}>
-                  <ThemeSwitcher admin />
+                  <h3 className="px-2 py-3 rounded-md font-medium text-secondary-foreground">
+                    @{user?.email?.split("@")[0]}
+                  </h3>
                 </MotionSidebar>
               </div>
             </MotionSidebar>

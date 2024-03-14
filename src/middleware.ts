@@ -17,6 +17,7 @@ export default auth(async (req) => {
   const isApiAuthRoute = nextUrl.pathname.startsWith(apiAuthPrefix);
   const isPublicRoute = publicRoutes.includes(nextUrl.pathname);
   const isAuthRoute = authRoutes.includes(nextUrl.pathname);
+  const isAdmin = nextUrl.pathname == "/admin";
 
   if (isApiAuthRoute) return;
 
@@ -38,6 +39,10 @@ export default auth(async (req) => {
     return Response.redirect(
       new URL(`/login?callbackUrl=${encodedCallbackUrl}`, nextUrl)
     );
+  }
+
+  if (isLoggedIn && isAdmin) {
+    return Response.redirect(new URL("/admin/dashboard", nextUrl));
   }
 });
 

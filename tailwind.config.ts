@@ -16,6 +16,7 @@ export default withUt({
         ring: "var(--ring)",
         background: "var(--background)",
         foreground: "var(--foreground)",
+        "page-transition": "var(--page-transition)",
         primary: {
           DEFAULT: "var(--primary)",
           foreground: "var(--primary-foreground)",

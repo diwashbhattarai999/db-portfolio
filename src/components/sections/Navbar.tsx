@@ -55,10 +55,14 @@ const Navbar = ({ contentRef, resume }: NavbarProps) => {
   return (
     <nav
       ref={navRef}
-      className="h-[62px] border-b border-b-border backdrop-blur dark:bg-[#070707]/90 bg-[#fcfcfc]/90  fixed w-full top-0 z-50"
+      className="h-[62px] border-b border-b-border backdrop-blur dark:bg-[#070707]/90 bg-[#fcfcfc]/90  fixed w-full top-0 z-40"
     >
-      <Container className="h-full flex items-center justify-between">
-        <MotionDiv delayOffset={0}>
+      <MotionDiv
+        className="h-full"
+        delayOffset={0}
+        initial={{ y: -10, opacity: 0 }}
+      >
+        <Container className="h-full flex items-center justify-between">
           <Link
             href="/"
             className="font-bold text-3xl tracking-[-8px] text-foreground hover:text-primary-foreground"
@@ -69,28 +73,28 @@ const Navbar = ({ contentRef, resume }: NavbarProps) => {
               B
             </span>
           </Link>
-        </MotionDiv>
-        <div className="flex max-md:hidden lg:gap-24 gap-16 text-sm font-medium">
-          <MotionList className="flex gap-4 items-center justify-between">
-            {NAV_LINKS.map((link) => {
-              return (
-                <div
-                  key={link.label + link.path}
-                  onClick={() => handleNavLinkActive(link.label)}
-                >
-                  <Link
-                    href={link.path}
-                    className={`p-2 rounded-md hover:bg-muted transition ease-linear duration-300 ${
-                      navLinkActive === link.label.toLowerCase() && "bg-muted"
-                    }`}
+
+          <div className="flex max-md:hidden lg:gap-24 gap-16 text-sm font-medium">
+            <ul className="flex gap-4 items-center justify-between">
+              {NAV_LINKS.map((link) => {
+                return (
+                  <li
+                    key={link.label + link.path}
+                    onClick={() => handleNavLinkActive(link.label)}
                   >
-                    {link.label}
-                  </Link>
-                </div>
-              );
-            })}
-          </MotionList>
-          <MotionDiv delayOffset={0.7}>
+                    <Link
+                      href={link.path}
+                      className={`p-2 rounded-md hover:bg-muted transition ease-linear duration-300 ${
+                        navLinkActive === link.label.toLowerCase() && "bg-muted"
+                      }`}
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+
             <Link
               href={resume?.url || ""}
               target="_blank"
@@ -98,25 +102,25 @@ const Navbar = ({ contentRef, resume }: NavbarProps) => {
             >
               Resume
             </Link>
-          </MotionDiv>
-        </div>
-        <div className="flex gap-4 items-center z-50" ref={menuRef}>
-          <ThemeSwitcher />
-          <div
-            className="md:hidden flex flex-col gap-1 px-2 py-1 rounded-sm cursor-pointer hover:bg-muted duration-300 z-50"
-            onClick={handleMenu}
-          >
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </div>
+          <div className="flex gap-4 items-center z-50" ref={menuRef}>
+            <ThemeSwitcher />
+            <div
+              className="md:hidden flex flex-col gap-1 px-2 py-1 rounded-sm cursor-pointer hover:bg-muted duration-300 z-50"
+              onClick={handleMenu}
+            >
+              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </div>
 
-          <MobileMenu
-            isMenuOpen={isMenuOpen}
-            setIsMenuOpen={setIsMenuOpen}
-            navLinkActive={navLinkActive}
-            handleNavLinkActive={handleNavLinkActive}
-          />
-        </div>
-      </Container>
+            <MobileMenu
+              isMenuOpen={isMenuOpen}
+              setIsMenuOpen={setIsMenuOpen}
+              navLinkActive={navLinkActive}
+              handleNavLinkActive={handleNavLinkActive}
+            />
+          </div>
+        </Container>
+      </MotionDiv>
     </nav>
   );
 };

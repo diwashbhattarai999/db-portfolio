@@ -3,15 +3,19 @@
 import { ReactElement, useEffect, useRef } from "react";
 import { motion, useAnimation, useInView } from "framer-motion";
 
+interface MotionDivProps {
+  children: ReactElement | string;
+  delayOffset?: number;
+  initial?: { y: number; opacity: number };
+  className?: string;
+}
+
 export default function MotionDiv({
   children,
   delayOffset,
+  initial = { y: 50, opacity: 0 },
   className,
-}: {
-  children: ReactElement | string;
-  delayOffset?: number;
-  className?: string;
-}) {
+}: MotionDivProps) {
   const controls = useAnimation();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: false });
@@ -26,7 +30,7 @@ export default function MotionDiv({
     <motion.div
       ref={ref}
       className={className}
-      initial={{ y: 50, opacity: 0 }}
+      initial={initial}
       animate={controls}
       transition={{
         type: "spring",

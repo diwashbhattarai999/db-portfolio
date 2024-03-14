@@ -26,7 +26,7 @@ const ErrorCard = ({
 
   return (
     <Container>
-      <section className="flex h-[calc(100vh_-_90px)] w-full flex-col items-center justify-center gap-4">
+      <section className="flex h-[calc(100vh_-_90px)] w-full flex-col items-center justify-center gap-4 text-center">
         <MotionDiv delayOffset={0}>
           <h2 className="text-4xl">Oops! Something went wrong!</h2>
         </MotionDiv>
@@ -39,7 +39,7 @@ const ErrorCard = ({
         <MotionDiv delayOffset={0.2}>
           <div className="flex items-center justify-center gap-4 max-sm:flex-col">
             <Link href={backButtonHref}>
-              <Button className="w-28">{backButtonLabel}</Button>
+              <Button className="w-36">{backButtonLabel}</Button>
             </Link>
             {logout && (
               <Button onClick={handleLogout} className="w-28">

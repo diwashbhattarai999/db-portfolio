@@ -15,6 +15,8 @@
 
     --accent-secondary: #e4bd0f;
 
+    --page-transition: #cdc7ab;
+
     --border: #f5f5f5;
     --input: #c9c9c9;
     --ring: #6a6a6a;
@@ -47,6 +49,8 @@
     --accent-foreground: #ebebeb;
 
     --accent-secondary: #ecc414;
+
+    --page-transition: #0f0f0f;
 
     --border: #27272738;
     --input: #272727;
@@ -96,6 +100,23 @@
   .svg svg {
     @apply h-6 w-6 fill-primary-foreground group-hover:fill-foreground duration-300;
   }
+
+  /* .curve > svg,
+  .curve .background {
+    @apply fixed w-screen pointer-events-none left-0 top-0;
+    height: calc(100vh + 600px);
+    z-index: 999998;
+  }
+
+  .curve .background {
+    @apply bg-background grid place-items-center;
+    transition: opacity 0s linear 0.1s;
+  }
+
+  .curve .route {
+    @apply absolute left-1/2 top-[40%] text-foreground text-6xl translate-x-1/2 text-center;
+    z-index: 999999;
+  } */
 }
 
 @layer utilities {
@@ -107,6 +128,33 @@
   .no-scrollbar {
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none; /* Firefox */
+  }
+
+  .curve > svg,
+  .curve .background {
+    position: fixed;
+    height: calc(100vh + 600px);
+    width: 100vw;
+    pointer-events: none;
+    left: 0;
+    top: 0;
+    z-index: 999998;
+  }
+
+  .curve .background {
+    background-color: black;
+    transition: opacity 0s linear 0.1s;
+  }
+
+  .curve .route {
+    position: absolute;
+    left: 50%;
+    top: 24rem;
+    color: white;
+    font-size: 46px;
+    transform: translateX(-50%);
+    text-align: center;
+    z-index: 999999;
   }
 }
 

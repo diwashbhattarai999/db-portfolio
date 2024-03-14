@@ -4,9 +4,10 @@ import {
   getHomePageByUserId,
   getResumeByResumeId,
 } from "@/data/admin/home-page";
+import { getContactsByUserId } from "@/data/admin/contact";
 
 import Home from "@/components/sections/Home";
-import { getContactsByUserId } from "@/data/admin/contact";
+import Curve from "@/components/animation/motion-curve";
 
 export default async function HomePage() {
   const user = await currentUser();
@@ -16,8 +17,8 @@ export default async function HomePage() {
   const resume = await getResumeByResumeId(homepageDatas?.resumeId as string);
 
   return (
-    <>
+    <Curve label="Diwash Bhattarai">
       <Home homePageDatas={homepageDatas} resume={resume} contacts={contacts} />
-    </>
+    </Curve>
   );
 }
