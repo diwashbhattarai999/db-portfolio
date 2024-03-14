@@ -12,6 +12,16 @@ export const getSKillsByUserId = async (userId: string) => {
   }
 };
 
+export const getAllSKills = async () => {
+  try {
+    const skills = await db.skill.findMany();
+
+    return skills;
+  } catch (error) {
+    return null;
+  }
+};
+
 export const getCategoryByUserId = async (userId: string) => {
   try {
     const category = await db.category.findMany({
@@ -33,6 +43,16 @@ export const getCategoryIdByCategoryName = async (categoryName: string) => {
     return category?.id || null;
   } catch (error) {
     console.error("Error fetching categoryId:", error);
+    return null;
+  }
+};
+
+export const getAllCategories = async () => {
+  try {
+    const category = await db.category.findMany();
+
+    return category;
+  } catch (error) {
     return null;
   }
 };

@@ -7,6 +7,7 @@ export const publicRoutes = [
   "/",
   "/about",
   "/projects",
+  "/contact",
   "/new-verification",
   "/not-found",
   "/api/uploadthing",

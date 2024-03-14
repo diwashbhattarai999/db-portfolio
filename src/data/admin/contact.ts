@@ -11,3 +11,13 @@ export const getContactsByUserId = async (userId: string) => {
     return null;
   }
 };
+
+export const getAllContacts = async () => {
+  try {
+    const contacts = await db.contact.findMany();
+
+    return contacts;
+  } catch (error) {
+    return null;
+  }
+};

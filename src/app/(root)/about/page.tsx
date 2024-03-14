@@ -2,12 +2,11 @@ import { Metadata } from "next";
 
 import { currentUser } from "@/lib/auth";
 
-import { getContactsByUserId } from "@/data/admin/contact";
-import { getHomePageByUserId } from "@/data/admin/home-page";
-import { getCategoryByUserId, getSKillsByUserId } from "@/data/admin/skill";
+import { getAllContacts } from "@/data/admin/contact";
+import { getHomePage } from "@/data/admin/home-page";
+import { getAllCategories, getAllSKills } from "@/data/admin/skill";
 
 import About from "@/components/sections/About";
-import Curve from "@/components/animation/motion-curve";
 
 export const metadata: Metadata = {
   title: "About Me | Diwash Bhattarai",
@@ -16,11 +15,10 @@ export const metadata: Metadata = {
 };
 
 const AboutPage = async () => {
-  const user = await currentUser();
-  const contacts = await getContactsByUserId(user?.id as string);
-  const homepageDatas = await getHomePageByUserId(user?.id as string);
-  const skills = await getSKillsByUserId(user?.id as string);
-  const categories = await getCategoryByUserId(user?.id as string);
+  const contacts = await getAllContacts();
+  const homepageDatas = await getHomePage();
+  const skills = await getAllSKills();
+  const categories = await getAllCategories();
 
   const aboutDescription = homepageDatas?.aboutDescription;
 

@@ -1,8 +1,6 @@
 import { Metadata } from "next";
 
-import { currentUser } from "@/lib/auth";
-
-import { getProjectsByUserId } from "@/data/admin/project";
+import { getAllProjects } from "@/data/admin/project";
 
 import Projects from "@/components/sections/Projects";
 
@@ -13,8 +11,7 @@ export const metadata: Metadata = {
 };
 
 const ProjectPage = async () => {
-  const user = await currentUser();
-  const projects = await getProjectsByUserId(user?.id as string);
+  const projects = await getAllProjects();
 
   return <Projects projects={projects} />;
 };

@@ -11,3 +11,13 @@ export const getProjectsByUserId = async (userId: string) => {
     return null;
   }
 };
+
+export const getAllProjects = async () => {
+  try {
+    const projects = await db.project.findMany();
+
+    return projects;
+  } catch (error) {
+    return null;
+  }
+};

@@ -98,6 +98,7 @@ const Navbar = ({ contentRef, resume }: NavbarProps) => {
             <Link
               href={resume?.url || ""}
               target="_blank"
+              rel="noopener noreferrer"
               className="p-2 border border-border rounded-md hover:bg-muted duration-300 cursor-pointer"
             >
               Resume
