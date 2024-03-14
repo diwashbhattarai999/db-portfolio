@@ -33,5 +33,7 @@ Thank you for taking the time to explore my portfolio!
 ![Portfolio-Home](https://github.com/diwashbhattarai999/db-portfolio/assets/87477700/12bf3bb1-a97c-4920-a7cd-a0f506fd5849)
 ![Portfolio-About](https://github.com/diwashbhattarai999/db-portfolio/assets/87477700/627e7e04-daf5-4a67-8174-790fdbfff4bf)
 ![Portfolio-Projects](https://github.com/diwashbhattarai999/db-portfolio/assets/87477700/61d32a18-5919-454c-82d0-a2370563bd5e)
+![Portfolio-Contact](https://github.com/diwashbhattarai999/db-portfolio/assets/87477700/3373ebca-031d-46b1-b979-4c6010725f36)
+
 
 This is a significant upgrade from version 1.0.0, and I hope you enjoy the enhanced features and content.
