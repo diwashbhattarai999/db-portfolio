@@ -4,7 +4,6 @@ import * as z from "zod";
 
 import { ContactFormSchema } from "@/schemas";
 
-import { currentUser } from "@/lib/auth";
 import { sendContactEmailToAdmin } from "@/lib/mail";
 
 export const contact = async (values: z.infer<typeof ContactFormSchema>) => {
@@ -16,19 +15,7 @@ export const contact = async (values: z.infer<typeof ContactFormSchema>) => {
 
   const { name, email, message } = validatedFields.data;
 
-  const user = await currentUser();
-
-  if (!user) {
-    return { error: "Invalid email!" };
-  }
-
-  const currentUserEmail = user.email;
-
-  if (!currentUserEmail) {
-    return { error: "User email doesn't exists!" };
-  }
-
-  await sendContactEmailToAdmin(email, message, name, currentUserEmail);
+  await sendContactEmailToAdmin(email, message, name, "diwashb999@gmail.com");
 
   return { success: "Your message has been sent!" };
 };

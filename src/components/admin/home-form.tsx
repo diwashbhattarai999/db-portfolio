@@ -72,21 +72,19 @@ const HomeForm = ({ homePageDatas, resume }: HomeFormProps) => {
 
   const onSubmit = (values: z.infer<typeof HomeSchema>) => {
     startTransition(() => {
-      startTransition(() => {
-        home(values)
-          .then((data) => {
-            if (data.error) {
-              setError(data.error);
-              setSuccess("");
-            }
-            if (data.success) {
-              update();
-              setSuccess(data.success);
-              setError("");
-            }
-          })
-          .catch(() => setError("Something went wrong!"));
-      });
+      home(values)
+        .then((data) => {
+          if (data.error) {
+            setError(data.error);
+            setSuccess("");
+          }
+          if (data.success) {
+            update();
+            setSuccess(data.success);
+            setError("");
+          }
+        })
+        .catch(() => setError("Something went wrong!"));
     });
   };
 
