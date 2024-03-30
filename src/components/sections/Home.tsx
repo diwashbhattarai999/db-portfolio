@@ -19,7 +19,7 @@ const Home = ({ homePageDatas, resume, contacts }: HomeProps) => {
     <section id="#home" className="py-14">
       <Container>
         <div className="flex items-center justify-between gap-8 max-md:flex-col-reverse max-md:gap-0">
-          <MotionDiv delayOffset={0.7}>
+          <MotionDiv delayOffset={0}>
             <div className="flex flex-col justify-center my-28">
               <h6 className="text-lg font-medium">
                 <span className="text-accent-secondary ml-[2px] md:ml-0">
@@ -30,7 +30,7 @@ const Home = ({ homePageDatas, resume, contacts }: HomeProps) => {
 
               <MotionText
                 className="text-4xl md:text-6xl font-semibold mt-4 -ml-1"
-                delayOffset={0.7}
+                delayOffset={0.2}
               >
                 {homePageDatas?.name || ""}
               </MotionText>
@@ -53,10 +53,10 @@ const Home = ({ homePageDatas, resume, contacts }: HomeProps) => {
             </div>
           </MotionDiv>
 
-          <MotionDiv delayOffset={0.8}>
+          <MotionDiv delayOffset={0.3}>
             <Image
               src="/images/profile.png"
-              className="h-64 sm:h-80 w-64 sm:w-80 dark:opacity-70 opacity-90 -z-10 border-4 border-border rounded-full mt-6 md:-mt-8"
+              className="h-64 sm:h-80 w-64 sm:w-80 opacity-90 -z-10 border-4 border-border rounded-full mt-6 md:-mt-8"
               alt="Profile"
               width={500}
               height={500}

@@ -47,13 +47,14 @@ const Curve = ({ children, label }: CurveProps) => {
 
   return (
     <AnimatePresence mode="wait">
-      <div className="curve bg-background">
+      <div className="curve">
         <div
           style={{ opacity: dimensions.width == null ? 1 : 0 }}
           className="background"
         />
         <motion.p
           className="route"
+          style={{ opacity: dimensions.width == null ? 1 : 0 }}
           {...(anim(text) as {
             variants: Variants;
             initial: string;

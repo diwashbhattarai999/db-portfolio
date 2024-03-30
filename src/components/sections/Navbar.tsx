@@ -55,7 +55,7 @@ const Navbar = ({ contentRef, resume }: NavbarProps) => {
   return (
     <nav
       ref={navRef}
-      className="h-[62px] border-b border-b-border backdrop-blur dark:bg-[#070707]/90 bg-[#fcfcfc]/90  fixed w-full top-0 z-40"
+      className="h-[62px] border-b border-b-border backdrop-blur bg-background/90 fixed w-full top-0 z-30"
     >
       <MotionDiv
         className="h-full"
@@ -65,13 +65,10 @@ const Navbar = ({ contentRef, resume }: NavbarProps) => {
         <Container className="h-full flex items-center justify-between">
           <Link
             href="/"
-            className="font-bold text-3xl tracking-[-8px] text-foreground hover:text-primary-foreground"
+            className="font-bold text-[2rem] tracking-[-8px] text-foreground"
             onClick={() => setNavLinkActive("")}
           >
-            D
-            <span className="text-primary-foreground hover:text-foreground">
-              B
-            </span>
+            D<span className="text-primary-foreground">B</span>
           </Link>
 
           <div className="flex max-md:hidden lg:gap-24 gap-16 text-sm font-medium">

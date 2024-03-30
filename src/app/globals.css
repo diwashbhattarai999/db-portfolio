@@ -4,72 +4,73 @@
 
 @layer base {
   :root {
-    --background: #fdfdfd;
-    --foreground: #0a0a0a;
+    --background: 0, 0%, 99%;
+    --foreground: 0, 0%, 4%;
 
-    --muted: #e8e8e8;
-    --muted-foreground: #131313;
+    --muted: 0, 0%, 91%;
+    --muted-foreground: 0, 0%, 7%;
 
-    --accent: #d5d5d5;
-    --accent-foreground: #1d1d1d;
+    --accent: 0, 0%, 84%;
+    --accent-foreground: 0, 0%, 11%;
 
-    --accent-secondary: #e4bd0f;
+    --accent-secondary: 216, 76%, 48%;
 
-    --page-transition: #cdc7ab;
+    --page-transition: 49, 25%, 74%;
 
-    --border: #f5f5f5;
-    --input: #c9c9c9;
-    --ring: #6a6a6a;
+    --border: 0, 0%, 96%;
+    --input: 0, 0%, 79%;
+    --ring: 0, 0%, 42%;
 
-    --destructive: #cb3535;
-    --destructive-foreground: #cb6262;
+    --destructive: 0, 59%, 50%;
+    --destructive-foreground: 0, 50%, 59%;
 
-    --success: #008b00;
+    --success: 120, 100%, 27%;
 
-    --primary: #dfdfdf;
-    --primary-foreground: #3b3b3b;
+    --primary: 0, 0%, 87%;
+    --primary-foreground: 0, 0%, 23%;
 
-    --secondary: #c4c4c4;
+    --secondary: 0, 0%, 77%;
     --secondary-foreground: #444444;
 
-    --white: #f3f3f3;
-    --black: #121212;
+    --white: 0, 0%, 95%;
+    --black: 0, 0%, 7%;
 
     --minus-nav-height: calc(100vh - 62px);
   }
 
   .dark {
-    --background: #070707;
-    --foreground: #ffffff;
+    --background: 0, 0%, 3%;
+    --foreground: 0, 0%, 100%;
 
-    --muted: #4f4f4f;
-    --muted-foreground: #f5f5f5;
+    --muted: 0, 0%, 31%;
+    --muted-foreground: 0, 0%, 96%;
 
-    --accent: #303030;
-    --accent-foreground: #ebebeb;
+    --accent: 0, 0%, 19%;
+    --accent-foreground: 0, 0%, 92%;
 
-    --accent-secondary: #ecc414;
+    /* --accent-secondary: 49, 85%, 50%; */
+    --accent-secondary: 216, 76%, 48%;
 
-    --page-transition: #0f0f0f;
+    --page-transition: 0, 0%, 6%;
 
-    --border: #27272738;
-    --input: #272727;
-    --ring: #323232;
+    --border: 0, 0%, 15%, 0.22;
+    --input: 0, 0%, 15%;
+    --ring: 0, 0%, 20%;
 
-    --destructive: #e72424;
-    --destructive-background: #f58c8ce3;
+    --destructive: 0, 80%, 52%;
+    --destructive-background: 0, 84% 75%, 0.89;
 
-    --success: #033604;
-    --success-background: #bff3beb8;
+    --success: 11, 89%, 11%;
+    --success-background: 119, 69%, 85%, 0.722;
 
-    --primary: #131313;
-    --primary-foreground: #cecece;
+    --primary: 0, 0%, 7%;
+    --primary-foreground: 0, 0%, 81%;
 
-    --secondary: #1d1d1d;
-    --secondary-foreground: #858585;
+    --secondary: 0, 0%, 11%;
+    --secondary-foreground: 0, 0%, 52%;
 
-    --white: #f3f3f3;
-    --black: #121212;
+    --white: 0, 0%, 95%;
+    --black: 0, 0%, 7%;
 
     --minus-nav-height: calc(100vh - 62px);
   }
@@ -85,7 +86,7 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background/80 text-foreground;
     font-feature-settings:
       "rlig" 1,
       "calt" 1;
@@ -97,26 +98,9 @@
     margin: 0;
   }
 
-  .svg svg {
+  .svg > svg {
     @apply h-6 w-6 fill-primary-foreground group-hover:fill-foreground duration-300;
   }
-
-  /* .curve > svg,
-  .curve .background {
-    @apply fixed w-screen pointer-events-none left-0 top-0;
-    height: calc(100vh + 600px);
-    z-index: 999998;
-  }
-
-  .curve .background {
-    @apply bg-background grid place-items-center;
-    transition: opacity 0s linear 0.1s;
-  }
-
-  .curve .route {
-    @apply absolute left-1/2 top-[40%] text-foreground text-6xl translate-x-1/2 text-center;
-    z-index: 999999;
-  } */
 }
 
 @layer utilities {
@@ -142,7 +126,7 @@
   }
 
   .curve .background {
-    background-color: black;
+    background-color: var(--background);
     transition: opacity 0s linear 0.1s;
   }
 
@@ -155,6 +139,7 @@
     transform: translateX(-50%);
     text-align: center;
     z-index: 999999;
+    pointer-events: none;
   }
 }
 
