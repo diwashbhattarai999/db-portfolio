@@ -79,10 +79,10 @@ export default function ThemeSwitcher({ admin }: { admin?: boolean }) {
       </MotionDiv>
 
       <ul
-        className={`absolute right-0 bg-accent flex flex-col gap-2 w-[128px] rounded-md py-2 px-1 duration-500 ease-in-out ${
+        className={`absolute right-0 bg-background dark:bg-secondary border border-primary flex flex-col gap-2 w-[128px] rounded-md py-2 px-1 duration-500 ease-in-out ${
           isThemeOpen
-            ? "top-14 opacity-1"
-            : "top-0 opacity-0 pointer-events-none"
+            ? "top-10 opacity-1 pointer-events-auto"
+            : "top-8 opacity-0 pointer-events-none"
         }`}
       >
         {THEMES.map(({ label, Icon }) => {
