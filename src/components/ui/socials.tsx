@@ -10,7 +10,10 @@ interface SocialProps {
 
 const Social = ({ contacts }: SocialProps) => {
   return (
-    <MotionDiv className="-mt-12 flex gap-2 items-center justify-start">
+    <MotionDiv
+      delayOffset={0}
+      className="-mt-12 flex gap-2 items-center justify-start"
+    >
       <ul className="flex gap-4">
         {contacts &&
           contacts.map((contact) => {
