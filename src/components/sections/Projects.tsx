@@ -44,16 +44,18 @@ const Projects = ({ projects }: ProjectsProps) => {
                   key={project.id}
                   className="flex max-md:flex-col gap-8 p-4 border border-border rounded-md hover:bg-border hover:scale-[0.99] cursor-pointer duration-300 shadow-sm"
                 >
-                  <Image
-                    src={project.image}
-                    className="h-auto w-60 max-sm:w-full max-md:w-2/3 object-cover border-4 border-border rounded-md"
-                    alt={project.title}
-                    width="500"
-                    height="500"
-                    priority
-                  />
+                  <div className="w-72 h-auto relative">
+                    <Image
+                      alt={project.title}
+                      src={project.image}
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      fill
+                      priority
+                      className="h-auto w-60 max-sm:w-full max-md:w-2/3 object-fill border-4 border-border rounded-md"
+                    />
+                  </div>
 
-                  <div className="flex flex-col gap-4 ">
+                  <div className="flex flex-col gap-4">
                     <h3 className="text-xl font-semibold">{project.title}</h3>
                     <p className="text-base font-medium text-secondary-foreground max-w-[550px]">
                       {project.description}
