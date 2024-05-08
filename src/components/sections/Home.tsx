@@ -30,7 +30,7 @@ const Home = ({ homePageDatas, resume, contacts }: HomeProps) => {
 
               <MotionText
                 className="text-4xl md:text-6xl font-semibold mt-4 -ml-1"
-                delayOffset={0.2}
+                delayOffset={0.4}
               >
                 {homePageDatas?.name || ""}
               </MotionText>
