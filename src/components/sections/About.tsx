@@ -24,7 +24,7 @@ const EDUCATIONS = [
     title: "Bachelor",
     college: "Bhaktapur Multiple Campus",
     location: "Dudhpati, Bhaktapur",
-    date: "April 2018 - Present",
+    date: "April 2021 - Present",
     status: "In Progress",
   },
   {
@@ -71,9 +71,9 @@ const About = ({ aboutDescription, skills, categories }: AboutProps) => {
           </MotionDiv>
           <MotionDiv delayOffset={0.1} className="w-full">
             <div className="flex flex-col items-start w-full gap-4 text-base text-secondary-foreground">
-              {aboutDescription
-                ?.split("\n")
-                .map((paragraph, index) => <p key={index}>{paragraph}</p>)}
+              {aboutDescription?.split("\n").map((paragraph, index) => (
+                <p key={index}>{paragraph}</p>
+              ))}
             </div>
           </MotionDiv>
         </section>

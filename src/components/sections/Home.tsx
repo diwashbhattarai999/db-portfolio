@@ -55,7 +55,7 @@ const Home = ({ homePageDatas, resume, contacts }: HomeProps) => {
 
           <MotionDiv delayOffset={0.3}>
             <Image
-              src="/images/profile.png"
+              src={homePageDatas?.image || "/images/profile.png"}
               className="h-64 sm:h-80 w-64 sm:w-80 opacity-90 -z-10 border-4 border-border rounded-full mt-6 md:-mt-8"
               alt="Profile"
               width={500}
